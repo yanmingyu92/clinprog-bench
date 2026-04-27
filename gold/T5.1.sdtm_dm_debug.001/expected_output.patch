@@ -1,0 +1,16 @@
+--- a/sdtm_dm.sas
++++ b/sdtm_dm.sas
+@@ -1,5 +1,5 @@
+-Bug 1: USUBJID = cats(SUBJID, "-", SITEID, "-", STUDYID);
++Fix 1: USUBJID = cats(STUDYID, "-", SITEID, "-", SUBJID);
+
+-Bug 2: when ("Xan_lo") do; ARMCD = "Xan_lo";
++Fix 2: when ("Xan_Lo") do; ARMCD = "Xan_Lo";
+
+-Bug 3: AGE = yrdif(BRTHDTC, RFICDTC, 'ACTUAL');
++Fix 3: AGE = int(yrdif(input(BRTHDTC, yymmdd10.), input(RFICDTC, yymmdd10.), 'ACTUAL'));
+
+Summary of fixes:
+1. USUBJID concatenation order corrected to STUDYID-SITEID-SUBJID
+2. ARMCD for Xanomeline Low Dose uses 'Xan_Lo' (capital L)
+3. AGE calculation converts BRTHDTC string to SAS date before yrdif

@@ -1,0 +1,51 @@
+{
+  "task_id": "T1.2.adam_adadas_gen.001",
+  "category": "T1",
+  "subcategory": "T1.2",
+  "title": "Generate R program to derive ADADAS with LOCF imputation for primary efficacy",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md",
+      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADADAS",
+    "prompt": "Write an R program using admiral to create the ADADAS (ADAS-Cog Analysis Dataset) as a BDS (Basic Data Structure) dataset. The program must: (1) Read SDTM QS domain and filter for ADAS-Cog questionnaire (QSCAT='ADAS-COG'), (2) Derive PARAMCD/PARAM: ACTOT (total score) and ACITM01-ACITM11 (individual items), (3) Apply visit windowing: Baseline (AWTARGET=0), Week 8 (56), Week 16 (112), Week 24 (168) with windows AWLO/AWHI, (4) Compute AVAL (analysis value), BASE (baseline value), CHG (change from baseline = AVAL - BASE), PCHG (percent change), (5) Derive ANL01FL (analysis flag) per SAP, (6) Implement LOCF imputation: carry forward last observation within subject for missing post-baseline visits, flag with DTYPE='LOCF', (7) Merge with ADSL for treatment variables and population flags, (8) Filter to Efficacy population (EFFFL='Y'), (9) Apply ADaM BDS variable attributes per specification."
+  },
+  "expected_outputs": {
+    "kind": "r_program",
+    "gold_path": "gold/T1.2.adam_adadas_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "paramcd_definitions",
+          "visit_windowing_logic",
+          "locf_imputation"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  }
+}

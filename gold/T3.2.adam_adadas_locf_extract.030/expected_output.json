@@ -1,0 +1,36 @@
+{
+  "variables": [
+    {
+      "variable_name": "DTYPE",
+      "type": "Char",
+      "length": 10,
+      "label": "Derivation Type",
+      "origin": "Derived",
+      "derivation_notes": "LOCF flag indicates last observation carried forward; baseline records excluded from carry-forward"
+    },
+    {
+      "variable_name": "ANL01FL",
+      "type": "Char",
+      "length": 1,
+      "label": "Analysis Record Flag 01",
+      "origin": "Derived",
+      "derivation_notes": "Y for records meeting SAP analysis criteria, including LOCF records"
+    },
+    {
+      "variable_name": "AVAL",
+      "type": "Num",
+      "length": 8,
+      "label": "Analysis Value",
+      "origin": "Derived",
+      "derivation_notes": "Analysis value; LOCF-imputed when DTYPE='LOCF'"
+    },
+    {
+      "variable_name": "BASE",
+      "type": "Num",
+      "length": 8,
+      "label": "Baseline Value",
+      "origin": "Derived",
+      "derivation_notes": "Value at baseline visit, not subject to LOCF"
+    }
+  ]
+}

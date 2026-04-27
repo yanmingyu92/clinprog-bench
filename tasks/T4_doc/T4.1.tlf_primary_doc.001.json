@@ -1,0 +1,54 @@
+{
+  "task_id": "T4.1.tlf_primary_doc.001",
+  "category": "T4",
+  "subcategory": "T4.1",
+  "title": "Document primary endpoint analysis table specifications",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-3-01_primary_endpoint.md",
+      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/README.md",
+    "prompt": "Write comprehensive documentation for Table 14-3.01 Primary Endpoint (ADAS-Cog CFB Week 24). Include: table title, population (Efficacy), analysis model specification (ANCOVA), treatment comparisons, statistical methods (Type III SS, proportional weighting), missing data handling (LOCF), data source variables (ADADAS), and mock shell footnotes. Document should be suitable for statistical programming specification."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.1.tlf_primary_doc.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "population",
+          "analysis_model",
+          "missing_data_method",
+          "data_source",
+          "footnotes"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

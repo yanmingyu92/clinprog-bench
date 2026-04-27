@@ -1,0 +1,12 @@
+{
+  "planned_n_per_group": 100,
+  "total_planned_n": 300,
+  "actual_screened": 306,
+  "actual_randomized": 254,
+  "power_calculation": {
+    "alpha": 0.05,
+    "power": 0.8,
+    "effect_size": "Clinically meaningful difference in ADAS-Cog",
+    "dropout_assumption": "20%"
+  }
+}

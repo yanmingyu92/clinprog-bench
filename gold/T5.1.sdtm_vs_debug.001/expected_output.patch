@@ -1,0 +1,16 @@
+--- a/sdtm_vs.sas
++++ b/sdtm_vs.sas
+@@ -1,5 +1,5 @@
+-Bug 1: if VISITDY > 0 then VSBLFL = "Y";
++Fix 1: if VISITDY <= 0 then VSBLFL = "Y";
+
+-Bug 2: TEMP_C = (TEMP_F - 32) / 1.2;
++Fix 2: TEMP_C = (TEMP_F - 32) * 5 / 9;
+
+-Bug 3: when ("Diastolic Blood Pressure") VSTESTCD = "DBP";
++Fix 3: when ("Diastolic Blood Pressure") VSTESTCD = "DIABP";
+
+Summary of fixes:
+1. VSBLFL baseline flag set for pre-baseline visits (VISITDY <= 0)
+2. Temperature conversion uses correct formula (F-32)*5/9
+3. Diastolic BP test code uses CDISC standard 'DIABP'

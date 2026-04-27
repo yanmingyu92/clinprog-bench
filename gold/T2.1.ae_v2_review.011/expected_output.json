@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "AEREL causality assessment coding must be consistent between SDTM AE and source data"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "AEOUT outcome mapping requires CDISC controlled terminology alignment"
+    },
+    {
+      "severity": "medium",
+      "category": "data_integrity",
+      "description": "Seriousness criteria (AESCAN, AESCONG, etc.) boolean derivation must cover all 6 criteria"
+    }
+  ]
+}

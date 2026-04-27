@@ -1,0 +1,28 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "location": "create_ae.R",
+      "category": "data_integrity",
+      "description": "MedDRA coding must ensure LLT-to-PT hierarchy is complete for all 1,191 AE records"
+    },
+    {
+      "severity": "medium",
+      "location": "create_ae.R",
+      "category": "compliance",
+      "description": "Seriousness flags (AESER, AESCAN, AESCONG, AESDEATH, AESHOSP, AESLIFE, AESOD) require explicit boolean derivation logic"
+    },
+    {
+      "severity": "low",
+      "location": "create_ae.R",
+      "category": "programming",
+      "description": "AE start/end date imputation rules (AESTDTC/AEENDTC partial dates) should follow ISO 8601 guidelines"
+    },
+    {
+      "severity": "medium",
+      "location": "create_ae.R",
+      "category": "compliance",
+      "description": "Causality assessment (AEREL) coding must align between SDTM AE and ADaM ADAE analysis datasets"
+    }
+  ]
+}

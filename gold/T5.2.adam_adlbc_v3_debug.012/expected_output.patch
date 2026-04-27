@@ -1,0 +1,16 @@
+--- a/adlbc_prog.R
++++ b/adlbc_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: ANRIND 'NORMAL' threshold uses AVAL > LBNRNRLO & AVAL < LBNRNRHI (exclusive) instead of >= and <= (inclusive)
++Fix 1: ANRIND uses inclusive comparisons (>= and <=) for NORMAL range
+@@ -1,5 +1,5 @@
+-Bug 2: BNRIND (baseline reference range indicator) is not derived, leaving the shift variable without a baseline reference
++Fix 2: BNRIND derived from baseline visit ANRIND logic
+@@ -1,5 +1,5 @@
+-Bug 3: SHIFT variable concatenates 'L2N' style strings but should use structured 'LOW_TO_NORMAL' format
++Fix 3: SHIFT uses structured transition format
+
+Summary of fixes:
+1. ANRIND uses inclusive comparisons (>= and <=) for NORMAL range (anrind_comparison)
+2. BNRIND derived from baseline visit ANRIND logic (bnrind_missing)
+3. SHIFT uses structured transition format (shift_format)

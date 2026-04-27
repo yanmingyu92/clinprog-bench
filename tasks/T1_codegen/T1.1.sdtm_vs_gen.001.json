@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.1.sdtm_vs_gen.001",
+  "category": "T1",
+  "subcategory": "T1.1",
+  "title": "Generate SAS program to create SDTM VS domain for vital signs",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md",
+      "fixtures/04_sdtm/programs/path.R"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#VS",
+    "prompt": "Write a SAS program to create the SDTM VS (Vital Signs) domain dataset. The program must: (1) Read raw vital signs data in wide format and transpose to long structure (one record per test per visit per subject), (2) Map VSTESTCD from raw test names to CDISC controlled terminology (HEIGHT, WEIGHT, DIABP, SYSBP, PULSE, TEMP, RESP), (3) Populate VSTEST, VSORRES, VSORRESU (original result/units), VSSTRESC, VSSTRESN, VSSTRESU (standardized), (4) Derive VSBLFL (baseline flag) for the last pre-treatment measurement, (5) Map visit information (VISITNUM, VISIT, VISITDY) from the SV domain, (6) Derive VSDY/VSDY_D (study day of measurement relative to first dose), (7) Handle unit standardization (e.g., Fahrenheit to Celsius if needed, lbs to kg), (8) Apply variable attributes and create xport output."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.1.sdtm_vs_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "testcd_mapping",
+          "baseline_flag_logic",
+          "unit_standardization"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

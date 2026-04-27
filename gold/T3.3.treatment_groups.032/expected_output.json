@@ -1,0 +1,25 @@
+{
+  "treatment_groups": [
+    {
+      "group": "Placebo",
+      "armcd": "Pbo",
+      "trt01pn": 0,
+      "route": "Transdermal",
+      "planned_enrollment": 100
+    },
+    {
+      "group": "Xanomeline Low Dose",
+      "armcd": "Xan_Lo",
+      "trt01pn": 54,
+      "route": "Transdermal",
+      "planned_enrollment": 100
+    },
+    {
+      "group": "Xanomeline High Dose",
+      "armcd": "Xan_Hi",
+      "trt01pn": 81,
+      "route": "Transdermal",
+      "planned_enrollment": 100
+    }
+  ]
+}

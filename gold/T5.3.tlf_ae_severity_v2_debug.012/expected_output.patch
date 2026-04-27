@@ -1,0 +1,16 @@
+--- a/ae_severity_v2_prog.R
++++ b/ae_severity_v2_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Severity levels are ordered alphabetically ('MILD', 'MODERATE', 'SEVERE') instead of by clinical severity
++Fix 1: Severity ordered by clinical severity level
+@@ -1,5 +1,5 @@
+-Bug 2: Subject counts for each severity level count multiple events per subject instead of unique subjects
++Fix 2: Counts use distinct subjects per severity
+@@ -1,5 +1,5 @@
+-Bug 3: Total row sums severity-level counts instead of counting distinct subjects with any AE
++Fix 3: Total uses distinct subjects with any AE
+
+Summary of fixes:
+1. Severity ordered by clinical severity level (severity_order)
+2. Counts use distinct subjects per severity (count_method)
+3. Total uses distinct subjects with any AE (total_method)

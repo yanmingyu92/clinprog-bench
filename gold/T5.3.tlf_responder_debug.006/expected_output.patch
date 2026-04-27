@@ -1,0 +1,20 @@
+--- a/responder_prog.R
++++ b/responder_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Responder definition uses AVAL > BASE (improvement in any direction) instead of specified threshold (e.g., >=4 point improvement)
++Fix 1: Responder uses specified improvement threshold
+@@ -1,5 +1,5 @@
+-Bug 2: CMH test uses chisq.test() instead of mantelhaen.test() for stratified analysis
++Fix 2: CMH test uses mantelhaen.test() for stratified analysis
+@@ -1,5 +1,5 @@
+-Bug 3: Response rates are calculated as n/total_N (overall) instead of n/group_N (treatment-specific)
++Fix 3: Response rates use group-specific denominators
+@@ -1,5 +1,5 @@
+-Bug 4: Missing values in response variable are counted as non-responders instead of being excluded
++Fix 4: Missing values excluded from responder analysis
+
+Summary of fixes:
+1. Responder uses specified improvement threshold (responder_definition)
+2. CMH test uses mantelhaen.test() for stratified analysis (cmh_test)
+3. Response rates use group-specific denominators (rate_denominator)
+4. Missing values excluded from responder analysis (missing_handling)

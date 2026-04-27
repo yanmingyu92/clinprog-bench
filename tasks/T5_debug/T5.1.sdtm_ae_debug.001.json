@@ -1,0 +1,52 @@
+{
+  "task_id": "T5.1.sdtm_ae_debug.001",
+  "category": "T5",
+  "subcategory": "T5.1",
+  "title": "Debug SDTM AE program: seriousness flag logic and MedDRA hierarchy errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/programs/create_ae.R",
+      "fixtures/04_sdtm/SDTM_Specifications.md#AE"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#AE",
+    "prompt": "The following SAS program creates the SDTM AE domain but has 4 bugs: (1) The seriousness flag AESER is set based on only AESHOSP and AESDEATH but omits AESCAN, AESCONG, AESLIFE, and AESOD criteria, (2) AESEQ is not retained and reset per observation instead of incrementing within each USUBJID, (3) The MedDRA hierarchy assigns AEBODSYS from HLT instead of SOC, causing incorrect body system mapping, (4) AESTDTC date conversion uses is8601dt. (datetime) instead of is8601da. (date-only). Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.1.sdtm_ae_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 4,
+        "fix_locations": [
+          "AESER_logic",
+          "AESEQ_retain",
+          "AEBODSYS_mapping",
+          "AESTDTC_format"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

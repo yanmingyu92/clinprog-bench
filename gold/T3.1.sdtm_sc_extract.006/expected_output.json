@@ -1,0 +1,32 @@
+{
+  "variables": [
+    {
+      "variable_name": "SCTESTCD",
+      "type": "Char",
+      "length": 8,
+      "label": "Characteristic Short Name",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "SCTEST",
+      "type": "Char",
+      "length": 40,
+      "label": "Characteristic Name",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "SCORRES",
+      "type": "Char",
+      "length": 20,
+      "label": "Original Result",
+      "origin": "CRF"
+    },
+    {
+      "variable_name": "SCSTRESC",
+      "type": "Char",
+      "length": 20,
+      "label": "Standardized Result",
+      "origin": "Derived"
+    }
+  ]
+}

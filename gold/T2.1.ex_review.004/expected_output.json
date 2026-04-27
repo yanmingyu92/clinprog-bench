@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "EXDOSE derivation must correctly reflect administered dose for all 2,772 exposure records"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "EXROUTE standardization to CDISC controlled terminology required"
+    },
+    {
+      "severity": "low",
+      "category": "documentation",
+      "description": "EXDOSFRM (dose form) mapping documentation is incomplete"
+    }
+  ]
+}

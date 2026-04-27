@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Data artifacts (keep references, ignore large binaries)
+*.sas7bdat
+*.xpt
+*.rft
+*.rtf
+
+# uv
+uv.lock
+
+# Jupyter
+.ipynb_checkpoints/

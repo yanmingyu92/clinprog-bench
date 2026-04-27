@@ -1,0 +1,22 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "location": "create_sdtm_spec.R",
+      "category": "data_integrity",
+      "description": "Specification must cover all 22 SDTM domains with complete variable-level metadata for 539 variables"
+    },
+    {
+      "severity": "medium",
+      "location": "create_sdtm_spec.R",
+      "category": "compliance",
+      "description": "Codelist definitions should reference CDISC controlled terminology for all 388 codelists in P21 format"
+    },
+    {
+      "severity": "low",
+      "location": "create_sdtm_spec.R",
+      "category": "documentation",
+      "description": "Variable origin metadata (CRF page reference vs derived vs assigned) should be documented per Define-XML 2.0"
+    }
+  ]
+}

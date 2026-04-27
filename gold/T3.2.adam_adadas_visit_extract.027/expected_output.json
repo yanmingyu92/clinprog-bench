@@ -1,0 +1,32 @@
+{
+  "visit_windows": [
+    {
+      "visit": "Baseline",
+      "avisitn": 0,
+      "awtarget": 0,
+      "awlo": null,
+      "awhi": 1
+    },
+    {
+      "visit": "Week 8",
+      "avisitn": 8,
+      "awtarget": 56,
+      "awlo": 29,
+      "awhi": 84
+    },
+    {
+      "visit": "Week 16",
+      "avisitn": 16,
+      "awtarget": 112,
+      "awlo": 85,
+      "awhi": 140
+    },
+    {
+      "visit": "Week 24",
+      "avisitn": 24,
+      "awtarget": 168,
+      "awlo": 141,
+      "awhi": 336
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+--- a/adsl_prog.R
++++ b/adsl_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: SAFFL derivation checks for any EX record (including EXDOSE=0) instead of EXDOSE > 0
++Fix 1: SAFFL requires EXDOSE > 0
+@@ -1,5 +1,5 @@
+-Bug 2: TRT01PN for Xan_Lo is set to 81 and Xan_Hi to 54 (values are swapped)
++Fix 2: TRT01PN corrected: Xan_Lo=54, Xan_Hi=81
+@@ -1,5 +1,5 @@
+-Bug 3: COMP24FL is derived from DSDECOD=='COMPLETED' without also checking VISIT=='WEEK 24'
++Fix 3: COMP24FL checks both DSDECOD and VISIT for Week 24 completion
+
+Summary of fixes:
+1. SAFFL requires EXDOSE > 0 (saffl_dose_check)
+2. TRT01PN corrected: Xan_Lo=54, Xan_Hi=81 (trt01pn_swap)
+3. COMP24FL checks both DSDECOD and VISIT for Week 24 completion (comp24fl_visit)

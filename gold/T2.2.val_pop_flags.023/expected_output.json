@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "check": "ITT population count",
+      "status": "pass",
+      "detail": "ADSL ITTFL='Y' count matches expected 254 subjects"
+    },
+    {
+      "check": "Safety population count",
+      "status": "pass",
+      "detail": "ADSL SAFFL='Y' count matches expected 254 subjects"
+    },
+    {
+      "check": "Efficacy population count",
+      "status": "pass",
+      "detail": "ADSL EFFFL='Y' count matches expected 234 subjects"
+    }
+  ]
+}

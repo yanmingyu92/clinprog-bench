@@ -1,0 +1,47 @@
+{
+  "task_id": "T3.3.safety_spec.038",
+  "category": "T3",
+  "subcategory": "T3.3",
+  "title": "Extract safety analysis specifications from SAP",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/01_study_design/protocol/CDISCPilot01_Protocol.md",
+      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
+    ],
+    "spec": "fixtures/01_study_design/protocol/CDISCPilot01_Protocol.md",
+    "prompt": "Extract safety analysis specifications. Return: AE collection method, TEAE definition (onset >= first dose), SAE criteria, AE severity grading, causality assessment, safety populations, and analysis methods. Return as JSON."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.3.safety_spec.038/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

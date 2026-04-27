@@ -1,0 +1,47 @@
+# Figure 14-5.01 KM Plot - TLF Specification
+
+## Header
+- **Figure ID**: 14-5.01
+- **Title**: Kaplan-Meier Plot of Time to First Dermatologic Event - Safety Population
+- **Population**: Safety Population (N=254)
+
+## Endpoint
+- **Parameter**: TTDE (Time to First Dermatologic Event)
+- **Dataset**: ADTTE
+- **Time variable**: AVAL (days)
+- **Event variable**: CNSR (0=event, 1=censored)
+
+## Treatment Display
+| Group | Line Style | Color |
+|-------|-----------|-------|
+| Placebo | Solid | - |
+| Xanomeline Low Dose | Dashed | - |
+| Xanomeline High Dose | Dotted | - |
+
+## Axis Specifications
+- **X-axis**: Time (days)
+- **Y-axis**: Survival Probability (0.0 - 1.0)
+- **Reference line**: y = 0.5
+
+## Risk Table
+- Number-at-risk displayed below the plot
+- Rows: one per treatment group
+- Columns: time intervals
+
+## Statistical Summary Table
+| Statistic | Content |
+|-----------|---------|
+| N | Subjects per treatment group |
+| Events | Number of events per group |
+| Median (95% CI) | Median time to event |
+| Log-rank p-value | Overall comparison |
+
+## Additional Elements
+- Censoring marks: tick marks on survival curves
+- 95% CI bands: displayed as shaded regions
+- No multiplicity adjustment applied
+
+## Data Source
+- **Dataset**: ADTTE
+- **Parameter**: PARAMCD = 'TTDE'
+- **Population filter**: SAFFL = 'Y'

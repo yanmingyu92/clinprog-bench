@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "check": "LB reference ranges populated",
+      "status": "pass",
+      "detail": "LBORNRLO/LBORNRHI populated for standard chemistry and hematology tests"
+    },
+    {
+      "check": "Standard reference ranges",
+      "status": "warning",
+      "detail": "LBNRNRLO/LBNRNRHI standardization should be verified against unit conversion logic"
+    }
+  ]
+}

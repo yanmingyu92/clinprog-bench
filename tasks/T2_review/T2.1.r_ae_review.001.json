@@ -1,0 +1,51 @@
+{
+  "task_id": "T2.1.r_ae_review.001",
+  "category": "T2",
+  "subcategory": "T2.1",
+  "title": "Review create_ae.R for AE domain MedDRA coding and compliance",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T2.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/programs/create_ae.R",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#AE",
+    "prompt": "Review the R program create_ae.R against the SDTM AE domain specification. Focus on MedDRA coding completeness (LLT, PT, HLT, HLGT, SOC), seriousness flag logic, and date handling. Return a structured JSON with an 'issues' array containing objects with keys: severity, location, category, description."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T2.1.r_ae_review.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "issues[].severity",
+          "issues[].category",
+          "issues[].description"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "log_review",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

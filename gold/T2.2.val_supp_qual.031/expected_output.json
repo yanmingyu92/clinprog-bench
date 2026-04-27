@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "check": "SUPPDM structure",
+      "status": "pass",
+      "detail": "SUPPDM uses standard RELID/RDOMAIN/IDVAR/QNAM/QVAL structure"
+    },
+    {
+      "check": "SUPPAE structure",
+      "status": "pass",
+      "detail": "SUPPAE supplemental qualifiers correctly reference AE domain"
+    },
+    {
+      "check": "SUPPLB structure",
+      "status": "pass",
+      "detail": "SUPPLB fasted status and specimen type qualifiers correctly populated"
+    }
+  ]
+}

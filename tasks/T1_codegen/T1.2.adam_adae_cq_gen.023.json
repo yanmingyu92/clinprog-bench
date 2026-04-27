@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.2.adam_adae_cq_gen.023",
+  "category": "T1",
+  "subcategory": "T1.2",
+  "title": "Generate R program to derive ADAE (Adverse Events (custom query))",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADAE",
+    "prompt": "Write an R program using the admiral package to create the ADAE (Adverse Events (custom query)) analysis dataset. The program must: (1) Read relevant SDTM source datasets and merge with ADSL, (2) Derive key variables: CQ01NAM, TRTEMFL, ASEV, AREL, ASTDY, (3) Handle custom query derivation, treatment-emergent flag refinement, analysis severity, (4) Apply ADaM variable attributes and metadata per specification, (5) Output xpt dataset with proper labels. The dataset contains approximately 1191 records."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.2.adam_adae_cq_gen.023/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "adae_cq_derivation_logic",
+          "adae_cq_key_mappings",
+          "output_format"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

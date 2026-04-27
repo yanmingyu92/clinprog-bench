@@ -1,0 +1,16 @@
+--- a/ae_overview_prog.R
++++ b/ae_overview_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Population filter uses ITTFL=='Y' (ITT) instead of SAFFL=='Y' (Safety) per mock shell
++Fix 1: Population filter changed to SAFFL=='Y' (Safety)
+@@ -1,5 +1,5 @@
+-Bug 2: TEAE count uses all AE records instead of filtering by TRTEMFL=='Y'
++Fix 2: TEAE count filters by TRTEMFL=='Y'
+@@ -1,5 +1,5 @@
+-Bug 3: Event count column sums all AE records per group instead of counting unique subjects with events
++Fix 3: Event count uses distinct USUBJID count per group
+
+Summary of fixes:
+1. Population filter changed to SAFFL=='Y' (Safety) (population_filter)
+2. TEAE count filters by TRTEMFL=='Y' (teae_filter)
+3. Event count uses distinct USUBJID count per group (event_count_method)

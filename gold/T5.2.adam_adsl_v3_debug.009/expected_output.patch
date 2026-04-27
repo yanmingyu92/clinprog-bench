@@ -1,0 +1,12 @@
+--- a/adsl_prog.R
++++ b/adsl_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: EOSSTT is set to 'Completed' for all subjects regardless of actual disposition status
++Fix 1: EOSSTT derived from DSDECOD: 'Completed' or 'Discontinued'
+@@ -1,5 +1,5 @@
+-Bug 2: TRTDURD calculation is TRTEDT - TRTSDT without the +1, giving one day short of actual duration
++Fix 2: TRTDURD = as.integer(TRTEDT - TRTSDT) + 1L
+
+Summary of fixes:
+1. EOSSTT derived from DSDECOD: 'Completed' or 'Discontinued' (eosstt_derivation)
+2. TRTDURD = as.integer(TRTEDT - TRTSDT) + 1L (trtdurd_offset)

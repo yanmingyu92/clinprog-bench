@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.3.tlf_ae_gen.001",
+  "category": "T1",
+  "subcategory": "T1.3",
+  "title": "Generate R program for Table 14-4.02 AE by SOC and PT with 5% threshold",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-4-02_ae_by_soc_pt.md",
+      "fixtures/05_adam/ADaM_Specifications.md#ADAE"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/t_mock_14-4-02_ae_by_soc_pt.md",
+    "prompt": "Write an R program using rtables or Tplyr to generate Table 14-4.02: Adverse Events by System Organ Class and Preferred Term. The program must: (1) Read ADAE and ADSL datasets, (2) Filter to Safety population (SAFFL='Y') and treatment-emergent AEs (TRTEMFL='Y'), (3) For each SOC/PT, count subjects with at least one AE: n (%), where % denominator is N within treatment group, (4) Apply 5% threshold: show only PTs where any treatment group has >= 5% incidence, (5) Sort by SOC frequency (descending), then PT alphabetically within SOC, (6) Include an 'Any AE' summary row at top, (7) Format columns: Placebo (N=XX), Xan Low (N=XX), Xan High (N=XX), (8) Handle MedDRA hierarchy sorting, (9) Output RTF matching mock shell specifications."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.3.tlf_ae_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "population_filter",
+          "teae_filter",
+          "percent_threshold",
+          "sorting_logic"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

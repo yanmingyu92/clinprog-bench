@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.1.sdtm_dm_v2_debug.009",
+  "category": "T5",
+  "subcategory": "T5.1",
+  "title": "Debug SDTM DM domain program: Demographics (race focus) errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/programs/create_dm_v2.R",
+      "fixtures/04_sdtm/SDTM_Specifications.md#DM"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#DM",
+    "prompt": "The following SAS program creates the SDTM DM domain but has 3 bugs: (1) RACE uses abbreviated codes, (2) ETHNIC uses abbreviated codes, (3) COUNTRY is hardcoded. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.1.sdtm_dm_v2_debug.009/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "race_mapping",
+          "ethnic_mapping",
+          "country_derivation"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

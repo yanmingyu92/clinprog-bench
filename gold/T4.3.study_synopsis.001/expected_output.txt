@@ -1,0 +1,58 @@
+# Study Synopsis: CDISCPilot01
+
+## Study Title
+Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer's Disease
+
+## Study Identification
+- **Study ID**: CDISCPilot01
+- **Phase**: Phase 2/3
+- **Indication**: Alzheimer's Disease (Mild to Moderate)
+
+## Objectives
+
+### Primary Objective
+Evaluate the efficacy of Xanomeline TTS compared to placebo on cognitive function as measured by the ADAS-Cog (11) score.
+
+### Secondary Objectives
+- Assess clinical global impression (CIBIC+)
+- Evaluate behavioral symptoms (NPI-X)
+- Evaluate safety and tolerability
+
+## Study Design
+Randomized, Double-Blind, Placebo-Controlled, Parallel-Group, Multi-Center study.
+
+## Subject Count
+- **Planned**: 300 subjects (100 per group)
+- **Screened**: 306 subjects
+- **Randomized (ITT)**: 254 subjects
+- **Efficacy**: 234 subjects
+- **Safety**: 254 subjects
+
+## Treatment Groups
+| Group | Treatment | Planned N | Actual N |
+|-------|-----------|-----------|----------|
+| Placebo | Transdermal patch (placebo) | 100 | 86 |
+| Xanomeline Low Dose | Xanomeline TTS 50 cm2 | 100 | 84 |
+| Xanomeline High Dose | Xanomeline TTS 75 cm2 | 100 | 84 |
+
+Randomization ratio: 1:1:1
+
+## Primary Endpoint
+- **Name**: Change from Baseline to Week 24 in ADAS-Cog (11) Total Score
+- **Measurement**: ADAS-Cog (Alzheimer's Disease Assessment Scale - Cognitive Subscale, 11 items, score range 0-70)
+- **Timepoint**: Week 24
+- **Statistical Method**: ANCOVA with treatment, pooled site group, and baseline score as covariates
+- **Missing Data**: LOCF (Last Observation Carried Forward)
+
+## Analysis Populations
+| Population | Definition | N |
+|-----------|------------|---|
+| ITT | All randomized subjects | 254 |
+| Safety | Subjects who received at least one dose | 254 |
+| Efficacy | Subjects with at least one post-baseline efficacy assessment | 234 |
+
+## Study Duration
+24 weeks of treatment + 2 weeks of follow-up
+
+## Treatment Administration
+Xanomeline is a selective M1 muscarinic acetylcholine receptor agonist delivered via transdermal patch for stable plasma concentrations.

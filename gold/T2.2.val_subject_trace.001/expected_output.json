@@ -1,0 +1,24 @@
+{
+  "findings": [
+    {
+      "check": "SDTM DM subject count",
+      "status": "pass",
+      "detail": "DM contains 306 subjects matching expected screened population"
+    },
+    {
+      "check": "ADaM ADSL subject count",
+      "status": "pass",
+      "detail": "ADSL contains 254 subjects matching ITT population (52 screen failures excluded)"
+    },
+    {
+      "check": "USUBJID format consistency",
+      "status": "pass",
+      "detail": "USUBJID follows XX-XXX-XXXX format across all SDTM domains"
+    },
+    {
+      "check": "SDTM-to-ADaM subject subset",
+      "status": "warning",
+      "detail": "All 254 ADSL USUBJIDs exist in DM; 52 DM subjects (ARMCD=Scrnfail) excluded from ADSL per study design"
+    }
+  ]
+}

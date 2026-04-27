@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.1.sdtm_dm_debug.001",
+  "category": "T5",
+  "subcategory": "T5.1",
+  "title": "Debug SDTM DM domain program: USUBJID derivation and ARM mapping errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/programs/create_dm.R",
+      "fixtures/04_sdtm/SDTM_Specifications.md#DM"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#DM",
+    "prompt": "The following SAS program is intended to create the SDTM DM domain but contains 3 bugs: (1) USUBJID is constructed using SUBJID-SITEID order instead of STUDYID-SITEID-SUBJID, (2) ARMCD mapping for Xanomeline Low Dose uses incorrect code 'Xan_lo' (lowercase L) instead of 'Xan_Lo', (3) the AGE calculation uses BRTHDTC directly without converting to a SAS date value. Fix all bugs and return the corrected program."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.1.sdtm_dm_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "USUBJID_derivation",
+          "ARMCD_mapping",
+          "AGE_calculation"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

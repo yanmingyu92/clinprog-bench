@@ -1,0 +1,39 @@
+{
+  "variables": [
+    {
+      "variable_name": "DSDECOD",
+      "type": "Char",
+      "length": 40,
+      "label": "Standardized Disposition Term",
+      "origin": "Derived"
+    },
+    {
+      "variable_name": "DSTERM",
+      "type": "Char",
+      "length": 200,
+      "label": "Reported Term for Disposition",
+      "origin": "CRF"
+    },
+    {
+      "variable_name": "DSCAT",
+      "type": "Char",
+      "length": 40,
+      "label": "Category for Disposition Event",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "DSSTDTC",
+      "type": "Char",
+      "length": 20,
+      "label": "Start Date/Time",
+      "origin": "CRF"
+    },
+    {
+      "variable_name": "VISIT",
+      "type": "Char",
+      "length": 20,
+      "label": "Visit Name",
+      "origin": "Derived"
+    }
+  ]
+}

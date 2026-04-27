@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "ANL01FL analysis flag must only be set for PARAMCD=ACTOT per SAP specification"
+    },
+    {
+      "severity": "medium",
+      "category": "programming",
+      "description": "LOCF imputation should exclude baseline visit from carry-forward pool"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "CHG calculation must be AVAL - BASE (not inverted)"
+    }
+  ]
+}

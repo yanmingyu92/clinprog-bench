@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "data_integrity",
+      "description": "VSSTRESN unit conversion for temperature (F to C) and weight (lbs to kg) needs verification"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "VSBLFL baseline flag logic should handle unscheduled pre-treatment visits correctly"
+    }
+  ]
+}

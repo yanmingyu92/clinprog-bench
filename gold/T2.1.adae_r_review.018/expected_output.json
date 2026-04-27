@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "TRTEMFL derivation comparing AE start date to treatment start date must use >= comparison"
+    },
+    {
+      "severity": "medium",
+      "category": "programming",
+      "description": "ASTDY relative day calculation should add +1 offset per ADaM convention"
+    },
+    {
+      "severity": "low",
+      "category": "compliance",
+      "description": "TRTPN should derive from TRT01PN (planned) not TRT01AN (actual)"
+    }
+  ]
+}

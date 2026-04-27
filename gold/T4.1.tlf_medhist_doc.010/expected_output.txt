@@ -1,0 +1,23 @@
+# Medical History Summary - Documentation
+
+## Table/Figure ID: 14-1.04
+
+## Population: ITT
+
+## Data Source: ADMH
+
+## Header
+
+[Header details to be extracted from fixtures]
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Data Source
+
+[Data Source details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

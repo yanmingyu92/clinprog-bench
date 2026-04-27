@@ -1,0 +1,53 @@
+{
+  "task_id": "T4.2.dataset_card_doc.001",
+  "category": "T4",
+  "subcategory": "T4.2",
+  "title": "Document dataset card completeness and metadata quality",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/DATASET_CARD.md"
+    ],
+    "spec": "fixtures/DATASET_CARD.md",
+    "prompt": "Review the dataset card and produce a structured documentation report. Extract and document: study overview (ID, phase, indication, treatment, design), subject populations with counts, SDTM dataset inventory (22 domains with record counts), ADaM dataset inventory (5 datasets with record counts), data standards (SDTM IG, ADaM IG, Define-XML versions), and ground truth values available for validation. Note any gaps or missing metadata fields."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.2.dataset_card_doc.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "study_overview.study_id",
+          "study_overview.phase",
+          "study_overview.indication",
+          "subject_populations",
+          "sdtm_dataset_count",
+          "adam_dataset_count",
+          "data_standards"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  }
+}

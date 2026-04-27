@@ -1,0 +1,16 @@
+--- a/ex_prog.sas
++++ b/ex_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: EXDOSE for Placebo subjects is set to 0 but EXDOSU is left blank instead of being set to 'mg' for consistency
++Fix 1: EXDOSU populated with appropriate unit even for Placebo (0 mg)
+@@ -1,5 +1,5 @@
+-Bug 2: EXSTDTC derivation uses input(BRTHDTC, yymmdd10.) (birth date) instead of input(EXSTDT_RAW, yymmdd10.)
++Fix 2: EXSTDTC derived from correct start date variable (EXSTDT_RAW, not BRTHDTC)
+@@ -1,5 +1,5 @@
+-Bug 3: EXSEQ numbering is global across all subjects instead of per USUBJID
++Fix 3: EXSEQ numbering reset per USUBJID with proper retain
+
+Summary of fixes:
+1. EXDOSU populated with appropriate unit even for Placebo (0 mg) (exdosu_placebo)
+2. EXSTDTC derived from correct start date variable (EXSTDT_RAW, not BRTHDTC) (exstdtc_variable)
+3. EXSEQ numbering reset per USUBJID with proper retain (exseq_per_subject)

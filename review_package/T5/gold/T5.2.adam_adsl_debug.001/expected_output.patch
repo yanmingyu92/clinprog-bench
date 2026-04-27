@@ -1,0 +1,20 @@
+--- a/adam_adsl.R
++++ b/adam_adsl.R
+@@ -1,5 +1,5 @@
+-Bug 1: ex_dosed <- ex %>% filter(!is.na(EXDOSE)) %>% distinct(USUBJID)
++Fix 1: ex_dosed <- ex %>% filter(!is.na(EXDOSE) & EXDOSE > 0) %>% distinct(USUBJID)
+
+-Bug 2: qs_postbl <- qs %>% filter(QSCAT == "ADAS-COG" & VISITNUM >= 0) %>% distinct(USUBJID)
++Fix 2: qs_postbl <- qs %>% filter(QSCAT == "ADAS-COG" & VISITNUM > 0) %>% distinct(USUBJID)
+
+-Bug 3: TRT01PN = case_when(ACTARMCD == "Xan_Lo" ~ 81L, ACTARMCD == "Xan_Hi" ~ 54L)
++Fix 3: TRT01PN = case_when(ACTARMCD == "Xan_Lo" ~ 54L, ACTARMCD == "Xan_Hi" ~ 81L)
+
+-Bug 4: adsl <- dm %>% select(STUDYID, USUBJID, ...)
++Fix 4: adsl <- dm %>% filter(ACTARMCD != "Scrnfail") %>% select(STUDYID, USUBJID, ...)
+
+Summary of fixes:
+1. SAFFL requires EXDOSE > 0 (not just non-missing)
+2. EFFFL requires post-baseline visit (VISITNUM > 0, not >= 0)
+3. TRT01PN mapping corrected: Xan_Lo=54, Xan_Hi=81
+4. Screen failures (ACTARMCD='Scrnfail') filtered out before ADSL derivation

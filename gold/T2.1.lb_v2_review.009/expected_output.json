@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "LBSTRESN numeric conversion must handle all result formats across 54,828 lab records"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "LBSTRESU standardization requires verification against CDISC unit terminology"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "LBORNRLO/LBORNRHI reference range variables need validation against source data"
+    }
+  ]
+}

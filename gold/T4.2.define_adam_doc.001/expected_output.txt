@@ -1,0 +1,43 @@
+# ADaM Define.xml Documentation Report
+
+## File Metadata
+- **Define-XML Version**: 2.0
+- **ODM Schema Version**: 1.3.2
+- **Source File**: 05_adam/define.xml
+
+## Dataset Inventory
+| Dataset | Label | Class | Records |
+|---------|-------|-------|---------|
+| ADSL | Subject-Level Analysis | ADSL | 254 |
+| ADAE | Adverse Events Analysis | OCCDS | 1,191 |
+| ADADAS | ADAS-Cog Analysis | BDS | 2,718 |
+| ADLBC | Laboratory Analysis | BDS | 7,778 |
+| ADTTE | Time-to-Event Analysis | ADTTE | 254 |
+
+## Key Analysis Variable Definitions
+- **TRT01PN**: Planned Treatment (Numeric) - 0/54/81 mapping
+- **ITTFL/SAFFL/EFFFL**: Population flags with explicit derivation rules
+- **PARAMCD**: Analysis parameter codes per ADaM structure
+- **AVAL/BASE/CHG/PCHG**: Analysis value chain per BDS standard
+
+## Codelist Count
+- **Total**: 894 codelists (P21 format with ARC extensions)
+
+## Computational Methods
+- ANCOVA model specification referenced for primary endpoint
+- LOCF imputation method documented in ADADAS derivation
+- Treatment-emergent flag logic documented in ADAE derivation
+
+## Primary Endpoint Lineage (ADADAS.ACTOT)
+1. Source: QS domain (CDISC SDTM)
+2. Parameter: PARAMCD = 'ACTOT' (sum of 11 ADAS-Cog items)
+3. Derivation: AVAL = sum of ACITM01-ACITM11 responses
+4. Baseline: BASE = AVAL at AVISITN = 0
+5. Change: CHG = AVAL - BASE
+6. LOCF: DTYPE = 'LOCF' for post-baseline imputed records
+7. Analysis flag: ANL01FL = 'Y' for included observations
+
+## Compliance Standards
+- ADaM Implementation Guide: 1.1
+- Define-XML: 2.0
+- ODM Schema: 1.3.2 (Note: differs from SDTM define.xml v1.2.2)

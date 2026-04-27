@@ -1,0 +1,37 @@
+# SDTM Define.xml Documentation Report
+
+## File Metadata
+- **Define-XML Version**: 2.0
+- **ODM Schema Version**: 1.2.2
+- **Source File**: 04_sdtm/define.xml
+
+## Content Summary
+- **ItemGroupDefs (Domains)**: 22
+  - Special Purpose: DM, SV, SE
+  - Events: AE, DS, MH
+  - Interventions: CM, EX
+  - Findings: LB, QS, SC, VS
+  - Trial Design: TA, TE, TI, TS, TV
+  - Relationship: RELREC
+  - Supplemental: SUPPAE, SUPPDM, SUPPDS, SUPPLB
+- **ItemDefs (Variables)**: 539
+- **CodeListDefs**: 388
+
+## Controlled Terminology Sources
+- MedDRA Version: 8.0
+- CDISC Submission Values: SDTM IG 3.1.2
+- Study-specific codelists: Treatment arms, Visit codes, Test codes
+
+## Compliance
+- Standard: Define-XML 2.0
+- SDTM Implementation Guide: 3.1.2
+- Pinnacle 21 validation: Referenced in validation framework
+
+## Cross-Reference with SDTM_Specifications.md
+- All 22 domains in define.xml match specification inventory
+- Variable-level metadata consistent between define.xml and specifications
+- Codelist references aligned with P21 format specifications
+
+## Notes
+- Define.xml uses ODM v1.2.2 schema (differs from ADaM define.xml which uses v1.3.2)
+- Supplemental qualifiers use standard RELID/RDOMAIN/IDVAR/QNAM/QVAL structure

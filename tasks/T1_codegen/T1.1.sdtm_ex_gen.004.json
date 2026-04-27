@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.1.sdtm_ex_gen.004",
+  "category": "T1",
+  "subcategory": "T1.1",
+  "title": "Generate SAS program to create SDTM EX (Exposure) domain",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md",
+      "fixtures/04_sdtm/programs/path.R"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#EX",
+    "prompt": "Write a SAS program to create the SDTM EX (Exposure) domain dataset. The program must: (1) Read raw exposure data, (2) Derive USUBJID and EXSEQ (sequential numbering per subject), (3) Map key variables: EXTRT, EXDOSE, EXDOSU, EXROUTE, EXSTDTC, EXENDTC, (4) Handle dose mapping, route of administration, treatment period derivation from dosing records, (5) Apply variable attributes per SDTM specification, (6) Create a permanent SAS dataset with xport format. The dataset contains approximately 2772 records."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.1.sdtm_ex_gen.004/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "ex_variable_mapping",
+          "ex_derivation_logic",
+          "output_format"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

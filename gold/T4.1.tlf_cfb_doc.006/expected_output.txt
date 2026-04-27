@@ -1,0 +1,23 @@
+# Change from Baseline Over Time - Documentation
+
+## Table/Figure ID: 14-3.02
+
+## Population: Efficacy
+
+## Data Source: ADADAS
+
+## Header
+
+[Header details to be extracted from fixtures]
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Data Source
+
+[Data Source details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

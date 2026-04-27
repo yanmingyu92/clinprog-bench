@@ -1,0 +1,10 @@
+{
+  "parameters": [
+    {
+      "paramcd": "TTDE",
+      "param": "Time to First Dermatologic Event",
+      "cnsr_logic": "CNSR=1 if no event occurred before cutoff (censored), CNSR=0 if event occurred",
+      "aval_unit": "days"
+    }
+  ]
+}

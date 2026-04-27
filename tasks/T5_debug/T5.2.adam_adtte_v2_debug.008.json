@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.2.adam_adtte_v2_debug.008",
+  "category": "T5",
+  "subcategory": "T5.2",
+  "title": "Debug ADTTE derivation: Time-to-Event (AVAL focus) errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md#ADTTE",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADTTE",
+    "prompt": "The following R program creates ADTTE but has 3 bugs: (1) AVAL uses wrong dates, (2) CNSR values are inverted, (3) TRTP from wrong source. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.2.adam_adtte_v2_debug.008/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "aval_derivation",
+          "cnsr_assignment",
+          "trtp_source"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

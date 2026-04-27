@@ -1,0 +1,22 @@
+{
+  "secondary_endpoints": [
+    {
+      "name": "CIBIC+",
+      "measurement_tool": "Clinician's Interview-Based Impression of Change",
+      "timepoint": "Week 24",
+      "statistical_method": "ANCOVA"
+    },
+    {
+      "name": "NPI-X",
+      "measurement_tool": "Neuropsychiatric Inventory",
+      "timepoint": "Week 24",
+      "statistical_method": "ANCOVA"
+    },
+    {
+      "name": "Safety",
+      "measurement_tool": "AE monitoring, lab tests, vital signs",
+      "timepoint": "Throughout",
+      "statistical_method": "Descriptive statistics"
+    }
+  ]
+}

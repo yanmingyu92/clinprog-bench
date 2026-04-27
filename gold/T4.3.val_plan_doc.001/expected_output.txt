@@ -1,0 +1,49 @@
+# Validation Plan Documentation
+
+## Validation Layers
+
+### 1. Document Alignment
+- Protocol to SAP consistency verification
+- SAP to Mock Shell specification alignment
+- Mock Shell to TLF Output structure matching
+
+### 2. Data Lineage
+- Subject ID traceability: Raw -> SDTM -> ADaM
+- Variable lineage: TLF -> ADaM -> SDTM -> Raw mapping
+- Cross-dataset USUBJID existence checks
+
+### 3. Analysis Consistency
+- Model specification verification (ANCOVA parameters)
+- Results reproducibility (ground truth value comparison)
+- Treatment coding consistency across datasets
+
+### 4. Regulatory Compliance
+- CDISC standard compliance (SDTM IG 3.1.2, ADaM IG 1.1)
+- Pinnacle 21 validation
+- Define-XML 2.0 completeness
+
+## Automated Validation Scripts
+
+| Script | Description | Key Checks |
+|--------|-------------|------------|
+| V001 | Subject Traceability | D-001 to D-004 (subject counts, USUBJID format) |
+| V002 | Treatment Consistency | D-010 to D-013 (ARMCD, TRT01PN coding, treatment N) |
+| V003 | Population Consistency | D-020 to D-023 (ITTFL, SAFFL, EFFFL, COMP24FL logic) |
+| V004 | SAP-Mock Alignment | Specification matching for tables and figures |
+| V005 | Analysis Logic | ANCOVA model, dose response, LS Means, LOCF |
+| V006 | Demographic Consistency | ADSL statistics vs TLF ground truth |
+
+## Check Categories
+- **D-xxx**: Data consistency checks
+- **L-xxx**: Log and output verification checks
+- **P-xxx**: Programming logic checks
+- **M-xxx**: Method and model specification checks
+
+## Execution Phases
+1. **Phase 1 - Data Validation**: Run V001-V003 (automated)
+2. **Phase 2 - Document Validation**: Run V004 (semi-automated)
+3. **Phase 3 - Analysis Validation**: Run V005-V006 (automated)
+4. **Phase 4 - Final Report**: Compile results, resolve issues
+
+## Methodology Summary
+The validation follows a four-layer approach combining automated R scripts with manual document review. Automated checks verify data consistency, treatment coding, population logic, and analysis reproducibility. Manual checks ensure document alignment between protocol, SAP, mock shells, and final outputs. The quality report aggregates results across all checks with severity classification.

@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.3.tlf_exposure_gen.041",
+  "category": "T1",
+  "subcategory": "T1.3",
+  "title": "Generate R program for 14-2.03 Exposure and Compliance",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-2-03_exposure.md",
+      "fixtures/05_adam/ADaM_Specifications.md#ADSL"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/t_mock_14-2-03_exposure.md",
+    "prompt": "Write an R program using rtables or Tplyr to generate 14-2.03: Exposure and Compliance. The program must: (1) Read ADSL dataset, (2) Filter to Safety population, (3) Implement analysis: treatment duration, dose compliance, treatment intensity by group, (4) Format table with treatment group columns (Placebo, Xanomeline Low, Xanomeline High), (5) Output as RTF document matching mock shell layout."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.3.tlf_exposure_gen.041/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "population_filter",
+          "exposure_analysis_logic",
+          "table_structure",
+          "output_format"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

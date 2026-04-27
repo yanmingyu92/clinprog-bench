@@ -1,0 +1,53 @@
+{
+  "task_id": "T4.1.tlf_km_doc.001",
+  "category": "T4",
+  "subcategory": "T4.1",
+  "title": "Document Kaplan-Meier plot specifications for time-to-event analysis",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/f_mock_14-5-01_km_plot.md"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/README.md",
+    "prompt": "Write documentation for Figure 14-5.01 KM Plot (TTDE, Safety population). Include: figure title, population, endpoint (time to first dermatologic event), treatment arm display (line styles), axis specifications, risk table layout, censoring mark conventions, 95% CI display, statistical summary table (N, Events, Median, log-rank p-value), and data source (ADTTE)."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.1.tlf_km_doc.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "population",
+          "endpoint",
+          "treatment_display",
+          "statistical_summary",
+          "data_source"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

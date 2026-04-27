@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.3.tlf_ae_debug.001",
+  "category": "T5",
+  "subcategory": "T5.3",
+  "title": "Debug AE table: sorting and percentage denominator errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-4-02_ae_by_soc_pt.md",
+      "fixtures/05_adam/ADaM_Specifications.md#ADAE"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/t_mock_14-4-02_ae_by_soc_pt.md",
+    "prompt": "The following R program generates Table 14-4.02 but has 3 bugs: (1) Percentage denominator uses total Safety population N=254 for all treatment groups instead of the treatment-specific N, causing incorrect percentages, (2) The 5% incidence threshold filters based on SOC-level percentage instead of PT-level, removing entire SOCs incorrectly, (3) TRTEMFL filter is missing, so pre-treatment AEs are included in the counts. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.3.tlf_ae_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "denominator_per_group",
+          "threshold_level",
+          "TRTEMFL_filter"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

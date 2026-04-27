@@ -1,0 +1,49 @@
+{
+  "task_id": "T3.1.sdtm_ex_extract.001",
+  "category": "T3",
+  "subcategory": "T3.1",
+  "title": "Extract SDTM EX domain exposure variable metadata",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "yanmingyu92/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#EX",
+    "prompt": "Extract the SDTM EX (Exposure) domain variable metadata. Focus on dose-related variables (EXDOSE, EXDOSU, EXDOSFRM), route (EXROUTE), and date variables (EXSTDTC, EXENDTC). For each variable return: variable_name, type, length, label, origin. Return as a JSON object with 'variables' array."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.1.sdtm_ex_extract.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "variables[].variable_name",
+          "variables[].type",
+          "variables[].label"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  }
+}

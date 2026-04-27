@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.5
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.1.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - pydantic==2.10.6
+          - pandas-stubs==2.2.3.241126
+          - types-PyYAML==6.0.12.20240917
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-merge-conflict

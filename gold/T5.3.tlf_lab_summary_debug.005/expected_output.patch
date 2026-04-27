@@ -1,0 +1,20 @@
+--- a/lab_summary_prog.R
++++ b/lab_summary_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Lab parameters are not grouped by test category (Chemistry, Hematology, Urinalysis) per mock shell
++Fix 1: Lab parameters grouped by test category
+@@ -1,5 +1,5 @@
+-Bug 2: Mean values use median() instead of mean() for central tendency
++Fix 2: Central tendency uses mean()
+@@ -1,5 +1,5 @@
+-Bug 3: Reference range flag counts use total lab records instead of unique subjects
++Fix 3: Reference range counts use distinct subjects
+@@ -1,5 +1,5 @@
+-Bug 4: Shift from baseline display uses CHG values instead of ANRIND/BNRIND category transitions
++Fix 4: Shift display uses ANRIND/BNRIND categories
+
+Summary of fixes:
+1. Lab parameters grouped by test category (parameter_grouping)
+2. Central tendency uses mean() (stat_function)
+3. Reference range counts use distinct subjects (count_method)
+4. Shift display uses ANRIND/BNRIND categories (shift_variable)

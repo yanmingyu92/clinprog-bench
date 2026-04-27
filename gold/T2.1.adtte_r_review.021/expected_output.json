@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "CNSR censoring variable must correctly distinguish events (0) from censored observations (1)"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "PARAMCD definitions must align with ADaM specification for time-to-event parameters"
+    },
+    {
+      "severity": "low",
+      "category": "documentation",
+      "description": "EVNTDESC event description derivation needs documentation for each parameter"
+    }
+  ]
+}

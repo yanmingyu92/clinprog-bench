@@ -1,0 +1,51 @@
+{
+  "study_id": "CDISCPilot01",
+  "phase": "Phase 2/3",
+  "indication": "Alzheimer's Disease (Mild to Moderate)",
+  "treatment_name": "Xanomeline Transdermal Therapeutic System (TTS)",
+  "treatment_route": "Transdermal",
+  "treatment_groups": [
+    {
+      "group": "Placebo",
+      "description": "Transdermal patch (placebo)",
+      "planned_enrollment": 100
+    },
+    {
+      "group": "Xanomeline Low Dose",
+      "description": "Xanomeline TTS 50 cm2",
+      "planned_enrollment": 100
+    },
+    {
+      "group": "Xanomeline High Dose",
+      "description": "Xanomeline TTS 75 cm2",
+      "planned_enrollment": 100
+    }
+  ],
+  "randomization_ratio": "1:1:1",
+  "study_duration": "24 weeks treatment + 2 weeks follow-up",
+  "primary_endpoint": {
+    "name": "Change from Baseline to Week 24 in ADAS-Cog (11) Score",
+    "measurement_tool": "ADAS-Cog (Alzheimer's Disease Assessment Scale - Cognitive Subscale)",
+    "timepoint": "Week 24",
+    "statistical_method": "ANCOVA with treatment, pooled site group, and baseline score as covariates; LOCF for missing data"
+  },
+  "secondary_endpoints": [
+    "CIBIC+ (Clinician's Interview-Based Impression of Change)",
+    "NPI-X (Neuropsychiatric Inventory) Change from Baseline",
+    "Safety and Tolerability (descriptive statistics)"
+  ],
+  "analysis_populations": [
+    {
+      "name": "ITT (Intent-to-Treat)",
+      "definition": "All randomized subjects"
+    },
+    {
+      "name": "Safety",
+      "definition": "All subjects who received at least one dose of study drug"
+    },
+    {
+      "name": "Efficacy",
+      "definition": "All subjects with at least one post-baseline efficacy assessment"
+    }
+  ]
+}
