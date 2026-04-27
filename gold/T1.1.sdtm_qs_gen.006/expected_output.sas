@@ -31,7 +31,7 @@ data sdtm.qs;
     /* Domain-specific variable mappings for Questionnaires */
     /* QSTESTCD, QSTEST, QSORRES, QSSTRESC, QSSTRESN, VISITNUM */
 
-    keep STUDYID DOMAIN USUBJID QSSEQ QSTESTCD, QSTEST, QSORRES, QSSTRESC, QSSTRESN, VISITNUM;
+    keep STUDYID DOMAIN USUBJID QSSEQ QSTESTCD  QSTEST  QSORRES  QSSTRESC  QSSTRESN  VISITNUM;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               QSSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/qs.xpt);
 filename xout "path/to/output/qs.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select qs;
+data xout.qs;
+    set sdtm.qs;
 run;
 libname xout clear;
 filename xout clear;

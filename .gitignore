@@ -49,3 +49,7 @@ uv.lock
 
 # Jupyter
 .ipynb_checkpoints/
+temp/
+review_package.zip
+.claude/
+gold/_exec_output/

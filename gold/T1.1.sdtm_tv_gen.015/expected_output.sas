@@ -13,25 +13,22 @@ data work.tv_raw;
     set raw.tv;
 run;
 
-proc sort data=work.tv_raw; by USUBJID; run;
+
 
 data sdtm.tv;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TVSEQ 8;
     set work.tv_raw;
 
     retain TVSEQ;
-    by USUBJID;
 
     STUDYID = "&studyid";
     DOMAIN  = "TV";
-
-    if first.USUBJID then TVSEQ = 0;
     TVSEQ = TVSEQ + 1;
 
     /* Domain-specific variable mappings for Trial Visits */
     /* VISITNUM, VISIT, VISTPT, VISTPTREF */
 
-    keep STUDYID DOMAIN USUBJID TVSEQ VISITNUM, VISIT, VISTPT, VISTPTREF;
+    keep STUDYID DOMAIN USUBJID TVSEQ VISITNUM  VISIT  VISTPT  VISTPTREF;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +39,12 @@ proc datasets library=sdtm nolist;
               TVSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/tv.xpt);
 filename xout "path/to/output/tv.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select tv;
+data xout.tv;
+    set sdtm.tv;
 run;
 libname xout clear;
 filename xout clear;

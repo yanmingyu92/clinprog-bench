@@ -13,25 +13,22 @@ data work.te_raw;
     set raw.te;
 run;
 
-proc sort data=work.te_raw; by USUBJID; run;
+
 
 data sdtm.te;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TESEQ 8;
     set work.te_raw;
 
     retain TESEQ;
-    by USUBJID;
 
     STUDYID = "&studyid";
     DOMAIN  = "TE";
-
-    if first.USUBJID then TESEQ = 0;
     TESEQ = TESEQ + 1;
 
     /* Domain-specific variable mappings for Trial Elements */
     /* ETCD, ELEMENT, TESTRL, TEENRL, TEDUR */
 
-    keep STUDYID DOMAIN USUBJID TESEQ ETCD, ELEMENT, TESTRL, TEENRL, TEDUR;
+    keep STUDYID DOMAIN USUBJID TESEQ ETCD  ELEMENT  TESTRL  TEENRL  TEDUR;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +39,12 @@ proc datasets library=sdtm nolist;
               TESEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/te.xpt);
 filename xout "path/to/output/te.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select te;
+data xout.te;
+    set sdtm.te;
 run;
 libname xout clear;
 filename xout clear;

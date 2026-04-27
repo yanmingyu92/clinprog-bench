@@ -13,25 +13,22 @@ data work.ts_raw;
     set raw.ts;
 run;
 
-proc sort data=work.ts_raw; by USUBJID; run;
+
 
 data sdtm.ts;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TSSEQ 8;
     set work.ts_raw;
 
     retain TSSEQ;
-    by USUBJID;
 
     STUDYID = "&studyid";
     DOMAIN  = "TS";
-
-    if first.USUBJID then TSSEQ = 0;
     TSSEQ = TSSEQ + 1;
 
     /* Domain-specific variable mappings for Trial Summary */
     /* TSPARMCD, TSPARM, TSVAL */
 
-    keep STUDYID DOMAIN USUBJID TSSEQ TSPARMCD, TSPARM, TSVAL;
+    keep STUDYID DOMAIN USUBJID TSSEQ TSPARMCD  TSPARM  TSVAL;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +39,12 @@ proc datasets library=sdtm nolist;
               TSSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ts.xpt);
 filename xout "path/to/output/ts.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ts;
+data xout.ts;
+    set sdtm.ts;
 run;
 libname xout clear;
 filename xout clear;

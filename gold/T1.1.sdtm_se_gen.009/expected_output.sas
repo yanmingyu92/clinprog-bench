@@ -31,7 +31,7 @@ data sdtm.se;
     /* Domain-specific variable mappings for Subject Elements */
     /* ETCD, ELEMENT, SESTDTC, SEENDTC, TAETORD */
 
-    keep STUDYID DOMAIN USUBJID SESEQ ETCD, ELEMENT, SESTDTC, SEENDTC, TAETORD;
+    keep STUDYID DOMAIN USUBJID SESEQ ETCD  ELEMENT  SESTDTC  SEENDTC  TAETORD;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               SESEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/se.xpt);
 filename xout "path/to/output/se.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select se;
+data xout.se;
+    set sdtm.se;
 run;
 libname xout clear;
 filename xout clear;

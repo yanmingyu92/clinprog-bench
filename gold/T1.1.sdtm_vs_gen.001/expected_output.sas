@@ -10,77 +10,43 @@ libname raw "path/to/raw/data" access=readonly;
 libname sdtm "path/to/sdtm/output";
 %let studyid = CDISCPilot01;
 
-/* --- Read raw vital signs data (wide format) --- */
+/* --- Read raw vital signs data (already in long/SDTM format) --- */
 data work.vs_raw;
     set raw.vs;
 run;
 
-/* --- Transpose to long format (one row per test per visit) --- */
-proc transpose data=work.vs_raw out=vs_long prefix=V;
-    by USUBJID VISIT VISITNUM VISITDY;
-    var HEIGHT WEIGHT DIABP SYSBP PULSE TEMP;
-run;
-
-/* --- Map test codes and standardize --- */
-data work.vs_mapped;
-    set vs_long;
-    length VSTESTCD $8 VSTEST $40 VSORRES $20 VSORRESU $10
-           VSSTRESC $20 VSSTRESN 8 VSSTRESU $10 VSBLFL $1
-           VSDY 8 VSDY_D 8;
-
-    /* Determine test code from transposed variable name */
-    VSTESTCD = scan(_NAME_, 1, "_");
-
-    select (VSTESTCD);
-        when ("HEIGHT")
-            do; VSTEST = "Height"; VSORRESU = "cm"; VSSTRESU = "cm"; end;
-        when ("WEIGHT")
-            do; VSTEST = "Weight"; VSORRESU = "kg"; VSSTRESU = "kg"; end;
-        when ("DIABP")
-            do; VSTEST = "Diastolic Blood Pressure"; VSORRESU = "mmHg"; VSSTRESU = "mmHg"; end;
-        when ("SYSBP")
-            do; VSTEST = "Systolic Blood Pressure"; VSORRESU = "mmHg"; VSSTRESU = "mmHg"; end;
-        when ("PULSE")
-            do; VSTEST = "Pulse Rate"; VSORRESU = "BEATS/MIN"; VSSTRESU = "BEATS/MIN"; end;
-        when ("TEMP")
-            do; VSTEST = "Temperature"; VSORRESU = "C"; VSSTRESU = "C"; end;
-        otherwise;
-    end;
-
-    /* Original and standardized results */
-    VSORRES  = strip(put(COL1, best12.));
-    VSSTRESC = strip(put(COL1, best12.));
-    VSSTRESN = input(strip(put(COL1, best12.)), 8.);
-
-    /* Baseline flag: last measurement before first dose */
-    if VISITDY <= 0 then VSBLFL = "Y";
-    else VSBLFL = "";
-
-    keep USUBJID VISIT VISITNUM VISITDY VSTESTCD VSTEST
-         VSORRES VSORRESU VSSTRESC VSSTRESN VSSTRESU VSBLFL;
-run;
-
-/* --- Create final SDTM VS dataset --- */
-proc sort data=work.vs_mapped; by USUBJID VSTESTCD VISITNUM; run;
+/* --- Derive SDTM VS variables --- */
+proc sort data=work.vs_raw; by USUBJID VSTESTCD VISITNUM; run;
 
 data sdtm.vs;
-    length STUDYID $12 DOMAIN $2 USUBJID $11 VSSEQ 8;
-    set work.vs_mapped;
-    by USUBJID VSTESTCD VISITNUM;
-    set work.vs_raw;
+    length STUDYID $12 DOMAIN $2 USUBJID $11 VSSEQ 8
+           VSTESTCD $8 VSTEST $40 VSORRES $20 VSORRESU $10
+           VSSTRESC $20 VSSTRESN 8 VSSTRESU $10 VSBLFL $1
+           VISIT $40 VISITNUM 8 VSDY 8;
 
+    set work.vs_raw;
     retain VSSEQ;
-    if first.USUBJID then VSSEQ = 0;
-    VSSEQ = VSSEQ + 1;
+    by USUBJID VSTESTCD VISITNUM;
 
     STUDYID = "&studyid";
     DOMAIN  = "VS";
 
-    /* Study day relative to first dose */
+    /* Sequence number per subject */
+    if first.USUBJID then VSSEQ = 0;
+    VSSEQ = VSSEQ + 1;
+
+    /* Baseline flag */
+    if VSBLFL = "" and VISITDY <= 0 then VSBLFL = "Y";
+
+    /* Study day */
     VSDY = VISITDY;
+
+    keep STUDYID DOMAIN USUBJID VSSEQ VSTESTCD VSTEST
+         VSORRES VSORRESU VSSTRESC VSSTRESN VSSTRESU VSBLFL
+         VISIT VISITNUM VSDY VISITDY VSDTC;
 run;
 
-/* --- Apply labels and export --- */
+/* --- Apply labels --- */
 proc datasets library=sdtm nolist;
     modify vs;
         label STUDYID  = "Study Identifier"
@@ -100,10 +66,13 @@ proc datasets library=sdtm nolist;
               VSDY     = "Study Day of Vital Signs";
 run; quit;
 
+/* --- Export to transport file --- */
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/vs.xpt);
 filename xout "path/to/output/vs.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select vs;
+data xout.vs;
+    set sdtm.vs;
 run;
 libname xout clear;
 filename xout clear;

@@ -31,7 +31,7 @@ data sdtm.cm;
     /* Domain-specific variable mappings for Concomitant Medications */
     /* CMTRT, CMDECOD, CMINDC, CMCLAS, CMROUTE, CMSTDTC, CMENDTC, CMDOSU, CMDOSFRQ */
 
-    keep STUDYID DOMAIN USUBJID CMSEQ CMTRT, CMDECOD, CMINDC, CMCLAS, CMROUTE, CMSTDTC, CMENDTC, CMDOSU, CMDOSFRQ;
+    keep STUDYID DOMAIN USUBJID CMSEQ CMTRT  CMDECOD  CMINDC  CMCLAS  CMROUTE  CMSTDTC  CMENDTC  CMDOSU  CMDOSFRQ;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               CMSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/cm.xpt);
 filename xout "path/to/output/cm.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select cm;
+data xout.cm;
+    set sdtm.cm;
 run;
 libname xout clear;
 filename xout clear;

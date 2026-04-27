@@ -31,7 +31,7 @@ data sdtm.ex;
     /* Domain-specific variable mappings for Exposure */
     /* EXTRT, EXDOSE, EXDOSU, EXROUTE, EXSTDTC, EXENDTC */
 
-    keep STUDYID DOMAIN USUBJID EXSEQ EXTRT, EXDOSE, EXDOSU, EXROUTE, EXSTDTC, EXENDTC;
+    keep STUDYID DOMAIN USUBJID EXSEQ EXTRT  EXDOSE  EXDOSU  EXROUTE  EXSTDTC  EXENDTC;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               EXSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ex.xpt);
 filename xout "path/to/output/ex.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ex;
+data xout.ex;
+    set sdtm.ex;
 run;
 libname xout clear;
 filename xout clear;

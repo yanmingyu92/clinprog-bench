@@ -31,7 +31,7 @@ data sdtm.mh;
     /* Domain-specific variable mappings for Medical History */
     /* MHTERM, MHDECOD, MHBODSYS, MHSTDTC, MHENDTC, MHCAT */
 
-    keep STUDYID DOMAIN USUBJID MHSEQ MHTERM, MHDECOD, MHBODSYS, MHSTDTC, MHENDTC, MHCAT;
+    keep STUDYID DOMAIN USUBJID MHSEQ MHTERM  MHDECOD  MHBODSYS  MHSTDTC  MHENDTC  MHCAT;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               MHSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/mh.xpt);
 filename xout "path/to/output/mh.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select mh;
+data xout.mh;
+    set sdtm.mh;
 run;
 libname xout clear;
 filename xout clear;

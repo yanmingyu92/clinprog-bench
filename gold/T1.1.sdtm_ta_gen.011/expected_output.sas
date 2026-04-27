@@ -13,25 +13,22 @@ data work.ta_raw;
     set raw.ta;
 run;
 
-proc sort data=work.ta_raw; by USUBJID; run;
+
 
 data sdtm.ta;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TASEQ 8;
     set work.ta_raw;
 
     retain TASEQ;
-    by USUBJID;
 
     STUDYID = "&studyid";
     DOMAIN  = "TA";
-
-    if first.USUBJID then TASEQ = 0;
     TASEQ = TASEQ + 1;
 
     /* Domain-specific variable mappings for Trial Arms */
     /* ARMCD, ARM, TAETORD, ETCD, ELEMENT */
 
-    keep STUDYID DOMAIN USUBJID TASEQ ARMCD, ARM, TAETORD, ETCD, ELEMENT;
+    keep STUDYID DOMAIN USUBJID TASEQ ARMCD  ARM  TAETORD  ETCD  ELEMENT;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +39,12 @@ proc datasets library=sdtm nolist;
               TASEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ta.xpt);
 filename xout "path/to/output/ta.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ta;
+data xout.ta;
+    set sdtm.ta;
 run;
 libname xout clear;
 filename xout clear;

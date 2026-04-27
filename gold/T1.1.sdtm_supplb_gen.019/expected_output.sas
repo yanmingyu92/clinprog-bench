@@ -31,7 +31,7 @@ data sdtm.supplb;
     /* Domain-specific variable mappings for Supplemental LB */
     /* RDOMAIN, USUBJID, IDVAR, IDVARVAL, QNAM, QVAL, QLABEL */
 
-    keep STUDYID DOMAIN USUBJID SUPPLBSEQ RDOMAIN, USUBJID, IDVAR, IDVARVAL, QNAM, QVAL, QLABEL;
+    keep STUDYID DOMAIN USUBJID SUPPLBSEQ RDOMAIN  USUBJID  IDVAR  IDVARVAL  QNAM  QVAL  QLABEL;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,13 @@ proc datasets library=sdtm nolist;
               SUPPLBSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/supplb.xpt);
 filename xout "path/to/output/supplb.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select supplb;
+data xout.supplb;
+    set sdtm.supplb;
+    drop SUPPLBSEQ;
 run;
 libname xout clear;
 filename xout clear;

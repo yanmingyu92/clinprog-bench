@@ -31,7 +31,7 @@ data sdtm.sc;
     /* Domain-specific variable mappings for Subject Characteristics */
     /* SCTESTCD, SCTEST, SCORRES, SCSTRESC, SCSTRESN */
 
-    keep STUDYID DOMAIN USUBJID SCSEQ SCTESTCD, SCTEST, SCORRES, SCSTRESC, SCSTRESN;
+    keep STUDYID DOMAIN USUBJID SCSEQ SCTESTCD  SCTEST  SCORRES  SCSTRESC  SCSTRESN;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               SCSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/sc.xpt);
 filename xout "path/to/output/sc.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select sc;
+data xout.sc;
+    set sdtm.sc;
 run;
 libname xout clear;
 filename xout clear;

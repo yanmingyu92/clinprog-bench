@@ -31,7 +31,7 @@ data sdtm.sv;
     /* Domain-specific variable mappings for Subject Visits */
     /* VISITNUM, VISIT, SVSTDTC, SVENDTC, SVDY */
 
-    keep STUDYID DOMAIN USUBJID SVSEQ VISITNUM, VISIT, SVSTDTC, SVENDTC, SVDY;
+    keep STUDYID DOMAIN USUBJID SVSEQ VISITNUM  VISIT  SVSTDTC  SVENDTC  SVDY;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               SVSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/sv.xpt);
 filename xout "path/to/output/sv.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select sv;
+data xout.sv;
+    set sdtm.sv;
 run;
 libname xout clear;
 filename xout clear;

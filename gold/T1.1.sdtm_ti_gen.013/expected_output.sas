@@ -13,25 +13,22 @@ data work.ti_raw;
     set raw.ti;
 run;
 
-proc sort data=work.ti_raw; by USUBJID; run;
+
 
 data sdtm.ti;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TISEQ 8;
     set work.ti_raw;
 
     retain TISEQ;
-    by USUBJID;
 
     STUDYID = "&studyid";
     DOMAIN  = "TI";
-
-    if first.USUBJID then TISEQ = 0;
     TISEQ = TISEQ + 1;
 
     /* Domain-specific variable mappings for Trial Inclusion/Exclusion */
     /* TSPARMCD, TSPARM, TSVAL */
 
-    keep STUDYID DOMAIN USUBJID TISEQ TSPARMCD, TSPARM, TSVAL;
+    keep STUDYID DOMAIN USUBJID TISEQ TSPARMCD  TSPARM  TSVAL;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +39,12 @@ proc datasets library=sdtm nolist;
               TISEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ti.xpt);
 filename xout "path/to/output/ti.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ti;
+data xout.ti;
+    set sdtm.ti;
 run;
 libname xout clear;
 filename xout clear;

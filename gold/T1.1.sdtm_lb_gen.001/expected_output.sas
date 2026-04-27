@@ -19,9 +19,9 @@ run;
 data work.lb_mapped;
     set work.lb_raw;
 
-    length LBTESTCD $8 LBTEST $40 LBORRES $20 LBORRESU $10
-           LBSTRESC $20 LBSTRESN 8 LBSTRESU $10
-           LBORNRLO 8 LBORNRHI 8 LBNRNRLO 8 LBNRNRHI 8;
+    length LBTESTCD $8 LBTEST $40 LBORRES $200 LBORRESU $40
+           LBSTRESC $200 LBSTRESN 8 LBSTRESU $40
+           LBORNRLO $200 LBORNRHI $200;
 
     /* CDISC controlled terminology mapping */
     select (LBTEST_RAW);
@@ -44,23 +44,21 @@ data work.lb_mapped;
     end;
 
     LBTEST   = LBTEST_RAW;
-    LBORRES  = strip(put(RESULT_RAW, best12.));
+    LBORRES  = strip(RESULT_RAW);
     LBORRESU = strip(UNIT_RAW);
 
     /* Standardize numeric results */
-    LBSTRESC = strip(put(RESULT_RAW, best12.));
-    LBSTRESN = RESULT_RAW;
-    LBSTRESU = strip(UNIT_STD);
+    LBSTRESC = strip(RESULT_RAW);
+    LBSTRESN = input(RESULT_RAW, ?? best32.);
+    LBSTRESU = strip(UNIT_RAW);
 
     /* Reference ranges */
     LBORNRLO = REF_LO_RAW;
     LBORNRHI = REF_HI_RAW;
-    LBNRNRLO = REF_LO_STD;
-    LBNRNRHI = REF_HI_STD;
 
     keep USUBJID VISIT VISITNUM LBTESTCD LBTEST LBORRES LBORRESU
          LBSTRESC LBSTRESN LBSTRESU LBORNRLO LBORNRHI
-         LBNRNRLO LBNRNRHI LBSPEC LBREASND LBFAST;
+         LBDTC LBDY;
 run;
 
 /* --- Assign sequence numbers --- */
@@ -99,10 +97,12 @@ proc datasets library=sdtm nolist;
               LBNRNRHI = "Reference Range Upper Limit (Standard)";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/lb.xpt);
 filename xout "path/to/output/lb.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select lb;
+data xout.lb;
+    set sdtm.lb;
 run;
 libname xout clear;
 filename xout clear;

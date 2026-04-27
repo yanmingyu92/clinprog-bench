@@ -94,10 +94,12 @@ proc datasets library=sdtm nolist;
 run; quit;
 
 /* --- Export to transport file --- */
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ae.xpt);
 filename xout "path/to/output/ae.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ae;
+data xout.ae;
+    set sdtm.ae;
 run;
 libname xout clear;
 filename xout clear;

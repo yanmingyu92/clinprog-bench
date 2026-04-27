@@ -31,7 +31,7 @@ data sdtm.ds;
     /* Domain-specific variable mappings for Disposition */
     /* DSDECOD, DSTERM, DSCAT, DSSTDTC, DSENDTC, VISIT, VISITNUM */
 
-    keep STUDYID DOMAIN USUBJID DSSEQ DSDECOD, DSTERM, DSCAT, DSSTDTC, DSENDTC, VISIT, VISITNUM;
+    keep STUDYID DOMAIN USUBJID DSSEQ DSDECOD  DSTERM  DSCAT  DSSTDTC  DSENDTC  VISIT  VISITNUM;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,12 @@ proc datasets library=sdtm nolist;
               DSSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/ds.xpt);
 filename xout "path/to/output/ds.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select ds;
+data xout.ds;
+    set sdtm.ds;
 run;
 libname xout clear;
 filename xout clear;

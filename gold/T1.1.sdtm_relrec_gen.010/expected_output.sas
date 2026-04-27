@@ -31,7 +31,7 @@ data sdtm.relrec;
     /* Domain-specific variable mappings for Related Records */
     /* RDOMAIN, USUBJID, IDVAR, IDVARVAL, RELTYPE, RELID */
 
-    keep STUDYID DOMAIN USUBJID RELRECSEQ RDOMAIN, USUBJID, IDVAR, IDVARVAL, RELTYPE, RELID;
+    keep STUDYID DOMAIN USUBJID RELRECSEQ RDOMAIN  USUBJID  IDVAR  IDVARVAL  RELTYPE  RELID;
 run;
 
 proc datasets library=sdtm nolist;
@@ -42,10 +42,13 @@ proc datasets library=sdtm nolist;
               RELRECSEQ = "Sequence Number";
 run; quit;
 
+%macro delfile(f); %if %sysfunc(fileexist(&f)) %then %do; %let rc=%sysfunc(filename(_f,&f)); %let rc=%sysfunc(fdelete(&_f)); %end; %mend;
+%delfile(path/to/output/relrec.xpt);
 filename xout "path/to/output/relrec.xpt";
 libname  xout xport;
-proc copy in=sdtm out=xout;
-    select relrec;
+data xout.relrec;
+    set sdtm.relrec;
+    drop RELRECSEQ;
 run;
 libname xout clear;
 filename xout clear;
