@@ -17,6 +17,7 @@ proc sort data=work.supplb_raw; by USUBJID; run;
 
 data sdtm.supplb;
     length STUDYID $12 DOMAIN $2 USUBJID $11 SUPPLBSEQ 8;
+    set work.supplb_raw;
 
     retain SUPPLBSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               SUPPLBSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.supplb
-    outfile="path/to/output/supplb.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/supplb.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select supplb;
 run;
+libname xout clear;
+filename xout clear;

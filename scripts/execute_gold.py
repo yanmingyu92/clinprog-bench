@@ -182,13 +182,19 @@ def execute_sas(script_path: Path, task_id: str, sas_path: str) -> dict:
             text=True,
             timeout=600,
         )
+        # SAS return codes: 0=clean, 1=warnings, 2+=errors
+        log_path = script_path.with_suffix(".log")
+        has_errors = False
+        if log_path.exists():
+            log_text = log_path.read_text(encoding="utf-8", errors="replace")
+            has_errors = "ERROR:" in log_text
         return {
             "task_id": task_id,
             "engine": "SAS",
             "returncode": result.returncode,
             "stdout": result.stdout[-2000:] if result.stdout else "",
             "stderr": result.stderr[-2000:] if result.stderr else "",
-            "success": result.returncode == 0,
+            "success": result.returncode in (0, 1) and not has_errors,
         }
     except subprocess.TimeoutExpired:
         return {

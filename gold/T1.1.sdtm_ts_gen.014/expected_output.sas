@@ -17,6 +17,7 @@ proc sort data=work.ts_raw; by USUBJID; run;
 
 data sdtm.ts;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TSSEQ 8;
+    set work.ts_raw;
 
     retain TSSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               TSSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.ts
-    outfile="path/to/output/ts.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/ts.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select ts;
 run;
+libname xout clear;
+filename xout clear;

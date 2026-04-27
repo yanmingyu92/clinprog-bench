@@ -17,6 +17,7 @@ proc sort data=work.te_raw; by USUBJID; run;
 
 data sdtm.te;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TESEQ 8;
+    set work.te_raw;
 
     retain TESEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               TESEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.te
-    outfile="path/to/output/te.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/te.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select te;
 run;
+libname xout clear;
+filename xout clear;

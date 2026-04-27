@@ -17,6 +17,7 @@ proc sort data=work.cm_raw; by USUBJID; run;
 
 data sdtm.cm;
     length STUDYID $12 DOMAIN $2 USUBJID $11 CMSEQ 8;
+    set work.cm_raw;
 
     retain CMSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               CMSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.cm
-    outfile="path/to/output/cm.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/cm.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select cm;
 run;
+libname xout clear;
+filename xout clear;

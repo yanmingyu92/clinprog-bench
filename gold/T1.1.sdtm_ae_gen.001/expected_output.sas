@@ -24,6 +24,7 @@ data sdtm.ae;
            AEHLT $100 AEHLGT $100 AEBODSYS $100
            AESEV $20 AESER $1 AEACN $30 AEREL $20
            AEOUT $30 AESTDTC $20 AEENDTC $20;
+    set work.ae_raw;
 
     retain AESEQ;
     by USUBJID AESTDTC;
@@ -93,7 +94,10 @@ proc datasets library=sdtm nolist;
 run; quit;
 
 /* --- Export to transport file --- */
-proc export data=sdtm.ae
-    outfile="path/to/output/ae.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/ae.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select ae;
 run;
+libname xout clear;
+filename xout clear;

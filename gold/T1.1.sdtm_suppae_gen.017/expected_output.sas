@@ -17,6 +17,7 @@ proc sort data=work.suppae_raw; by USUBJID; run;
 
 data sdtm.suppae;
     length STUDYID $12 DOMAIN $2 USUBJID $11 SUPPAESEQ 8;
+    set work.suppae_raw;
 
     retain SUPPAESEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               SUPPAESEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.suppae
-    outfile="path/to/output/suppae.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/suppae.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select suppae;
 run;
+libname xout clear;
+filename xout clear;

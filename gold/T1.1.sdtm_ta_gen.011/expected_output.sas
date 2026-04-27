@@ -17,6 +17,7 @@ proc sort data=work.ta_raw; by USUBJID; run;
 
 data sdtm.ta;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TASEQ 8;
+    set work.ta_raw;
 
     retain TASEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               TASEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.ta
-    outfile="path/to/output/ta.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/ta.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select ta;
 run;
+libname xout clear;
+filename xout clear;

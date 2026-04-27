@@ -17,6 +17,7 @@ proc sort data=work.ti_raw; by USUBJID; run;
 
 data sdtm.ti;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TISEQ 8;
+    set work.ti_raw;
 
     retain TISEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               TISEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.ti
-    outfile="path/to/output/ti.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/ti.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select ti;
 run;
+libname xout clear;
+filename xout clear;

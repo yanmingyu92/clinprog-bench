@@ -99,7 +99,10 @@ proc datasets library=sdtm nolist;
               LBNRNRHI = "Reference Range Upper Limit (Standard)";
 run; quit;
 
-proc export data=sdtm.lb
-    outfile="path/to/output/lb.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/lb.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select lb;
 run;
+libname xout clear;
+filename xout clear;

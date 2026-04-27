@@ -17,6 +17,7 @@ proc sort data=work.sv_raw; by USUBJID; run;
 
 data sdtm.sv;
     length STUDYID $12 DOMAIN $2 USUBJID $11 SVSEQ 8;
+    set work.sv_raw;
 
     retain SVSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               SVSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.sv
-    outfile="path/to/output/sv.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/sv.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select sv;
 run;
+libname xout clear;
+filename xout clear;

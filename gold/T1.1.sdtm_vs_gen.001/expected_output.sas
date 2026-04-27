@@ -67,6 +67,7 @@ data sdtm.vs;
     length STUDYID $12 DOMAIN $2 USUBJID $11 VSSEQ 8;
     set work.vs_mapped;
     by USUBJID VSTESTCD VISITNUM;
+    set work.vs_raw;
 
     retain VSSEQ;
     if first.USUBJID then VSSEQ = 0;
@@ -99,7 +100,10 @@ proc datasets library=sdtm nolist;
               VSDY     = "Study Day of Vital Signs";
 run; quit;
 
-proc export data=sdtm.vs
-    outfile="path/to/output/vs.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/vs.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select vs;
 run;
+libname xout clear;
+filename xout clear;

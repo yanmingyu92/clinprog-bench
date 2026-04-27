@@ -17,6 +17,7 @@ proc sort data=work.mh_raw; by USUBJID; run;
 
 data sdtm.mh;
     length STUDYID $12 DOMAIN $2 USUBJID $11 MHSEQ 8;
+    set work.mh_raw;
 
     retain MHSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               MHSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.mh
-    outfile="path/to/output/mh.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/mh.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select mh;
 run;
+libname xout clear;
+filename xout clear;

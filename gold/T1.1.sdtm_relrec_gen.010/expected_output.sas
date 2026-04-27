@@ -17,6 +17,7 @@ proc sort data=work.relrec_raw; by USUBJID; run;
 
 data sdtm.relrec;
     length STUDYID $12 DOMAIN $2 USUBJID $11 RELRECSEQ 8;
+    set work.relrec_raw;
 
     retain RELRECSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               RELRECSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.relrec
-    outfile="path/to/output/relrec.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/relrec.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select relrec;
 run;
+libname xout clear;
+filename xout clear;

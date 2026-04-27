@@ -17,6 +17,7 @@ proc sort data=work.tv_raw; by USUBJID; run;
 
 data sdtm.tv;
     length STUDYID $12 DOMAIN $2 USUBJID $11 TVSEQ 8;
+    set work.tv_raw;
 
     retain TVSEQ;
     by USUBJID;
@@ -41,7 +42,10 @@ proc datasets library=sdtm nolist;
               TVSEQ = "Sequence Number";
 run; quit;
 
-proc export data=sdtm.tv
-    outfile="path/to/output/tv.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/tv.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select tv;
 run;
+libname xout clear;
+filename xout clear;

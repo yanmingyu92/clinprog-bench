@@ -88,7 +88,10 @@ proc datasets library=sdtm nolist;
 run; quit;
 
 /* --- Export to transport file --- */
-proc export data=sdtm.dm
-    outfile="path/to/output/dm.xpt"
-    dbms=xport replace;
+filename xout "path/to/output/dm.xpt";
+libname  xout xport;
+proc copy in=sdtm out=xout;
+    select dm;
 run;
+libname xout clear;
+filename xout clear;
