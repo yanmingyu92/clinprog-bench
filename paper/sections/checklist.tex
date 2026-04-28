@@ -17,9 +17,10 @@
         Persistent dereferenceable identifier: the Zenodo DOI.
   \item \textbf{License.} Code: Apache-2.0. Data: CC-BY-4.0. Both committed
         as \texttt{LICENSE} and \texttt{LICENSE-DATA}.
-  \item \textbf{Croissant metadata.} TODO: emit
-        \texttt{croissant.json} via the MLCommons reference encoder before
-        camera-ready.
+  \item \textbf{Croissant metadata.} Machine-readable dataset card committed as
+        \texttt{croissant.json} at the repository root, generated following the
+        MLCommons Croissant specification (two record sets: \texttt{tasks}
+        and \texttt{gold}).
   \item \textbf{Reproducibility.} CI workflow
         (\texttt{.github/workflows/eval.yml}) reproduces the reference
         baseline on every push. \texttt{CITATION.cff} pins the v0.1.0 SHA.
