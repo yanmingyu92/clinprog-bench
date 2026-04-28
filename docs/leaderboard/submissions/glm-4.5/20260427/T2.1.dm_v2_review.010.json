@@ -1,0 +1,29 @@
+{
+  "task_id": "T2.1.dm_v2_review.010",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 44,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Direct assignment of IT.ETHNIC to ETHNIC without validation or mapping to CDISC standard values (HISPANIC OR LATINO, NOT HISPANIC OR LATINO)\"\n    },\n    {\n      \"line\": 45,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Direct assignment of IT.RACE to RACE without validation or mapping to protocol or CDISC standard categories\"\n    },\n    {\n      \"line\": 47,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Defaulting COUNTRY to 'USA' for missing values may misrepresent the actual study site country\"\n    },\n    {\n      \"line\": 60,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Variable named RICDTC but SDTM specification requires RFCICDTC (Date/Time of Last Informed Consent)\"\n    },\n    {\n      \"line\": 73,\n      \"severity\": \"error\",\n      \"category\": \"programming\",\n      \"message\": \"Variable RFXDTC included in select statement but not defined anywhere in the code, will cause error\"\n    },\n    {\n      \"line\": 43,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"BRTHDTC set to NA_character_ which may be needed for proper age calculation according to SDTM standards\"\n    },\n    {\n      \"line\": 58,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"ARMCD uses raw numeric values (0, 54, 81) but SDTM specification requires standard codes (Pbo, Xan_Lo, Xan_Hi, Scrnfail)\"\n    },\n    {\n      \"line\": 59,\n      \"severity\": \"warning\",\n      \"category\": \"documentation\",\n      \"message\": \"ARM values are descriptive but should match exactly the controlled terminology specified in the protocol\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "30.14",
+    "model": "glm-4.5",
+    "prompt_tokens": "2389",
+    "completion_tokens": "1797"
+  },
+  "score": {
+    "task_id": "T2.1.dm_v2_review.010",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 2.0,
+      "issues[].severity": 0.0,
+      "issues[].category": 1.0,
+      "issues[].description": 0.0
+    }
+  }
+}

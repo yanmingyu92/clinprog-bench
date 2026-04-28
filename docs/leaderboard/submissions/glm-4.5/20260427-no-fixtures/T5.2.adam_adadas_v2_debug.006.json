@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.2.adam_adadas_v2_debug.006",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "patch.diff": "--- a/adadas.R\n+++ b/adadas.R\n@@ -10,9 +10,9 @@\n   merge(adas, by = c(\"USUBJID\", \"VISIT\"), all.x = TRUE) %>%\n   # Calculate change from baseline\n   mutate(\n-    CHG = BASE - AVAL,\n-    PCHG = if_else(BASE != 0, (BASE - AVAL) / AVAL * 100, NA_real_),\n-    ANL01FL = \"Y\"\n+    CHG = AVAL - BASE,\n+    PCHG = if_else(BASE != 0, (AVAL - BASE) / BASE * 100, NA_real_),\n+    ANL01FL = if_else(PARAMCD %in% c(\"ADASCOG\", \"ADASTOT\"), \"Y\", \"\")\n   ) %>```"
+  },
+  "metadata": {
+    "wall_time_seconds": "47.86",
+    "model": "glm-4.5",
+    "prompt_tokens": "189",
+    "completion_tokens": "1832"
+  },
+  "score": {
+    "task_id": "T5.2.adam_adadas_v2_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

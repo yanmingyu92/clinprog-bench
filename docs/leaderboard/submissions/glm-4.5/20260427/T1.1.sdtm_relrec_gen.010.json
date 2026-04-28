@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.1.sdtm_relrec_gen.010",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "main.sas": "libname raw \"/path/to/raw/data\";\nlibname sdtm \"/path/to/sdtm/data\";\n\n/* Read raw related records data */\ndata relrec_raw;\n  infile datalines dsd dlm=',';\n  input STUDYID $ SUBJECTID $ SITEID $ DOMAIN1 $ SEQ1 DOMAIN2 $ SEQ2 RELTYPE $;\n  datalines;\nCDISCPILOT01,101,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,101,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,101,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,101,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,101,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,101,01,AE,6,EX,3,AETRIG\nCDISCPILOT01,101,01,AE,7,EX,4,AETRIG\nCDISCPILOT01,101,01,AE,8,EX,4,AETRIG\nCDISCPILOT01,101,01,AE,9,EX,5,AETRIG\nCDISCPILOT01,101,01,AE,10,EX,5,AETRIG\nCDISCPILOT01,102,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,102,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,102,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,102,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,102,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,102,01,AE,6,EX,3,AETRIG\nCDISCPILOT01,103,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,103,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,103,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,103,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,103,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,103,01,AE,6,EX,3,AETRIG\nCDISCPILOT01,104,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,104,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,104,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,104,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,104,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,104,01,AE,6,EX,3,AETRIG\nCDISCPILOT01,105,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,105,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,105,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,105,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,105,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,105,01,AE,6,EX,3,AETRIG\nCDISCPILOT01,106,01,AE,1,EX,1,AETRIG\nCDISCPILOT01,106,01,AE,2,EX,1,AETRIG\nCDISCPILOT01,106,01,AE,3,EX,2,AETRIG\nCDISCPILOT01,106,01,AE,4,EX,2,AETRIG\nCDISCPILOT01,106,01,AE,5,EX,3,AETRIG\nCDISCPILOT01,106,01,AE,6,EX,3,AETRIG\n;\nrun;\n\n/* Derive USUBJID and RELRECSEQ */\nproc sort data=relrec_raw;\n  by STUDYID SUBJECTID;\nrun;\n\ndata relrec;\n  set relrec_raw;\n  by STUDYID SUBJECTID;\n  \n  /* Derive USUBJID: Format XX-XXX-XXXX */\n  USUBJID = compress(STUDYID || '-' || SITEID || '-' || put(SUBJECTID, z4.));\n  \n  /* Derive RELRECSEQ: Sequential numbering per subject */\n  if first.SUBJECTID then RELRECSEQ = 1;\n  else RELRECSEQ + 1;\n  \n  /* Map RDOMAIN: Related Domain Abbreviation */\n  RDOMAIN = DOMAIN1;\n  \n  /* Map IDVAR: Identifying Variable */\n  IDVAR = DOMAIN1 || 'SEQ';\n  \n  /* Map IDVARVAL: Identifying Variable Value */\n  IDVARVAL = put(SEQ1, 8.);\n  \n  /* Map RELTYPE: Relationship Type */\n  /* Keep as is from raw data */\n  \n  /* Map RELID: Related Record Identifier */\n  RELID = DOMAIN2 || '-' || put(SEQ2, 8.);\n  \n  /* Add DOMAIN: Fixed value for RELREC */\n  DOMAIN = 'RELREC';\n  \n  drop SUBJECTID SITEID DOMAIN1 SEQ1 DOMAIN2 SEQ2;\nrun;\n\n/* Apply variable attributes per SDTM specification */\ndata sdtm.relrec(label='Related Records');\n  attrib\n    STUDYID   label='Study Identifier'            length=$12\n    DOMAIN    label='Domain Abbreviation'         length=$2\n    USUBJID   label='Unique Subject Identifier'   length=$11\n    RELRECSEQ label='Sequence Number'             length=8\n    RDOMAIN   label='Related Domain Abbreviation' length=$2\n    IDVAR     label='Identifying Variable'        length=$8\n    IDVARVAL  label='Identifying Variable Value'  length=$8\n    RELTYPE   label='Relationship Type'           length=$6\n    RELID     label='Related Record Identifier'   length=$16\n  ;\n  set relrec;\nrun;\n\n/* Create a permanent SAS dataset with xport format */\nlibname xptout xport \"/path/to/output/relrec.xpt\";\nproc copy in=sdtm out=xptout;\n  select relrec;\nrun;\nlibname xptout clear;"
+  },
+  "metadata": {
+    "wall_time_seconds": "53.42",
+    "model": "glm-4.5",
+    "prompt_tokens": "2690",
+    "completion_tokens": "1906"
+  },
+  "score": {
+    "task_id": "T1.1.sdtm_relrec_gen.010",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "relrec_variable_mapping": 0.0,
+      "relrec_derivation_logic": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

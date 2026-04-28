@@ -2,9 +2,9 @@ Subject: Action Required: ClinProg-Bench Expert Panel Review (Phase 2.2)
 
 Hi Guanlong, Jason, and Xiyang,
 
-Thank you for agreeing to serve on the expert reviewer panel for **ClinProg-Bench v0.1**. 
+Thank you for agreeing to serve on the expert reviewer panel for **ClinProg-Bench v0.1**.
 
-We have generated the 250-task public benchmark and published it, but to fulfill our governance requirements, we must conduct a dual-reviewer human audit on a stratified random sample of 20 tasks to ensure clinical and technical soundness. 
+We have generated the 250-task public benchmark and published it, but to fulfill our governance requirements, we must conduct a dual-reviewer human audit on a stratified random sample of 20 tasks to ensure clinical and technical soundness.
 
 Our target is a **Cohen's kappa (κ) ≥ 0.8** agreement.
 
@@ -25,11 +25,11 @@ Your specific assignments are:
 2. **Evaluate:** For each task, record a binary (Pass/Fail) judgment based on whether the gold output accurately reflects the task specification and adheres to standard CDISC/industry programming guidelines.
 3. **Log:** Use the attached `audit-log.md` file template to record your findings and notes.
 
-Please return your completed logs by **[Insert Date]**. If there are disagreements, we will schedule a brief reconciliation call to resolve them.
+Please return your completed logs by **2026-05-12**. If there are disagreements, we will schedule a brief reconciliation call to resolve them.
 
 Thank you for ensuring the GxP and Pharma-grade rigor of this benchmark!
 
 Best regards,
 
-[Your Name / Title]
+Yanming Yu
 Project Manager, ClinProg-Bench

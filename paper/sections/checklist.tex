@@ -1,0 +1,34 @@
+\section{NeurIPS D\&B Author Checklist}
+\label{sec:checklist}
+
+% Mirrors the NeurIPS Datasets & Benchmarks 2026 author checklist.
+% Update each answer before submission; "TODO" markers below are placeholders.
+
+\begin{itemize}
+  \item \textbf{Dataset documentation.} Datasheet provided as
+        \texttt{DATA\_CARD.md} in the repository root, following Gebru et al.
+        (\S\ref{sec:dataset}).
+  \item \textbf{Author responsibility statement.} The author confirms
+        responsibility in case of violation of rights, see
+        \S\ref{sec:ethics}.
+  \item \textbf{Hosting and access.} Dataset hosted on
+        GitHub (\url{https://github.com/yanmingyu92/clinprog-bench}) and
+        Zenodo (DOI \href{https://doi.org/10.5281/zenodo.19806731}{10.5281/zenodo.19806731}).
+        Persistent dereferenceable identifier: the Zenodo DOI.
+  \item \textbf{License.} Code: Apache-2.0. Data: CC-BY-4.0. Both committed
+        as \texttt{LICENSE} and \texttt{LICENSE-DATA}.
+  \item \textbf{Croissant metadata.} TODO: emit
+        \texttt{croissant.json} via the MLCommons reference encoder before
+        camera-ready.
+  \item \textbf{Reproducibility.} CI workflow
+        (\texttt{.github/workflows/eval.yml}) reproduces the reference
+        baseline on every push. \texttt{CITATION.cff} pins the v0.1.0 SHA.
+  \item \textbf{Computational resources.} See \S\ref{sec:ethics};
+        per-baseline token budgets reported in
+        Table~\ref{tab:baselines}.
+  \item \textbf{Limitations.} \S\ref{sec:limitations}.
+  \item \textbf{Broader impact.} \S\ref{sec:ethics}.
+  \item \textbf{IRB / consent.} Not applicable (no human-subjects data).
+  \item \textbf{Personal / sensitive information.} None
+        (substrate is the public CDISC Pilot Project).
+\end{itemize}

@@ -53,11 +53,18 @@ clinprog-bench/
 
 ## 🏆 Leaderboard
 
-| Agent | T1 | T2 | T3 | T4 | T5 | Avg |
-|-------|-----|-----|-----|-----|-----|-----|
-| Reference Baseline (rules-only) | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+Single-turn baselines on a stratified 25-task subset (5 per category, seed `20260427`). Two conditions: **+grounding** inlines vendored CDISC fixtures (≤8&nbsp;KB/req) from `fixtures/`; **zero-shot** uses prompt only. Reference baseline runs all 250 tasks.
 
-*Submit your results via pull request to join the leaderboard.*
+| Agent | T1 | T2 | T3 | T4 | T5 | Avg (+grounding) | Avg (zero-shot) |
+|-------|-----|-----|-----|-----|-----|-----|-----|
+| DeepSeek-Chat | 0.35 | 0.00 | 0.44 | 0.56 | 0.05 | **0.28** | 0.27 |
+| Claude Sonnet 4.5 | 0.25 | 0.00 | 0.44 | 0.56 | 0.00 | **0.25** | 0.26 |
+| GLM-4.5 | 0.10 | 0.00 | 0.08 | 0.44 | 0.07 | **0.14**¹ | 0.22 |
+| Reference Baseline (rules-only, 250/250) | 0.25 | 0.00 | 0.00 | 0.00 | 0.00 | — | 0.05 |
+
+¹ GLM-4.5 with grounding incurred 7 upstream timeouts (scored 0); the drop is operational, not capability-bounded. See `paper/sections/baselines.tex` for analysis.
+
+*Submit your results via pull request to join the leaderboard. Full run details and per-task submissions: [`docs/leaderboard/`](docs/leaderboard/).*
 
 ## 🔬 Design Principles
 

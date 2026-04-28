@@ -1,0 +1,20 @@
+{
+  "task_id": "T3.3.study_design.036",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\"name\": \"design_type\", \"value\": \"randomized, double-blind, placebo-controlled, parallel-group\"},\n    {\"name\": \"randomization_ratio\", \"value\": \"1:1:1\"},\n    {\"name\": \"blinding_method\", \"value\": \"double-blind\"},\n    {\"name\": \"number_of_arms\", \"value\": 3},\n    {\"name\": \"treatment_duration\", \"value\": \"24 weeks\"},\n    {\"name\": \"follow_up\", \"value\": \"2 weeks\"},\n    {\"name\": \"number_of_sites\", \"value\": \"multi-center\"}\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "2.58",
+    "model": "deepseek-chat",
+    "prompt_tokens": "2078",
+    "completion_tokens": "133"
+  },
+  "score": {
+    "task_id": "T3.3.study_design.036",
+    "category": "T3",
+    "pass": true,
+    "primary": 1.0,
+    "secondary": {}
+  }
+}

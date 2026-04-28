@@ -1,0 +1,41 @@
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{One substrate.} ClinProg-Bench v0.1.0 is grounded entirely in the
+CDISC SDTM/ADaM Pilot Project (a phase-II Alzheimer's-disease protocol).
+This bounds external validity: results on Pilot01-derived tasks may not
+generalise across therapeutic areas, study phases, or proprietary corporate
+standards. A v0.2 release with at least one additional public substrate is
+planned.
+
+\paragraph{Scorer rigidity.} Deterministic scorers reject semantically
+equivalent but syntactically divergent answers (e.g.\ a SAS \texttt{IF/THEN}
+that achieves the same derivation as a \texttt{WHERE} clause). Slot-fill and
+AST-equivalence rubrics mitigate but do not eliminate this. We recommend
+reporting scorer-conformance error rates alongside the headline number.
+
+\paragraph{Static gold outputs.} Gold outputs are frozen at substrate commit
+\texttt{658fcc05}; downstream regulatory practice (CDISC versions, FDA
+guidance) evolves. The benchmark is versioned and Zenodo-archived to make
+this drift explicit.
+
+\paragraph{Single English locale.} All prompts and specifications are in
+English. Multilingual clinical-programming evaluation is left to future work.
+
+\paragraph{Partial fixture coverage.} 42 of the 67 fixture base paths
+referenced by task specifications point at files unauthored in the v1.0
+substrate (15 SDTM \texttt{create\_*.R} programs for the CM, DS, EX, LB,
+MH, QS, SC, SV domains, and 27 TLF mock templates including
+hyphen/underscore naming-style drift). The runner silently skips
+unresolvable paths, so the no-grounding baseline is unaffected, but the
++grounding macro is upper-bounded by a $40\%$ coverage gap on T2/T5.
+Authoring these fixtures and a BM25 retrieval-augmented baseline are the
+headline items for v0.1.1.
+
+\paragraph{Operational variability under grounding.} GLM-4.5 with
+fixture inlining incurred 7 upstream read-timeout errors out of 25
+prompts, dropping its operational macro by $0.08$
+(\S\ref{sec:baselines}). The benchmark records the operational outcome
+rather than retrying because submission throughput under longer prompts
+is itself a property worth measuring; submitters should report timeouts
+and retries explicitly.

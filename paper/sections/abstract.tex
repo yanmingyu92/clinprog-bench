@@ -1,0 +1,17 @@
+Clinical-trial statistical programming---generating CDISC-conforming SDTM and ADaM
+datasets, regulatory tables, and validation artefacts---is a high-stakes,
+domain-specialised software task absent from existing code-LLM benchmarks. We
+introduce \textbf{ClinProg-Bench}, a public benchmark of \textbf{250} expert-curated
+tasks across five categories (code generation, code review, specification
+extraction, documentation, and debugging), grounded in the publicly redistributable
+CDISC SDTM/ADaM Pilot Project and scored by deterministic, language-agnostic
+oracles. The benchmark introduces a stateful runner contract that supports
+multi-agent and retrieval-augmented agents, a two-channel leakage audit
+(SHA-256 byte overlap + 13-gram Jaccard, both reporting zero hits), and a
+dual-reviewer human audit on a stratified random subset (\textbf{Cohen's $\kappa
+\geq 0.8$}). Three frontier models evaluated under zero-shot and
+fixture-grounded conditions achieve macro scores of 0.22--0.28, with no model
+exceeding 0.35 on code generation and scoring near zero on log review and
+debugging---establishing substantial headroom for future systems. We release
+the corpus under CC-BY-4.0, the toolkit under Apache-2.0, and a Zenodo-archived
+snapshot (\href{https://doi.org/10.5281/zenodo.19806731}{10.5281/zenodo.19806731}).

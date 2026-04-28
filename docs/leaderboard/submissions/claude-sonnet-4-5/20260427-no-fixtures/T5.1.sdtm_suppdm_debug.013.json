@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_suppdm_debug.013",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/suppdm.sas\n+++ b/suppdm.sas\n@@ -1,17 +1,17 @@\n data suppdm;\n     set dm;\n     \n-    STUDYID = studyid;\n-    RDOMAIN = 'DM';\n-    USUBJID = usubjid;\n-    IDVAR = 'SUBJID';\n-    IDVARVAL = subjid;\n+    studyid = studyid;\n+    rdomain = 'DM';\n+    usubjid = usubjid;\n+    idvar = 'USUBJID';\n+    idvarval = usubjid;\n     \n-    QNAM = 'consent';\n-    QLABEL = 'Informed Consent';\n-    QVAL = put(consent, 1.);\n-    QORIG = 'CRF';\n+    qnam = 'CONSENT';\n+    qlabel = 'Informed Consent';\n+    qval = put(consent, best.);\n+    qorig = 'CRF';\n     \n-    keep STUDYID RDOMAIN USUBJID IDVAR IDVARVAL QNAM QLABEL QVAL QORIG;\n+    keep studyid rdomain usubjid idvar idvarval qnam qlabel qval qorig;\n run;"
+  },
+  "metadata": {
+    "wall_time_seconds": "5.52",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "217",
+    "completion_tokens": "353"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_suppdm_debug.013",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

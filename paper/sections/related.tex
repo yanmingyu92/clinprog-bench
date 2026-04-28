@@ -1,0 +1,72 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Code-generation benchmarks.}
+HumanEval~\citep{chen2021codex}, MBPP~\citep{austin2021mbpp}, and
+APPS~\citep{hendrycks2021apps} evaluate algorithmic Python on isolated
+functions; BigCodeBench~\citep{zhuo2024bigcodebench} extends the paradigm to
+diverse function calls and complex instructions.
+SWE-Bench~\citep{jimenez2024swebench} and its agent-driven successor
+SWE-Agent~\citep{yang2024swe} target repository-level bug fixing within
+open-source Python projects; RepoBench~\citep{liu2024repobench} benchmarks
+cross-file code completion; LiveCodeBench~\citep{livecodebench2024} evaluates
+on continuously updated competitive-programming problems to reduce data
+contamination.
+These benchmarks share our emphasis on deterministic scoring---unit tests,
+exact match, AST equivalence---but address general-purpose programming.
+None cover SAS or R in regulated settings, domain-specific data standards
+such as CDISC SDTM/ADaM~\citep{cdisc_sdtm_ig,cdisc_adam_ig}, or the
+documentation and validation artefacts required in regulatory submissions.
+ClinProg-Bench fills this gap by grounding all tasks in a real
+clinical-trial substrate and scoring against CDISC-conforming gold outputs.
+
+\paragraph{Domain-specific code benchmarks.}
+DS-1000~\citep{lai2023ds1000} evaluates data-science code generation across
+NumPy, Pandas, and TensorFlow with a ``strict'' mode that rejects syntactic
+variants; Spider~\citep{yu2018spider} benchmarks text-to-SQL semantic parsing
+against gold query sets; CrossCodeEval~\citep{ding2023crosscodeeval} measures
+cross-file code completion across six programming languages;
+CRUXEval~\citep{gu2024cruxeval} probes code reasoning and execution
+understanding.
+These works share our emphasis on grounded, deterministic evaluation but
+address different domains without regulatory constraints.
+A key distinction is that ClinProg-Bench tasks produce outputs that must
+conform to externally imposed standards (CDISC controlled terminology, ADaM
+variable-naming conventions) rather than satisfying only functional
+correctness.
+A program that produces numerically correct output may still fail evaluation
+if variable names, metadata, or documentation do not comply with the
+submission standard---a qualitatively different acceptance criterion.
+
+\paragraph{Biomedical and clinical evaluations.}
+MedQA~\citep{jin2021medqa}, PubMedQA~\citep{jin2019pubmedqa}, and
+MedAlign~\citep{fleming2024medalign} probe clinical and biomedical reasoning
+over natural language and structured text.
+These benchmarks evaluate text understanding and clinical decision-making but
+do not assess code generation, data-standards conformance, or the software
+engineering pipeline that produces regulatory datasets and tables.
+Industry standards bodies---CDISC~\citep{cdisc_sdtm_ig,cdisc_adam_ig}, PHUSE,
+and the ICH~\citep{ich_e6}---define the data models, controlled terminologies,
+and process frameworks (GCP) that clinical programmers work within, but they
+provide substrate and guidance rather than benchmarking infrastructure.
+ClinProg-Bench bridges this gap: it is the first public benchmark that
+evaluates AI systems on the full clinical-programming lifecycle (code
+generation, review, specification extraction, documentation, debugging)
+against a CDISC-conforming substrate released under an open license.
+
+\paragraph{Agentic benchmarks.}
+GAIA~\citep{mialon2023gaia} evaluates general-purpose AI assistants on tasks
+requiring web browsing, tool use, and multi-step reasoning;
+OSWorld~\citep{xie2024osworld} benchmarks multimodal agents in real desktop
+environments; WebArena~\citep{webarena2023} tests end-to-end web interaction;
+AgentBench~\citep{agentbench2023} provides a multi-environment evaluation
+suite across operating systems, databases, and web tasks.
+These benchmarks demonstrate the value of stateful, multi-step evaluation
+protocols for agentic systems.
+ClinProg-Bench adapts this philosophy to the regulated software domain: its
+stateful runner contract (\S\ref{sec:benchmark}) supports multi-agent systems
+that can read specifications, write programs, inspect logs, and
+iterate---mirroring the real clinical-programming workflow.
+Unlike general agentic benchmarks, ClinProg-Bench evaluates domain-specific
+competence with deterministic oracles, avoiding the reliability and
+reproducibility concerns of LLM-as-a-judge scoring.

@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.1.sdtm_relrec_gen.010",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "main.sas": "*-----------------------------------------------------------------------------*\n| Program Name    : sdtm_relrec.sas                                          |\n| Purpose         : Create SDTM RELREC (Related Records) domain              |\n| Study           : ClinProg-Bench                                           |\n| Programmer      : Clinical Statistical Programmer                          |\n| Date Created    : [Date]                                                   |\n*-----------------------------------------------------------------------------*;\n\n%let studyid = CLINPROGBENCH;\n%let domain = RELREC;\n\n*--- Create library references ---*;\nlibname raw \"path/to/raw/data\";\nlibname sdtm \"path/to/sdtm/data\";\n\n*--- Read raw related records data ---*;\ndata relrec_raw;\n    set raw.relrec;\nrun;\n\n*--- Create RELREC domain ---*;\ndata sdtm.relrec;\n    length STUDYID $20 RDOMAIN $2 USUBJID $40 IDVAR $8 IDVARVAL $200 \n           RELTYPE $8 RELID $200;\n    \n    set relrec_raw;\n    \n    *--- Derive STUDYID ---*;\n    STUDYID = \"&studyid\";\n    \n    *--- Derive USUBJID if not present ---*;\n    if missing(USUBJID) then do;\n        if not missing(SITEID) and not missing(SUBJID) then\n            USUBJID = strip(STUDYID) || '-' || strip(SITEID) || '-' || strip(SUBJID);\n        else if not missing(SUBJID) then\n            USUBJID = strip(STUDYID) || '-' || strip(SUBJID);\n    end;\n    \n    *--- Keep only required variables ---*;\n    keep STUDYID RDOMAIN USUBJID IDVAR IDVARVAL RELTYPE RELID RELRECSEQ;\nrun;\n\n*--- Sort by USUBJID for sequential numbering ---*;\nproc sort data=sdtm.relrec;\n    by USUBJID RDOMAIN IDVAR IDVARVAL;\nrun;\n\n*--- Derive RELRECSEQ (sequential numbering per subject) ---*;\ndata sdtm.relrec;\n    set sdtm.relrec;\n    by USUBJID;\n    \n    retain RELRECSEQ;\n    \n    if first.USUBJID then RELRECSEQ = 1;\n    else RELRECSEQ + 1;\nrun;\n\n*--- Apply variable attributes per SDTM specification ---*;\nproc sql;\n    create table sdtm.relrec as\n    select STUDYID label='Study Identifier' length=20,\n           RDOMAIN label='Related Domain Abbreviation' length=2,\n           USUBJID label='Unique Subject Identifier' length=40,\n           IDVAR label='Identifying Variable' length=8,\n           IDVARVAL label='Identifying Variable Value' length=200,\n           RELTYPE label='Relationship Type' length=8,\n           RELID label='Related Identifier' length=200,\n           RELRECSEQ label='Sequence Number' \n    from sdtm.relrec\n    order by USUBJID, RELRECSEQ;\nquit;\n\n*--- Create xpt file ---*;\nlibname xptout xport \"path/to/sdtm/xpt/relrec.xpt\";\n\nproc copy in=sdtm out=xptout memtype=data;\n    select relrec;\nrun;\n\nlibname xptout clear;\n\n*--- Generate summary statistics ---*;\nproc freq data=sdtm.relrec;\n    tables RDOMAIN RELTYPE / missing;\n    title \"RELREC Domain Frequency Counts\";\nrun;\n\nproc means data=sdtm.relrec n nmiss;\n    var RELRECSEQ;\n    title \"RELREC Domain Summary Statistics\";\nrun;\n\ntitle;"
+  },
+  "metadata": {
+    "wall_time_seconds": "15.58",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "287",
+    "completion_tokens": "980"
+  },
+  "score": {
+    "task_id": "T1.1.sdtm_relrec_gen.010",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "relrec_variable_mapping": 0.0,
+      "relrec_derivation_logic": 1.0,
+      "output_format": 0.0
+    }
+  }
+}

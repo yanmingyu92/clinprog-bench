@@ -1,0 +1,28 @@
+{
+  "task_id": "T4.1.tlf_exposure_doc.007",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "document.md": "# Table 14-2.03 Exposure Documentation\n\n## Table Title\nSummary of Exposure (Safety Population)\n\n## Purpose\nThis table summarizes the extent of exposure to study treatment, including treatment duration, dose compliance, and treatment intensity for each treatment group in the Safety Population.\n\n## Data Source\n- **ADSL** (Subject-Level Analysis Dataset) with exposure variables derived from SDTM EX (Exposure) domain\n- Key ADSL variables used:\n  - TRTSDT (Date of First Exposure to Study Treatment)\n  - TRTEDT (Date of Last Exposure to Study Treatment)\n  - TRTDUR (Duration of Treatment in Days)\n  - EXDOSE (Dose per Administration)\n  - EXSTDTC (Start Date/Time of Exposure)\n  - EXENDTC (End Date/Time of Exposure)\n  - EXADJ (Reason for Dose Adjustment)\n  - EXDOSEU (Dose Units)\n  - EXROUTE (Route of Administration)\n  - EXDOSFRQ (Dosing Frequency per Interval)\n\n## Display Conventions\n- **Treatment Duration**: Calculated as (TRTEDT - TRTSDT + 1) days. Presented as n, mean, SD, median, Q1, Q3, min, max.\n- **Dose Compliance**: Calculated as (Actual Total Dose Received / Planned Total Dose) \u00d7 100%. Presented as n, mean, SD, median, Q1, Q3, min, max. Compliance categories: <80%, 80-100%, >100%.\n- **Treatment Intensity**: Calculated as (Actual Dose Intensity / Planned Dose Intensity) \u00d7 100%, where Dose Intensity = Total Dose / Treatment Duration. Presented as n, mean, SD, median, Q1, Q3, min, max.\n- **By Group**: Results presented by treatment group (e.g., Placebo, Low Dose, High Dose) and overall.\n- **Statistics**: Continuous variables summarized using descriptive statistics (n, mean, SD, median, Q1, Q3, min, max). Categorical variables summarized using counts and percentages.\n- **Missing Data**: Subjects with missing exposure data are excluded from relevant summaries and footnoted accordingly.\n- **Rounding**: Means and medians rounded to 1 decimal place; SD rounded to 2 decimal places; percentages rounded to 1 decimal place.\n- **Footnotes**: Include definition of Safety Population, calculation methods for compliance and intensity, and any protocol deviations affecting exposure.\n\n## Table Shell Layout\n\n| Parameter | Statistic | Placebo (N=xx) | Low Dose (N=xx) | High Dose (N=xx) | Overall (N=xx) |\n|-----------|-----------|----------------|-----------------|------------------|----------------|\n| **Treatment Duration (Days)** | n | xx | xx | xx | xx |\n| | Mean (SD) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) |\n| | Median | xx.x | xx.x | xx.x | xx.x |\n| | Q1, Q3 | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x |\n| | Min, Max | xx, xx | xx, xx | xx, xx | xx, xx |\n| **Dose Compliance (%)** | n | xx | xx | xx | xx |\n| | Mean (SD) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) |\n| | Median | xx.x | xx.x | xx.x | xx.x |\n| | Q1, Q3 | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x |\n| | Min, Max | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x |\n| **Compliance Category** | <80% | n (%) | n (%) | n (%) | n (%) |\n| | 80-100% | n (%) | n (%) | n (%) | n (%) |\n| | >100% | n (%) | n (%) | n (%) | n (%) |\n| **Treatment Intensity (%)** | n | xx | xx | xx | xx |\n| | Mean (SD) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) | xx.x (xx.xx) |\n| | Median | xx.x | xx.x | xx.x | xx.x |\n| | Q1, Q3 | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x |\n| | Min, Max | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x | xx.x, xx.x |\n\n## Footnotes\n1. Safety Population includes all subjects who received at least one dose of study treatment.\n2. Treatment Duration = (Date of Last Exposure - Date of First Exposure + 1) days.\n3. Dose Compliance = (Actual Total Dose / Planned Total Dose) \u00d7 100%.\n4. Treatment Intensity = (Actual Dose Intensity / Planned Dose Intensity) \u00d7 100%, where Dose Intensity = Total Dose / Treatment Duration.\n5. Subjects with missing exposure data are excluded from the respective summaries.\n6. Percentages are based on the number of subjects in the Safety Population for each treatment group.\n7. SD = Standard Deviation; Q1 = First Quartile (25th percentile); Q3 = Third Quartile (75th percentile); Min = Minimum; Max = Maximum."
+  },
+  "metadata": {
+    "wall_time_seconds": "14.27",
+    "model": "deepseek-chat",
+    "prompt_tokens": "140",
+    "completion_tokens": "1184"
+  },
+  "score": {
+    "task_id": "T4.1.tlf_exposure_doc.007",
+    "category": "T4",
+    "pass": true,
+    "primary": 0.5,
+    "secondary": {
+      "title": 1.0,
+      "population": 0.0,
+      "data_source": 0.0,
+      "treatment_groups": 1.0,
+      "row_specifications": 1.0,
+      "footnotes": 0.0,
+      "style_lint": 0.9848484848484849
+    }
+  }
+}

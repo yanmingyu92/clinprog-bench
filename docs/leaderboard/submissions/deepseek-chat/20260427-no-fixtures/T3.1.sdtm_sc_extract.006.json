@@ -1,0 +1,32 @@
+{
+  "task_id": "T3.1.sdtm_sc_extract.006",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\"name\": \"STUDYID\", \"label\": \"Study Identifier\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"DOMAIN\", \"label\": \"Domain Abbreviation\", \"type\": \"Char\", \"length\": 2},\n    {\"name\": \"USUBJID\", \"label\": \"Unique Subject Identifier\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCSEQ\", \"label\": \"Sequence Number\", \"type\": \"Num\", \"length\": 8},\n    {\"name\": \"SCTESTCD\", \"label\": \"Subject Characteristic Short Name\", \"type\": \"Char\", \"length\": 8},\n    {\"name\": \"SCTEST\", \"label\": \"Subject Characteristic Test Name\", \"type\": \"Char\", \"length\": 100},\n    {\"name\": \"SCCAT\", \"label\": \"Category for Subject Characteristic\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCORRES\", \"label\": \"Result or Finding in Original Units\", \"type\": \"Char\", \"length\": 200},\n    {\"name\": \"SCORRESU\", \"label\": \"Original Units\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCSTRESC\", \"label\": \"Character Result/Finding in Std Format\", \"type\": \"Char\", \"length\": 200},\n    {\"name\": \"SCSTRESN\", \"label\": \"Numeric Result/Finding in Standard Units\", \"type\": \"Num\", \"length\": 8},\n    {\"name\": \"SCSTRESU\", \"label\": \"Standard Units\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCSTAT\", \"label\": \"Completion Status\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCREASND\", \"label\": \"Reason Not Performed\", \"type\": \"Char\", \"length\": 200},\n    {\"name\": \"SCNAM\", \"label\": \"Vendor Name\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCSPEC\", \"label\": \"Specimen Type\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCMETHOD\", \"label\": \"Method of Test or Examination\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCBLFL\", \"label\": \"Baseline Flag\", \"type\": \"Char\", \"length\": 1},\n    {\"name\": \"SCDRVFL\", \"label\": \"Derived Flag\", \"type\": \"Char\", \"length\": 1},\n    {\"name\": \"VISITNUM\", \"label\": \"Visit Number\", \"type\": \"Num\", \"length\": 8},\n    {\"name\": \"VISIT\", \"label\": \"Visit Name\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"VISITDY\", \"label\": \"Planned Study Day of Visit\", \"type\": \"Num\", \"length\": 8},\n    {\"name\": \"SCEVAL\", \"label\": \"Evaluator\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCEVALID\", \"label\": \"Evaluator Identifier\", \"type\": \"Char\", \"length\": 40},\n    {\"name\": \"SCDTC\", \"label\": \"Date/Time of Collection\", \"type\": \"Char\", \"length\": 20},\n    {\"name\": \"SCDY\", \"label\": \"Study Day of Collection\", \"type\": \"Num\", \"length\": 8},\n    {\"name\": \"SCSTDTC\", \"label\": \"Start Date/Time of Collection\", \"type\": \"Char\", \"length\": 20},\n    {\"name\": \"SCENDTC\", \"label\": \"End Date/Time of Collection\", \"type\": \"Char\", \"length\": 20}\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "10.23",
+    "model": "deepseek-chat",
+    "prompt_tokens": "188",
+    "completion_tokens": "849"
+  },
+  "score": {
+    "task_id": "T3.1.sdtm_sc_extract.006",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.2222222222222222,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].type": 0.6666666666666666,
+      "variables[].type_precision": 0.5,
+      "variables[].type_recall": 1.0,
+      "variables[].label": 0.0,
+      "variables[].label_precision": 0.0,
+      "variables[].label_recall": 0.0,
+      "micro_f1": 0.05128205128205128,
+      "exact_match": 0.0
+    }
+  }
+}

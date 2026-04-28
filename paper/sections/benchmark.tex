@@ -1,0 +1,63 @@
+\section{Benchmark Design}
+\label{sec:benchmark}
+
+\subsection{Runner contract}
+
+ClinProg-Bench specifies a language-agnostic \emph{runner contract}
+(\texttt{src/clinprog\_bench/runners/contract.md}, v0.1.0) that any agent
+must satisfy. For each task the harness:
+%
+\begin{enumerate}
+  \item materialises a fresh workspace populated with the task's fixtures,
+  \item invokes the agent's \texttt{BaseAdapter.run(task, workspace)} method,
+  \item collects a \texttt{Submission} record (immutable; outputs keyed by
+        the task's \texttt{output\_kind}),
+  \item passes the submission to the category-specific scorer.
+\end{enumerate}
+%
+The contract is intentionally state\emph{ful}: the workspace persists across
+sub-tasks within a multi-step task, and the contract admits multi-agent and
+retrieval-augmented systems alongside single-turn LLMs.
+
+\subsection{Scorers}
+
+Each category has a single deterministic scorer; \emph{no} LLM-as-a-judge is
+used. Scorers are pure functions of (gold output, submission), implemented
+in \texttt{src/clinprog\_bench/scorers/}, and unit-tested
+(\texttt{tests/scorers/}, 79 tests, 100\% pass on v0.1.0).
+
+\begin{table}[h]
+\centering
+\small
+\caption{Scoring rubrics per category.}
+\label{tab:scorers}
+\begin{tabular}{lll}
+\toprule
+Scorer & Method & Output range \\
+\midrule
+\texttt{codegen}      & AST-equivalence + slot-fill on key statements      & $[0, 1]$ \\
+\texttt{log\_review}  & set match / confusion matrix on review findings    & $[0, 1]$ \\
+\texttt{spec\_extract}& set match on extracted slots                       & $[0, 1]$ \\
+\texttt{doc}          & slot-fill on required documentation fields         & $[0, 1]$ \\
+\texttt{debug}        & patch-apply: does the patch fix the seeded defect? & $\{0, 1\}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The aggregate benchmark score is the macro-average across the five
+categories, reported alongside per-category and per-sub-category breakdowns.
+
+\subsection{Reference baseline}
+
+A rules-only \texttt{ReferenceBaselineAdapter}
+(\texttt{src/clinprog\_bench/runners/baselines/reference.py}) emits empty
+or trivially-formed submissions. Its purpose is \emph{not} comparison but
+scorer validation: the reference baseline scores $0.00$ across all
+categories, confirming that no scorer admits trivial outputs.
+
+\subsection{Evaluation harness and CI}
+
+The benchmark CI workflow (\texttt{.github/workflows/eval.yml}) runs three
+jobs on every push to \texttt{master}: schema-lint, unit tests, and a
+reference-baseline smoke evaluation. A successful CI run is a precondition
+for tagging a release.

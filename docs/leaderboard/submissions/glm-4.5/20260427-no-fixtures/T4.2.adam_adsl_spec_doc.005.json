@@ -1,0 +1,27 @@
+{
+  "task_id": "T4.2.adam_adsl_spec_doc.005",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "document.md": "# ADSL Analysis Variable Derivation Documentation\n\n## 1. Treatment Variable Derivation Chain\n\n### 1.1 TRT01P/TRT01PN Derivation from DM.ARMCD\n\nThe treatment variables in ADSL are derived from the DM domain as follows:\n\n```\nADSL.TRT01P = DM.ARMCD\nADSL.TRT01PN = Decode(DM.ARMCD, treatment_code_mapping)\n```\n\nWhere:\n- `TRT01P` represents the planned treatment for period 01 as a code\n- `TRT01PN` represents the planned treatment for period 01 as a decoded character value\n- `treatment_code_mapping` is a mapping of treatment codes to their corresponding descriptions\n\nExample mapping:\n- \"PLC\" \u2192 \"Placebo\"\n- \"DRG10\" \u2192 \"Drug 10mg\"\n- \"DRG20\" \u2192 \"Drug 20mg\"\n\n### 1.2 Treatment Sequence Variables\n\nFor multiple treatment periods, the following variables are derived:\n\n```\nADSL.TRT02P = DM.ARMCD2\nADSL.TRT02PN = Decode(DM.ARMCD2, treatment_code_mapping)\n```\n\n## 2. Population Flag Criteria\n\n### 2.1 Safety Analysis Population (SAFFL)\n\n```\nSAFFL = \"Y\" if subject meets all of the following criteria:\n  - Subject received at least one dose of study treatment\n  - Subject has at least one post-baseline safety assessment\nSAFFL = \"N\" otherwise\n```\n\n### 2.2 Intent-to-Treat Population (ITTFL)\n\n```\nITTFL = \"Y\" if subject meets all of the following criteria:\n  - Subject was randomized\n  - Subject has at least one post-baseline efficacy assessment\nITTFL = \"N\" otherwise\n```\n\n### 2.3 Per-Protocol Population (PPFL)\n\n```\nPPFL = \"Y\" if subject meets all of the following criteria:\n  - ITTFL = \"Y\"\n  - Subject completed the study without major protocol violations\n  - Subject has a treatment compliance rate \u2265 80%\nPPFL = \"N\" otherwise\n```\n\n### 2.4 Major Protocol Violation Flag\n\n```\nMAJPROVFL = \"Y\" if subject has any major protocol violations as determined by the medical monitor\nMAJPROVFL = \"N\" otherwise\n```\n\n## 3. Baseline Measure Sources\n\n### 3.1 Continuous Variables\n\nFor continuous variables, baseline is typically defined as the last non-missing assessment prior to first dose of study treatment:\n\n```\nBASE = Last non-missing value prior to or on the first dose date (EX.STDTM)\n```\n\n### 3.2 Categorical Variables\n\nFor categorical variables, baseline is typically defined as the last non-missing assessment prior to first dose of study treatment:\n\n```\nBASEC = Last non-missing categorical value prior to or on the first dose date (EX.STDTM)\n```\n\n### 3.3 Specific Variable Baselines\n\n#### 3.3.1 Vital Signs\n\n```\nBASEx = Last non-missing VS record prior to or on the first dose date (EX.STDTM)\n```\n\nWhere x represents the vital sign parameter (e.g., BASESYS for systolic blood pressure).\n\n#### 3.3.2 Laboratory Values\n\n```\nBASEx = Last non-missing LB record prior to or on the first dose date (EX.STDTM)\n```\n\nWhere x represents the laboratory test (e.g., BASEGLUC for glucose).\n\n#### 3.3.3 ECG Parameters\n\n```\nBASEx = Last non-missing EG record prior to or on the first dose date (EX.STDTM)\n```\n\nWhere x represents the ECG parameter (e.g., BASEQT for QT interval).\n\n## 4. Disposition Flag Logic\n\n### 4.1 Completion Status\n\n```\nCOMPLFL = \"Y\" if subject completed the study as defined in the protocol\nCOMPLFL = \"N\" if subject discontinued early for any reason\n```\n\n### 4.2 Disposition Reason Flags\n\n```\nDSRAEFL = \"Y\" if subject discontinued due to adverse event\nDSRDECFL = \"Y\" if subject discontinued due to decision by subject\nDSRPROGFL = \"Y\" if subject discontinued due to disease progression\nDSRLOSTFL = \"Y\" if subject was lost to follow-up\nDSROTHFL = \"Y\" if subject discontinued for other reasons\n```\n\n### 4.3 Disposition Date\n\n``\nDCDT = Date of disposition (from DS domain)\n```\n\n### 4.4 Early Discontinuation Flag\n\n```\nEOSSTT = \"COMPLETED\" if COMPLFL = \"Y\"\nEOSSTT = \"DISCONTINUED\" if COMPLFL = \"N\"\n```\n\n## 5. Additional Analysis Variables\n\n### 5.1 Treatment Duration\n\n```\nTRTDUR = Last treatment date (EX.ENDTM) - First treatment date (EX.STDTM) + 1\n```\n\n### 5.2 Study Day\n\n```\nTRTSDT = Date of first treatment (EX.STDTM)\nTRTEDT = Date of last treatment (EX.ENDTM)\n```\n\n### 5.3 Age at Randomization\n\n```\nAGE = Randomization date (RF.RFSTDTC) - Date of birth (DM.BRTHDTC)\n```\n\n### 5.4 Age Group\n\n```\nAGEGR1 = Age group based on AGE:\n  \"1\" if AGE < 18\n  \"2\" if 18 \u2264 AGE < 65\n  \"3\" if AGE \u2265 65\n```\n\n### 5.5 Sex\n\n```\nSEX = DM.SEX\n```\n\n### 5.6 Race\n\n```\nRACE = DM.RACE\n```\n\n### 5.7 Ethnicity\n\n```\nETHNIC = DM.ETHNIC\n```"
+  },
+  "metadata": {
+    "wall_time_seconds": "28.83",
+    "model": "glm-4.5",
+    "prompt_tokens": "153",
+    "completion_tokens": "1485"
+  },
+  "score": {
+    "task_id": "T4.2.adam_adsl_spec_doc.005",
+    "category": "T4",
+    "pass": true,
+    "primary": 0.6,
+    "secondary": {
+      "title": 1.0,
+      "specification_summary": 1.0,
+      "data_standards": 0.0,
+      "variable_inventory": 0.0,
+      "compliance_status": 1.0,
+      "style_lint": 0.9948717948717949
+    }
+  }
+}

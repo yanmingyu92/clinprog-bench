@@ -18,7 +18,6 @@
   },
   "inputs": {
     "fixtures": [
-      "fixtures/06_tlfs/mock_templates/t_mock_14-2-04_visit.md",
       "fixtures/05_adam/ADaM_Specifications.md#ADSL"
     ],
     "spec": "fixtures/06_tlfs/mock_templates/t_mock_14-2-04_visit.md",

@@ -1,0 +1,85 @@
+\section{Dataset}
+\label{sec:dataset}
+
+% Cross-reference: full Datasheets-for-Datasets card lives at DATA_CARD.md
+% in the repository root. This section summarises only what is necessary
+% to evaluate the benchmark.
+
+\subsection{Substrate and provenance}
+
+All tasks are grounded in the publicly redistributable CDISC SDTM/ADaM Pilot
+Project (CC-BY-4.0), pinned via Git submodule at commit
+\texttt{658fcc05506b169a27dee6e2c3a1ccdaaf64a716}. Each task's
+\texttt{provenance} block records its derivation script and the substrate
+commit, making generation end-to-end auditable. A SHA-256 manifest of 272
+fixture files is committed alongside the tasks.
+
+\paragraph{Vendored fixture subset.} For grounding-conditioned baselines
+(\S\ref{sec:baselines}), a 26-file, 682\,KB subset of the substrate is
+vendored verbatim under \texttt{fixtures/}. The subset is the
+intersection of the 67 fixture base paths referenced by
+\texttt{inputs.fixtures} across the 250 task specifications and the
+files that exist in the v1.0.0 substrate; the remaining 42 references
+(15 SDTM domain-creator R programs and 27 TLF mock templates with
+hyphen/underscore naming drift) are unauthored upstream and are tracked
+as v0.1.1 work (\S\ref{sec:limitations}). Vendoring is verbatim with no
+modification; substrate \texttt{LICENSE} and \texttt{NOTICE.md} accompany
+the files.
+
+\subsection{Composition}
+
+ClinProg-Bench contains \textbf{250} tasks distributed across five categories
+(Table~\ref{tab:taxonomy}). Each task is a validated \texttt{TaskSpec} JSON
+file bundled with fixture files, a markdown specification, and a gold output
+under \texttt{gold/<task\_id>/}.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Task taxonomy. Output kinds and scorers are fixed per
+sub-category to support deterministic evaluation.}
+\label{tab:taxonomy}
+\begin{tabular}{llrll}
+\toprule
+Category & Sub-categories & N & Output kind & Scorer \\
+\midrule
+T1 Code Generation & SDTM (22), ADaM (18), TLF (20)         & 60 & program & \texttt{codegen} \\
+T2 Code Review     & program (25), validation (25)          & 50 & JSON    & \texttt{log\_review} \\
+T3 Spec Extraction & SDTM (21), ADaM (18), TLF (11)         & 50 & JSON    & \texttt{spec\_extract} \\
+T4 Documentation   & TLF (16), dataset card (13), synopsis (11) & 40 & text & \texttt{doc} \\
+T5 Debugging       & SDTM (17), ADaM (17), TLF (16)         & 50 & patch   & \texttt{debug} \\
+\midrule
+Total              &                                        & 250 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Quality assurance}
+
+\paragraph{Schema validation.} Every task is parsed by the strict pydantic
+schema in \texttt{src/clinprog\_bench/schema.py}; \texttt{task\_id} is fixed
+to the regex \texttt{T[1-5]\textbackslash.[1-9][0-9]?\textbackslash.[a-z0-9\_]+\textbackslash.[0-9]\{3\}}
+and \texttt{seed\_commit} to a 40-char SHA-1. Validation runs on every CI
+push (\texttt{.github/workflows/eval.yml}, job \texttt{validate}).
+
+\paragraph{Leakage audit.} A two-channel audit (\texttt{scripts/leakage\_audit.py})
+checks (a) SHA-256 byte overlap between gold outputs and the substrate, and
+(b) 13-gram Jaccard similarity between task prompts and substrate text. Both
+channels report \textbf{0 hits} on the v0.1.0 release; the report is
+committed at \texttt{docs/leakage-audit.md}.
+
+\paragraph{Dual-reviewer audit.} A stratified random subset (seed
+\texttt{20260426}, 4 tasks per category, 20 total) is independently rated by
+two domain experts using a 5-point rubric. The acceptance threshold is Cohen's
+$\kappa \geq 0.8$. Materials are shipped under \texttt{review\_package/} and
+the audit log template is at \texttt{docs/audit-log.md}.
+
+\subsection{Licensing and release}
+
+The benchmark toolkit (Python package, scorers, runner contract) is released
+under \textbf{Apache-2.0}. The task corpus (JSON, gold outputs, fixtures) is
+released under \textbf{CC-BY-4.0}, inheriting the substrate license. A
+versioned snapshot is archived on Zenodo
+(DOI \href{https://doi.org/10.5281/zenodo.19806731}{10.5281/zenodo.19806731}).
+A full Gebru-style data card lives at \texttt{DATA\_CARD.md} in the repository
+root.

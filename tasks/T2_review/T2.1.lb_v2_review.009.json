@@ -18,7 +18,6 @@
   },
   "inputs": {
     "fixtures": [
-      "fixtures/04_sdtm/programs/create_lb.R",
       "fixtures/04_sdtm/SDTM_Specifications.md"
     ],
     "spec": "fixtures/04_sdtm/SDTM_Specifications.md#LB",

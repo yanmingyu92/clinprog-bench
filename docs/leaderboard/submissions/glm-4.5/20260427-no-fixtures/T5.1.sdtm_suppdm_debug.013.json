@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_suppdm_debug.013",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "patch.diff": "--- a/suppdm.sas\n+++ b/suppdm.sas\n@@ -1,15 +1,15 @@\n DATA suppdm;\n   SET dm;\n   \n-  /* Bug 1: IDVAR references wrong variable (should be USUBJID, not SUBJID) */\n-  IDVAR = \"SUBJID\";\n+  /* Fix 1: IDVAR should reference USUBJID */\n+  IDVAR = \"USUBJID\";\n   \n-  /* Bug 2: QNAM uses lowercase (should be uppercase) */\n-  QNAM = \"raceorig\";\n+  /* Fix 2: QNAM should be uppercase */\n+  QNAM = \"RACEORIG\";\n   \n-  /* Bug 3: QVAL binary values use wrong format (should be 'Y'/'N', not 1/0) */\n-  IF RACEORIG = 1 THEN QVAL = \"1\";\n-  ELSE QVAL = \"0\";\n+  /* Fix 3: QVAL binary values should use 'Y'/'N' format */\n+  IF RACEORIG = 1 THEN QVAL = \"Y\";\n+  ELSE QVAL = \"N\";\n   \n   /* Other variables */\n   RDOMAIN = \"DM\";"
+  },
+  "metadata": {
+    "wall_time_seconds": "22.25",
+    "model": "glm-4.5",
+    "prompt_tokens": "184",
+    "completion_tokens": "1079"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_suppdm_debug.013",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

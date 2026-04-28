@@ -18,8 +18,7 @@
   },
   "inputs": {
     "fixtures": [
-      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md",
-      "fixtures/06_tlfs/mock_templates/"
+      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
     ],
     "spec": "fixtures/08_validation/document_alignment_checklist.md",
     "prompt": "Verify secondary endpoint analyses (CIBIC+, NPI-X) have matching mock shells. Check statistical methods alignment. Return JSON with 'alignment_checks' array. Return a structured JSON object with the reviewed findings."

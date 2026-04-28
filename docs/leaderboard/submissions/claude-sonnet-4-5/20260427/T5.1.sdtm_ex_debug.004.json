@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_ex_debug.004",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/ex.sas\n+++ b/ex.sas\n@@ -15,7 +15,7 @@\n         EXSTDTC = put(EXSTDT, is8601da.);\n         EXENDTC = put(EXENDT, is8601da.);\n         \n-        if EXTRT ne 'Placebo' then EXDOSU = 'mg';\n+        EXDOSU = 'mg';\n         \n         EXROUTE = 'ORAL';\n         EXLOC = '';\n@@ -28,10 +28,10 @@\n     run;\n     \n     proc sort data=ex_pre;\n-        by USUBJID;\n+        by USUBJID EXSTDTC;\n     run;\n     \n-    data ex;\n+    data ex(drop=_seq);\n         set ex_pre;\n-        EXSEQ = _N_;\n+        by USUBJID;\n+        if first.USUBJID then _seq = 0;\n+        _seq + 1;\n+        EXSEQ = _seq;\n     run;"
+  },
+  "metadata": {
+    "wall_time_seconds": "6.70",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "231",
+    "completion_tokens": "290"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_ex_debug.004",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

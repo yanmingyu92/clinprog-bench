@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adsl_disp_extract.023",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\n      \"variable\": \"DISCONFL\",\n      \"label\": \"Did Subject Discontinue?\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"origin\": \"Derived\",\n      \"derivation\": \"Set to 'Y' if subject discontinued from study (DS.DSDECOD='COMPLETED' is absent or DS.DSTERM contains discontinuation indicator); otherwise 'N'. Derived from DS domain where DSSTDTC is not null and DSCAT='DISPOSITION EVENT'.\",\n      \"values\": [\"Y\", \"N\"],\n      \"source_domain\": \"DS\"\n    },\n    {\n      \"variable\": \"DSRAEFL\",\n      \"label\": \"Discontinued due to AE?\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"origin\": \"Derived\",\n      \"derivation\": \"Set to 'Y' if subject discontinued due to adverse event (DS.DSDECOD='ADVERSE EVENT' or DS.DSTERM contains 'ADVERSE EVENT' where DSCAT='DISPOSITION EVENT'); otherwise 'N'. Requires DISCONFL='Y'.\",\n      \"values\": [\"Y\", \"N\"],\n      \"source_domain\": \"DS\"\n    },\n    {\n      \"variable\": \"EOSSTT\",\n      \"label\": \"End of Study Status\",\n      \"type\": \"Char\",\n      \"length\": 14,\n      \"origin\": \"Derived\",\n      \"derivation\": \"Set to 'COMPLETED' if DS.DSDECOD='COMPLETED' where DSCAT='DISPOSITION EVENT'; set to 'DISCONTINUED' if subject has discontinuation record in DS (DSDECOD not equal to 'COMPLETED'). Derived from DS domain disposition records.\",\n      \"values\": [\"COMPLETED\", \"DISCONTINUED\"],\n      \"source_domain\": \"DS\"\n    },\n    {\n      \"variable\": \"DCSREAS\",\n      \"label\": \"Reason for Discontinuation\",\n      \"type\": \"Char\",\n      \"length\": 40,\n      \"origin\": \"SDTM.DS\",\n      \"derivation\": \"Populated from DS.DSDECOD where DSCAT='DISPOSITION EVENT' and subject discontinued (DSDECOD not equal to 'COMPLETED'). Contains the primary reason for study discontinuation. Set to null if DISCONFL='N' or EOSSTT='COMPLETED'.\",\n      \"values\": [\"ADVERSE EVENT\", \"LACK OF EFFICACY\", \"LOST TO FOLLOW-UP\", \"PHYSICIAN DECISION\", \"PROTOCOL VIOLATION\", \"WITHDRAWAL BY SUBJECT\", \"OTHER\"],\n      \"source_domain\": \"DS\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "10.47",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "3532",
+    "completion_tokens": "662"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adsl_disp_extract.023",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].derivation_notes": 0.0,
+      "variables[].derivation_notes_precision": 0.0,
+      "variables[].derivation_notes_recall": 0.0,
+      "micro_f1": 0.0,
+      "exact_match": 0.0
+    }
+  }
+}

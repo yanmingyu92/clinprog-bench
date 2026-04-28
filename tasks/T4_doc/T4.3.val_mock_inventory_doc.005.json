@@ -18,7 +18,7 @@
   },
   "inputs": {
     "fixtures": [
-      "fixtures/06_tlfs/mock_templates/"
+      "fixtures/06_tlfs/mock_templates/README.md"
     ],
     "spec": "fixtures/06_tlfs/mock_templates/README.md",
     "prompt": "Document the mock shell inventory. List all mock shells with table/figure IDs, titles, populations, data sources, and SAP coverage. Identify any gaps in mock shell coverage. Return structured documentation."

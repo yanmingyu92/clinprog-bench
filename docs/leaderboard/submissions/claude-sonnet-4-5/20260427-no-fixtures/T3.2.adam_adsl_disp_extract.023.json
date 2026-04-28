@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adsl_disp_extract.023",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\n      \"variable\": \"DISCONFL\",\n      \"label\": \"Subject Discontinued from Study Flag\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"source\": \"DS\",\n      \"derivation\": \"Set to 'Y' if any DS record has DSDECOD = 'DISCONTINUED' or DSTERM contains 'DISCONTINUED'. Otherwise set to 'N'. Derived from DS domain where DSCAT = 'DISPOSITION EVENT'.\"\n    },\n    {\n      \"variable\": \"DSRAEFL\",\n      \"label\": \"Discontinued due to Adverse Event Flag\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"source\": \"DS\",\n      \"derivation\": \"Set to 'Y' if any DS record has DSDECOD = 'ADVERSE EVENT' or DSSCAT = 'ADVERSE EVENT' where subject discontinued. Otherwise set to 'N'. Derived from DS domain where DSCAT = 'DISPOSITION EVENT' and subject has DISCONFL = 'Y'.\"\n    },\n    {\n      \"variable\": \"EOSSTT\",\n      \"label\": \"End of Study Status\",\n      \"type\": \"Char\",\n      \"length\": 20,\n      \"source\": \"DS\",\n      \"derivation\": \"Derived from DS domain where DSCAT = 'DISPOSITION EVENT' and DSDECOD in ('COMPLETED', 'DISCONTINUED'). Set to DSDECOD value from the last disposition record per subject. If DSDECOD = 'COMPLETED', set EOSSTT = 'COMPLETED'. If DSDECOD = 'DISCONTINUED', set EOSSTT = 'DISCONTINUED'.\"\n    },\n    {\n      \"variable\": \"DCSREAS\",\n      \"label\": \"Reason for Discontinuation from Study\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"source\": \"DS\",\n      \"derivation\": \"Derived from DS domain where DSCAT = 'DISPOSITION EVENT' and DSDECOD = 'DISCONTINUED'. Set to DSDECOD value or DSTERM that describes the primary reason for discontinuation. Common values include 'ADVERSE EVENT', 'LACK OF EFFICACY', 'LOST TO FOLLOW-UP', 'PHYSICIAN DECISION', 'PROTOCOL VIOLATION', 'SUBJECT WITHDREW CONSENT', 'OTHER'. Only populated when DISCONFL = 'Y'.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "10.58",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "219",
+    "completion_tokens": "615"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adsl_disp_extract.023",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].derivation_notes": 0.0,
+      "variables[].derivation_notes_precision": 0.0,
+      "variables[].derivation_notes_recall": 0.0,
+      "micro_f1": 0.0,
+      "exact_match": 0.0
+    }
+  }
+}

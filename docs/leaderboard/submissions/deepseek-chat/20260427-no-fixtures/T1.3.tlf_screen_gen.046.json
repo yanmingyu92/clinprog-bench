@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.3.tlf_screen_gen.046",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "main.sas": "library(rtables)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(haven)\nlibrary(rtf)\n\n# Read ADSL dataset\nadsl <- read_sas(\"adsl.sas7bdat\")  # Adjust path as needed\n\n# Filter to All Screened population (SAFFL == \"Y\" or similar)\n# Assuming SAFFL indicates screened population; adjust if different\nadsl_screened <- adsl %>% filter(SAFFL == \"Y\")\n\n# Define treatment groups in order\nadsl_screened <- adsl_screened %>%\n  mutate(TRT01AN = factor(TRT01AN, levels = c(0, 54, 81),\n                          labels = c(\"Placebo\", \"Xanomeline Low\", \"Xanomeline High\")))\n\n# Create screening summary data\n# 1. Screening counts\nscreening_counts <- adsl_screened %>%\n  group_by(TRT01AN) %>%\n  summarise(\n    Screened = n(),\n    Screen_Failure = sum(DCREASON == \"Screen Failure\", na.rm = TRUE),\n    Enrolled = sum(DCREASON != \"Screen Failure\" | is.na(DCREASON), na.rm = TRUE)\n  ) %>%\n  ungroup()\n\n# 2. Screen failure reasons (assuming DCSREAS contains reason)\nscreen_fail_reasons <- adsl_screened %>%\n  filter(DCREASON == \"Screen Failure\") %>%\n  group_by(TRT01AN, DCSREAS) %>%\n  summarise(n = n(), .groups = \"drop\") %>%\n  complete(TRT01AN, DCSREAS, fill = list(n = 0)) %>%\n  pivot_wider(names_from = TRT01AN, values_from = n, values_fill = 0)\n\n# 3. Enrollment summary (assuming ENRLFL indicates enrolled)\nenrollment_summary <- adsl_screened %>%\n  group_by(TRT01AN) %>%\n  summarise(\n    Enrolled = sum(ENRLFL == \"Y\", na.rm = TRUE),\n    Not_Enrolled = sum(ENRLFL != \"Y\" | is.na(ENRLFL), na.rm = TRUE)\n  ) %>%\n  ungroup()\n\n# Build table using rtables\n# Create basic table structure\nlyt <- basic_table(title = \"Table 14-1.01: Screening Summary\",\n                   subtitles = \"All Screened Population\") %>%\n  split_cols_by(\"TRT01AN\") %>%\n  add_colcounts()\n\n# Add screening counts row\nlyt <- lyt %>%\n  analyze(\"Screened\", function(x, ...) {\n    in_rows(\"Screened\" = rcell(length(x), format = \"xx\"))\n  })\n\n# Add screen failure row\nlyt <- lyt %>%\n  analyze(\"Screen_Failure\", function(x, ...) {\n    in_rows(\"Screen Failure\" = rcell(sum(x == \"Screen Failure\", na.rm = TRUE), format = \"xx\"))\n  })\n\n# Add enrolled row\nlyt <- lyt %>%\n  analyze(\"Enrolled\", function(x, ...) {\n    in_rows(\"Enrolled\" = rcell(sum(x != \"Screen Failure\" | is.na(x), na.rm = TRUE), format = \"xx\"))\n  })\n\n# Build table\ntbl <- build_table(lyt, adsl_screened)\n\n# Add screen failure reasons as separate section\n# Create a separate table for reasons\nreason_lyt <- basic_table() %>%\n  split_cols_by(\"TRT01AN\") %>%\n  add_colcounts()\n\nfor (reason in unique(screen_fail_reasons$DCSREAS)) {\n  reason_lyt <- reason_lyt %>%\n    analyze(\"DCSREAS\", function(x, ...) {\n      in_rows(reason = rcell(sum(x == reason, na.rm = TRUE), format = \"xx\"))\n    })\n}\n\nreason_tbl <- build_table(reason_lyt, adsl_screened %>% filter(DCREASON == \"Screen Failure\"))\n\n# Combine tables\nfinal_tbl <- rbind(tbl, \n                   rrow(\"Screen Failure Reasons\"),\n                   reason_tbl,\n                   rrow(\"Enrollment Summary\"),\n                   rrow(\"Enrolled\", \n                        rcell(screening_counts$Enrolled[1], format = \"xx\"),\n                        rcell(screening_counts$Enrolled[2], format = \"xx\"),\n                        rcell(screening_counts$Enrolled[3], format = \"xx\")),\n                   rrow(\"Not Enrolled\",\n                        rcell(enrollment_summary$Not_Enrolled[1], format = \"xx\"),\n                        rcell(enrollment_summary$Not_Enrolled[2], format = \"xx\"),\n                        rcell(enrollment_summary$Not_Enrolled[3], format = \"xx\")))\n\n# Output as RTF\nrtf_file <- \"t14-01-01_screening_summary.rtf\"\nrtf <- RTF(rtf_file, width = 8.5, height = 11, font.size = 10)\naddTable(rtf, final_tbl, font.size = 10, row.names = FALSE, \n         col.just = \"C\", header.col.just = \"C\")\ndone(rtf)\n\ncat(\"RTF file generated:\", rtf_file, \"\\n\")"
+  },
+  "metadata": {
+    "wall_time_seconds": "13.62",
+    "model": "deepseek-chat",
+    "prompt_tokens": "210",
+    "completion_tokens": "1125"
+  },
+  "score": {
+    "task_id": "T1.3.tlf_screen_gen.046",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "population_filter": 0.0,
+      "screen_analysis_logic": 1.0,
+      "table_structure": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

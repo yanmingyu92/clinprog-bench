@@ -1,0 +1,20 @@
+{
+  "task_id": "T3.3.study_design.036",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"study_design\": {\n    \"design_type\": [\n      \"randomized\",\n      \"double-blind\",\n      \"placebo-controlled\",\n      \"parallel-group\",\n      \"multi-center\",\n      \"prospective\"\n    ],\n    \"phase\": \"2/3\",\n    \"randomization_ratio\": \"1:1:1\",\n    \"blinding_method\": \"double-blind\",\n    \"number_of_arms\": 3,\n    \"treatment_arms\": [\n      {\n        \"arm\": \"Placebo\",\n        \"description\": \"Placebo transdermal patch\",\n        \"planned_n\": 100\n      },\n      {\n        \"arm\": \"Xanomeline Low Dose\",\n        \"description\": \"Xanomeline 50 cm\u00b2 TTS\",\n        \"planned_n\": 100\n      },\n      {\n        \"arm\": \"Xanomeline High Dose\",\n        \"description\": \"Xanomeline 75 cm\u00b2 TTS\",\n        \"planned_n\": 100\n      }\n    ],\n    \"treatment_duration_weeks\": 24,\n    \"follow_up_duration_weeks\": 2,\n    \"total_study_duration_weeks\": 26,\n    \"screening_period_days\": 28,\n    \"planned_enrollment\": 300,\n    \"number_of_sites\": \"multi-center\",\n    \"indication\": \"Alzheimer's Disease (Mild to Moderate)\",\n    \"primary_objective\": \"To evaluate the efficacy of xanomeline TTS compared to placebo on cognitive function in patients with mild to moderate Alzheimer's disease\",\n    \"primary_endpoint\": \"Change from baseline to Week 24 in ADAS-Cog score\"\n  }\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "6.05",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "2510",
+    "completion_tokens": "431"
+  },
+  "score": {
+    "task_id": "T3.3.study_design.036",
+    "category": "T3",
+    "pass": true,
+    "primary": 1.0,
+    "secondary": {}
+  }
+}

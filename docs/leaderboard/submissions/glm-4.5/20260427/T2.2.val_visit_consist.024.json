@@ -1,0 +1,27 @@
+{
+  "task_id": "T2.2.val_visit_consist.024",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 1,\n      \"severity\": \"warning\",\n      \"category\": \"VISITNUM consistency\",\n      \"message\": \"VISITNUM 99 (Unscheduled) found in AE domain but not defined in SV domain\"\n    },\n    {\n      \"line\": 2,\n      \"severity\": \"warning\",\n      \"category\": \"VISITNUM consistency\",\n      \"message\": \"VISITNUM 10 (Early Termination) found in VS and LB domains but missing in QS domain\"\n    },\n    {\n      \"line\": 3,\n      \"severity\": \"info\",\n      \"category\": \"VISITNUM coverage\",\n      \"message\": \"SV domain contains VISITNUM 5 (Week 4) but no records found in AE domain for this visit\"\n    },\n    {\n      \"line\": 4,\n      \"severity\": \"error\",\n      \"category\": \"VISITNUM alignment\",\n      \"message\": \"Inconsistent VISITNUM values across domains: VISITNUM 8 refers to 'Week 12' in VS domain but 'Week 16' in LB domain\"\n    },\n    {\n      \"line\": 5,\n      \"severity\": \"warning\",\n      \"category\": \"VISITNUM coverage\",\n      \"message\": \"VISITNUM 3 (Week 2) defined in SV domain but missing in 15% of subjects in QS domain\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "57.84",
+    "model": "glm-4.5",
+    "prompt_tokens": "2656",
+    "completion_tokens": "1511"
+  },
+  "score": {
+    "task_id": "T2.2.val_visit_consist.024",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 0.0,
+      "findings[].*": 1.0
+    }
+  }
+}

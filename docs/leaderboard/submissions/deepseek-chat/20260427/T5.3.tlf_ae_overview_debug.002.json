@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.3.tlf_ae_overview_debug.002",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "patch.diff": "--- a/programs/tlf_ae_overview.R\n+++ b/programs/tlf_ae_overview.R\n@@ -10,7 +10,7 @@\n # Read ADSL and ADAE\n adsl <- read_xpt(\"data/05_adam/adsl.xpt\")\n adae <- read_xpt(\"data/05_adam/adae.xpt\")\n-adsl_sub <- adsl[adsl$ITTFL == \"Y\", ]\n+adsl_sub <- adsl[adsl$SAFFL == \"Y\", ]\n \n # Create treatment groups\n trt_groups <- unique(adsl_sub$TRT01AN)\n@@ -30,7 +30,7 @@\n   for (j in seq_along(trt_groups)) {\n     trt <- trt_groups[j]\n     subj_ids <- adsl_sub$USUBJID[adsl_sub$TRT01AN == trt]\n-    ae_sub <- adae[adae$USUBJID %in% subj_ids, ]\n+    ae_sub <- adae[adae$USUBJID %in% subj_ids & adae$TRTEMFL == \"Y\", ]\n     \n     # Count subjects with at least one AE\n     n_subj_ae <- length(unique(ae_sub$USUBJID[ae_sub$AOCC01FL == \"Y\"]))\n@@ -40,7 +40,7 @@\n     n_subj_death <- length(unique(ae_sub$USUBJID[ae_sub$AEOUT == \"FATAL\"]))\n     \n     # Count total events\n-    n_events <- nrow(ae_sub)\n+    n_events <- length(unique(ae_sub$USUBJID))\n     \n     # Store results\n     results[i, j + 1] <- sprintf(\"%d (%d%%)\", n_subj_ae, round(100 * n_subj_ae / n_subj))"
+  },
+  "metadata": {
+    "wall_time_seconds": "5.69",
+    "model": "deepseek-chat",
+    "prompt_tokens": "2812",
+    "completion_tokens": "421"
+  },
+  "score": {
+    "task_id": "T5.3.tlf_ae_overview_debug.002",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

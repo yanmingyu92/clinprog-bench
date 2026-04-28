@@ -1,0 +1,23 @@
+{
+  "task_id": "T4.1.tlf_exposure_doc.007",
+  "agent_name": "reference-baseline",
+  "outputs": {
+    "document.md": ""
+  },
+  "metadata": {},
+  "score": {
+    "task_id": "T4.1.tlf_exposure_doc.007",
+    "category": "T4",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "title": 0.0,
+      "population": 0.0,
+      "data_source": 0.0,
+      "treatment_groups": 0.0,
+      "row_specifications": 0.0,
+      "footnotes": 0.0,
+      "style_lint": 0.0
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adadas_param_extract.026",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"parameters\": [\n    {\n      \"paramcd\": \"ACTOT\",\n      \"param\": \"ADAS-Cog Total Score (0-70)\",\n      \"scoring_rule\": \"Sum of items ACITM01 through ACITM11\",\n      \"range\": \"0-70\"\n    },\n    {\n      \"paramcd\": \"ACITM01\",\n      \"param\": \"ADAS-Cog Item 01 - Word Recall Task\",\n      \"scoring_rule\": \"Number of words not recalled (0-10)\",\n      \"range\": \"0-10\"\n    },\n    {\n      \"paramcd\": \"ACITM02\",\n      \"param\": \"ADAS-Cog Item 02 - Commands\",\n      \"scoring_rule\": \"Number of commands not performed correctly (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM03\",\n      \"param\": \"ADAS-Cog Item 03 - Constructional Praxis\",\n      \"scoring_rule\": \"Rating of drawing ability (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM04\",\n      \"param\": \"ADAS-Cog Item 04 - Delayed Word Recall\",\n      \"scoring_rule\": \"Number of words not recalled after delay (0-10)\",\n      \"range\": \"0-10\"\n    },\n    {\n      \"paramcd\": \"ACITM05\",\n      \"param\": \"ADAS-Cog Item 05 - Naming Objects and Fingers\",\n      \"scoring_rule\": \"Number of items not named correctly (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM06\",\n      \"param\": \"ADAS-Cog Item 06 - Ideational Praxis\",\n      \"scoring_rule\": \"Number of steps not performed correctly (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM07\",\n      \"param\": \"ADAS-Cog Item 07 - Orientation\",\n      \"scoring_rule\": \"Number of orientation items incorrect (0-8)\",\n      \"range\": \"0-8\"\n    },\n    {\n      \"paramcd\": \"ACITM08\",\n      \"param\": \"ADAS-Cog Item 08 - Word Recognition Task\",\n      \"scoring_rule\": \"Number of words not recognized (0-12)\",\n      \"range\": \"0-12\"\n    },\n    {\n      \"paramcd\": \"ACITM09\",\n      \"param\": \"ADAS-Cog Item 09 - Remembering Test Instructions\",\n      \"scoring_rule\": \"Rating of ability to remember instructions (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM10\",\n      \"param\": \"ADAS-Cog Item 10 - Spoken Language Ability\",\n      \"scoring_rule\": \"Rating of comprehensibility (0-5)\",\n      \"range\": \"0-5\"\n    },\n    {\n      \"paramcd\": \"ACITM11\",\n      \"param\": \"ADAS-Cog Item 11 - Word Finding Difficulty\",\n      \"scoring_rule\": \"Rating of word-finding difficulty (0-5)\",\n      \"range\": \"0-5\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "8.98",
+    "model": "deepseek-chat",
+    "prompt_tokens": "194",
+    "completion_tokens": "725"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adadas_param_extract.026",
+    "category": "T3",
+    "pass": true,
+    "primary": 0.5,
+    "secondary": {
+      "parameters[].paramcd": 1.0,
+      "parameters[].paramcd_precision": 1.0,
+      "parameters[].paramcd_recall": 1.0,
+      "parameters[].description": 0.0,
+      "parameters[].description_precision": 0.0,
+      "parameters[].description_recall": 0.0,
+      "micro_f1": 0.6666666666666666,
+      "exact_match": 0.0
+    }
+  }
+}

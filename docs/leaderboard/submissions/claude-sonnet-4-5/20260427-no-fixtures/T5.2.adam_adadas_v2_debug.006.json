@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.2.adam_adadas_v2_debug.006",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/adadas.R\n+++ b/adadas.R\n@@ -1,7 +1,7 @@\n # ADADAS derivation with bugs to fix:\n-# Bug 1: CHG is inverted (should be AVAL - BASE, not BASE - AVAL)\n-# Bug 2: ANL01FL is set for all parameters (should be only ACTOT)\n-# Bug 3: PCHG divides by wrong variable (should divide by BASE, not AVAL)\n+# Bug 1: CHG calculation inverted\n+# Bug 2: ANL01FL set for all parameters instead of ACTOT only\n+# Bug 3: PCHG divides by AVAL instead of BASE\n \n library(dplyr)\n library(admiral)\n@@ -45,7 +45,7 @@\n   group_by(USUBJID, PARAMCD) %>%\n   mutate(\n     BASE = if_else(ABLFL == \"Y\", AVAL, NA_real_),\n-    CHG = BASE - AVAL,  # Bug 1: inverted\n+    CHG = AVAL - BASE,\n     BASE = zoo::na.locf(BASE, na.rm = FALSE)\n   ) %>%\n   ungroup()\n@@ -53,13 +53,13 @@\n # Derive percent change\n adadas <- adadas %>%\n   mutate(\n-    PCHG = if_else(!is.na(CHG) & !is.na(AVAL) & AVAL != 0, \n-                   CHG / AVAL * 100, NA_real_)  # Bug 3: divides by AVAL\n+    PCHG = if_else(!is.na(CHG) & !is.na(BASE) & BASE != 0, \n+                   CHG / BASE * 100, NA_real_)\n   )\n \n # Derive analysis flag\n adadas <- adadas %>%\n   mutate(\n-    ANL01FL = if_else(!is.na(AVAL), \"Y\", NA_character_)  # Bug 2: set for all\n+    ANL01FL = if_else(PARAMCD == \"ACTOT\" & !is.na(AVAL), \"Y\", NA_character_)\n   )"
+  },
+  "metadata": {
+    "wall_time_seconds": "11.08",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "219",
+    "completion_tokens": "583"
+  },
+  "score": {
+    "task_id": "T5.2.adam_adadas_v2_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

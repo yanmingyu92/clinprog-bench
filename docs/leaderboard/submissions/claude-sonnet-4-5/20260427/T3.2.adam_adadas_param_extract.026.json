@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adadas_param_extract.026",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"parameters\": [\n    {\n      \"PARAMCD\": \"ACTOT\",\n      \"PARAM\": \"ADAS-COG (11) Total Score\",\n      \"description\": \"Total score across 11 items\",\n      \"type\": \"total_score\",\n      \"scoring_rule\": \"Sum of 11 individual item scores (ACITM01-ACITM11)\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 70,\n        \"unit\": \"score\"\n      },\n      \"interpretation\": \"Higher scores indicate greater cognitive impairment\"\n    },\n    {\n      \"PARAMCD\": \"ACITM01\",\n      \"PARAM\": \"Word Recall\",\n      \"description\": \"Item 1 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 1,\n      \"scoring_rule\": \"Number of words not recalled\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 10,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM02\",\n      \"PARAM\": \"Naming Objects and Fingers\",\n      \"description\": \"Item 2 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 2,\n      \"scoring_rule\": \"Number of naming errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM03\",\n      \"PARAM\": \"Commands\",\n      \"description\": \"Item 3 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 3,\n      \"scoring_rule\": \"Number of commands not performed\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM04\",\n      \"PARAM\": \"Constructional Praxis\",\n      \"description\": \"Item 4 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 4,\n      \"scoring_rule\": \"Drawing errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM05\",\n      \"PARAM\": \"Ideational Praxis\",\n      \"description\": \"Item 5 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 5,\n      \"scoring_rule\": \"Task performance errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM06\",\n      \"PARAM\": \"Orientation\",\n      \"description\": \"Item 6 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 6,\n      \"scoring_rule\": \"Number of orientation errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 8,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM07\",\n      \"PARAM\": \"Word Recognition\",\n      \"description\": \"Item 7 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 7,\n      \"scoring_rule\": \"Recognition errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 12,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM08\",\n      \"PARAM\": \"Remembering Test Instructions\",\n      \"description\": \"Item 8 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 8,\n      \"scoring_rule\": \"Instruction recall errors\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM09\",\n      \"PARAM\": \"Spoken Language Ability\",\n      \"description\": \"Item 9 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 9,\n      \"scoring_rule\": \"Language ability rating\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM10\",\n      \"PARAM\": \"Word Finding Difficulty\",\n      \"description\": \"Item 10 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 10,\n      \"scoring_rule\": \"Word finding difficulty rating\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    },\n    {\n      \"PARAMCD\": \"ACITM11\",\n      \"PARAM\": \"Comprehension\",\n      \"description\": \"Item 11 score\",\n      \"type\": \"individual_item\",\n      \"item_number\": 11,\n      \"scoring_rule\": \"Comprehension ability rating\",\n      \"range\": {\n        \"min\": 0,\n        \"max\": 5,\n        \"unit\": \"score\"\n      }\n    }\n  ],\n  \"metadata\": {\n    \"dataset\": \"ADADAS\",\n    \"label\": \"ADAS-Cog (11) Analysis Dataset\",\n    \"class\": \"BASIC DATA STRUCTURE (BDS)\",\n    \"structure\": \"One or more records per subject per analysis parameter per analysis timepoint\",\n    \"key_variables\": [\"STUDYID\", \"USUBJID\", \"PARAMCD\", \"AVISITN\"],\n    \"total_records\": 2718,\n    \"scale_name\": \"ADAS-COG (11)\",\n    \"total_items\": 11,\n    \"total_score_range\": {\n      \"min\": 0,\n      \"max\": 70\n    },\n    \"scoring_principle\": \"Higher scores indicate worse cognitive function\"\n  }\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "16.12",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "3533",
+    "completion_tokens": "1548"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adadas_param_extract.026",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "parameters[].paramcd": 0.0,
+      "parameters[].paramcd_precision": 0.0,
+      "parameters[].paramcd_recall": 0.0,
+      "parameters[].description": 0.0,
+      "parameters[].description_precision": 0.0,
+      "parameters[].description_recall": 0.0,
+      "micro_f1": 0.0,
+      "exact_match": 0.0
+    }
+  }
+}

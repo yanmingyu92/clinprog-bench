@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.3.tlf_responder_debug.006",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "patch.diff": "--- a/programs/tlf_responder.R\n+++ b/programs/tlf_responder.R\n@@ -1,15 +1,15 @@\n # Bug 1: Wrong responder definition: should be >=50% reduction from baseline, not >=30%\n-responder <- ifelse(change >= 30, 1, 0)\n+responder <- ifelse(change >= 50, 1, 0)\n \n # Bug 2: Wrong statistical test: should be Fisher's exact test, not chi-squared\n-chi_test <- chisq.test(table(trt, responder))\n+fish_test <- fisher.test(table(trt, responder))\n \n # Bug 3: Wrong denominator: should be N in each treatment group, not total N\n-denom <- rep(n_total, 2)\n+denom <- as.vector(table(trt))\n \n # Bug 4: Missing not excluded: need to filter out subjects with missing baseline or post-baseline\n-data <- data[!is.na(baseline) & !is.na(post), ]\n+data <- data[!is.na(baseline) & !is.na(post) & !is.na(exclude_flag), ]\n \n # Also ensure the exclusion flag is properly handled\n-data <- data[data$exclude_flag != \"Y\", ]\n+data <- data[is.na(data$exclude_flag) | data$exclude_flag != \"Y\", ]"
+  },
+  "metadata": {
+    "wall_time_seconds": "4.31",
+    "model": "deepseek-chat",
+    "prompt_tokens": "192",
+    "completion_tokens": "302"
+  },
+  "score": {
+    "task_id": "T5.3.tlf_responder_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "matched_fixes": 1.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

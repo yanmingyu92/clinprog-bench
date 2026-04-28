@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.1.sdtm_relrec_gen.010",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "main.sas": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "72.30",
+    "model": "glm-4.5",
+    "prompt_tokens": "240",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T1.1.sdtm_relrec_gen.010",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "relrec_variable_mapping": 0.0,
+      "relrec_derivation_logic": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.1.sdtm_suppdm_gen.016",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "main.sas": "*******************************************************************************;\n* Program:      suppdm.sas\n* Description:  Create SDTM SUPPDM (Supplemental DM) domain\n* Study:        CDISCPILOT01\n* Standard:     SDTM IG v3.1.2\n*******************************************************************************;\n\n%let studyid = CDISCPILOT01;\n\n*--- Read raw supplemental DM data ---;\ndata raw_suppdm;\n    length STUDYID $12 SITEID $3 SUBJID $4 \n           QNAM $8 QVAL $200 QLABEL $40;\n    infile datalines dsd truncover;\n    input STUDYID $ SITEID $ SUBJID $ QNAM $ QVAL $ QLABEL $;\n    datalines;\n;\nrun;\n\n*--- Alternative: Read from external source if available ---;\n%macro read_raw_suppdm;\n    %if %sysfunc(exist(rawdata.suppdm_raw)) %then %do;\n        data raw_suppdm;\n            set rawdata.suppdm_raw;\n        run;\n    %end;\n    %else %if %sysfunc(fileexist(\"&rawpath/suppdm.csv\")) %then %do;\n        proc import datafile=\"&rawpath/suppdm.csv\"\n            out=raw_suppdm\n            dbms=csv\n            replace;\n            guessingrows=max;\n        run;\n    %end;\n%mend read_raw_suppdm;\n\n%read_raw_suppdm;\n\n*--- Derive USUBJID ---;\ndata suppdm_usubjid;\n    set raw_suppdm;\n    length USUBJID $11;\n    USUBJID = catx('-', STUDYID, SITEID, SUBJID);\nrun;\n\n*--- Create SUPPDM structure with required variables ---;\ndata suppdm_base;\n    length STUDYID $12\n           RDOMAIN $2\n           USUBJID $11\n           IDVAR $8\n           IDVARVAL $11\n           QNAM $8\n           QLABEL $40\n           QVAL $200\n           QORIG $8\n           QEVAL $20;\n    \n    set suppdm_usubjid;\n    \n    * Set domain-related variables;\n    STUDYID = \"&studyid\";\n    RDOMAIN = \"DM\";\n    IDVAR = \"USUBJID\";\n    IDVARVAL = USUBJID;\n    \n    * Set origin and evaluator;\n    if missing(QORIG) then QORIG = \"CRF\";\n    if missing(QEVAL) then QEVAL = \"\";\n    \n    * Ensure QNAM and QLABEL are populated;\n    if missing(QNAM) then delete;\n    \n    keep STUDYID RDOMAIN USUBJID IDVAR IDVARVAL QNAM QLABEL QVAL QORIG QEVAL;\nrun;\n\n*--- Sort by USUBJID and QNAM for sequence numbering ---;\nproc sort data=suppdm_base;\n    by USUBJID QNAM;\nrun;\n\n*--- Derive SUPPDMSEQ (sequential numbering per subject) ---;\ndata suppdm_seq;\n    set suppdm_base;\n    by USUBJID;\n    \n    retain SUPPDMSEQ;\n    \n    if first.USUBJID then SUPPDMSEQ = 1;\n    else SUPPDMSEQ + 1;\nrun;\n\n*--- Apply variable attributes per SDTM specification ---;\ndata suppdm;\n    attrib\n        STUDYID   length=$12  label=\"Study Identifier\"\n        RDOMAIN   length=$2   label=\"Related Domain Abbreviation\"\n        USUBJID   length=$11  label=\"Unique Subject Identifier\"\n        IDVAR     length=$8   label=\"Identifying Variable\"\n        IDVARVAL  length=$11  label=\"Identifying Variable Value\"\n        QNAM      length=$8   label=\"Qualifier Variable Name\"\n        QLABEL    length=$40  label=\"Qualifier Variable Label\"\n        QVAL      length=$200 label=\"Data Value\"\n        QORIG     length=$8   label=\"Origin\"\n        QEVAL     length=$20  label=\"Evaluator\"\n        SUPPDMSEQ length=8    label=\"Sequence Number\";\n    \n    set suppdm_seq;\n    \n    * Ensure proper ordering of variables;\n    keep STUDYID RDOMAIN USUBJID IDVAR IDVARVAL QNAM QLABEL QVAL QORIG QEVAL SUPPDMSEQ;\nrun;\n\n*--- Sort final dataset ---;\nproc sort data=suppdm;\n    by STUDYID USUBJID SUPPDMSEQ;\nrun;\n\n*--- Create permanent SAS dataset ---;\ndata sdtm.suppdm;\n    set suppdm;\nrun;\n\n*--- Create XPT transport file ---;\nlibname xptout xport \"&outpath/sdtm/suppdm.xpt\";\n\ndata xptout.suppdm;\n    set sdtm.suppdm;\nrun;\n\nlibname xptout clear;\n\n*--- Generate summary report ---;\nproc sql noprint;\n    select count(*) into :nobs trimmed\n    from sdtm.suppdm;\n    \n    select count(distinct USUBJID) into :nsubj trimmed\n    from sdtm.suppdm;\n    \n    select count(distinct QNAM) into :nqnam trimmed\n    from sdtm.suppdm;\nquit;\n\nproc freq data=sdtm.suppdm;\n    tables QNAM*QLABEL / list missing;\n    title \"SUPPDM Domain - Qualifier Variable Frequency\";\nrun;\n\nproc print data=sdtm.suppdm(obs=10);\n    title \"SUPPDM Domain - First 10 Records\";\nrun;\n\n%put NOTE: SUPPDM domain created successfully;\n%put NOTE: Total records: &nobs;\n%put NOTE: Total subjects: &nsubj;\n%put NOTE: Total qualifiers: &nqnam;\n\ntitle;"
+  },
+  "metadata": {
+    "wall_time_seconds": "23.66",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "3359",
+    "completion_tokens": "1547"
+  },
+  "score": {
+    "task_id": "T1.1.sdtm_suppdm_gen.016",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "suppdm_variable_mapping": 0.0,
+      "suppdm_derivation_logic": 1.0,
+      "output_format": 0.0
+    }
+  }
+}

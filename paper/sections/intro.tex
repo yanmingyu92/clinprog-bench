@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:intro}
+
+Clinical-trial statistical programming sits at the intersection of regulated
+software, domain-specific data standards (CDISC SDTM, ADaM, Define-XML), and
+high-stakes outputs: every dataset and listing in a regulatory submission is
+inspected by FDA, EMA, or PMDA reviewers and feeds directly into approval
+decisions. The work is also voluminous---a single phase-III trial typically
+yields hundreds of programs across SAS, R, and increasingly Python---and
+expensive: median compensation for clinical statistical programmers exceeds
+\$120k/year and the global shortage of qualified personnel is well documented.
+
+Despite recent advances in code generation, applying general-purpose LLMs to
+clinical programming surfaces systematic failure modes that existing benchmarks
+do not capture. Consider two representative errors observed when prompting
+frontier models on CDISC tasks: (1)~a model asked to derive the SDTM AE domain
+populates \texttt{AEBODSYS} with the verbatim term instead of the MedDRA
+System Organ Class, producing a dataset that passes functional tests but
+violates CDISC controlled terminology; (2)~a model generating an ADaM ADSL
+dataset assigns \texttt{TRT01PN} values of \texttt{1, 2, 3} instead of the
+protocol-specified \texttt{0, 54, 81}, introducing a treatment-mapping error
+that would propagate through every downstream efficacy table. These failures
+are invisible to general code benchmarks but would trigger regulatory
+rejections. ClinProg-Bench is designed to expose precisely this class of
+domain-specific correctness violations.
+
+No existing public benchmark evaluates code LLMs or agentic systems on
+clinical-programming workflows. General code benchmarks (HumanEval, MBPP,
+SWE-Bench, BigCodeBench) cover algorithmic Python or open-source maintenance;
+biomedical NLP benchmarks (MedQA, PubMedQA) target text understanding rather
+than code; and pharma-internal evaluations rely on proprietary studies that
+cannot be released. The vacuum forces practitioners to evaluate models on
+hand-rolled, non-comparable test suites.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{ClinProg-Bench} (\S\ref{sec:dataset}): 250 expert-curated tasks
+    spanning code generation, code review, specification extraction,
+    documentation, and debugging, all grounded in the publicly redistributable
+    CDISC SDTM/ADaM Pilot Project (CC-BY-4.0).
+  \item \textbf{Deterministic scorers} (\S\ref{sec:benchmark}): five
+    category-specific scorers using AST equivalence, set match, confusion
+    matrix, slot fill, and patch-apply rubrics. No LLM-as-a-judge.
+  \item \textbf{Stateful runner contract} (\S\ref{sec:benchmark}): a
+    language-agnostic workspace protocol that admits multi-agent and
+    RAG-augmented systems, not just single-turn inference.
+  \item \textbf{Governance scaffolding} (\S\ref{sec:dataset}): two-channel
+    leakage audit and a Cohen's $\kappa \geq 0.8$ dual-reviewer audit on a
+    stratified random subset.
+  \item \textbf{Public release}: Apache-2.0 / CC-BY-4.0, Zenodo DOI, CI-tested
+    on every push, and a rules-only reference baseline for scorer validation.
+\end{enumerate}

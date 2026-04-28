@@ -1,0 +1,28 @@
+{
+  "task_id": "T4.1.tlf_medhist_doc.010",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "document.md": "# Table 14-1.04 Medical History Summary\n\n## Overview\nThis table summarizes the medical history of subjects in the study population, based on data collected from the SDTM MH domain with MedDRA coding. Medical history conditions are classified by System Organ Class (SOC) and Preferred Term (PT), with prevalence counts and percentages presented for each category.\n\n## Data Source\n- **SDTM Domain**: MH (Medical History)\n- **Coding Dictionary**: MedDRA (Medical Dictionary for Regulatory Activities), version [XX.X]\n- **Population**: All enrolled subjects (Safety Population)\n\n## Display Format\n\n### Table Structure\n| System Organ Class / Preferred Term | Category 1 (N=xxx) n (%) | Category 2 (N=xxx) n (%) | Total (N=xxx) n (%) |\n|-------------------------------------|--------------------------|--------------------------|---------------------|\n| **Total number of subjects with any medical history condition** | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n| **SOC: [System Organ Class Name]** | | | |\n| PT: [Preferred Term 1] | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n| PT: [Preferred Term 2] | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n| ... | ... | ... | ... |\n\n### Key Display Rules\n1. **SOC Grouping**: Conditions are grouped alphabetically by System Organ Class, with SOC headers displayed in bold.\n2. **PT Prevalence**: Within each SOC, Preferred Terms are listed in descending order of frequency in the total column.\n3. **Most Common Conditions**: A separate summary section may highlight the most frequently reported conditions (e.g., those occurring in \u22655% of subjects in any treatment group).\n4. **Percentages**: Calculated using the number of subjects in each treatment group as denominator (N).\n5. **Sorting**: SOCs sorted alphabetically; PTs sorted by descending frequency within SOC.\n6. **Missing Data**: Subjects with missing or unknown medical history are not included in the counts.\n\n## Most Common Conditions Summary (Optional Section)\n| Preferred Term | Category 1 (N=xxx) n (%) | Category 2 (N=xxx) n (%) | Total (N=xxx) n (%) |\n|----------------|--------------------------|--------------------------|---------------------|\n| Condition A | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n| Condition B | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n| Condition C | xx (xx.x%) | xx (xx.x%) | xx (xx.x%) |\n\n*Note: Only conditions with an overall prevalence \u22655% are included in this summary.*\n\n## Programming Notes\n- Use ADMH or directly derive from SDTM MH as per analysis requirements.\n- Apply MedDRA version specified in the study dictionary version.\n- Ensure proper handling of multiple occurrences per subject (count subject once per PT/SOC).\n- Include a footnote specifying the MedDRA version used for coding.\n\n## Footnotes\n1. MedDRA version [XX.X] was used for coding medical history conditions.\n2. Percentages are based on the number of subjects in each treatment group.\n3. Subjects may be counted in more than one SOC or PT category.\n4. Medical history data were collected at baseline (Visit 1)."
+  },
+  "metadata": {
+    "wall_time_seconds": "9.53",
+    "model": "deepseek-chat",
+    "prompt_tokens": "148",
+    "completion_tokens": "711"
+  },
+  "score": {
+    "task_id": "T4.1.tlf_medhist_doc.010",
+    "category": "T4",
+    "pass": true,
+    "primary": 0.5,
+    "secondary": {
+      "title": 1.0,
+      "population": 0.0,
+      "data_source": 0.0,
+      "treatment_groups": 1.0,
+      "row_specifications": 1.0,
+      "footnotes": 0.0,
+      "style_lint": 0.9807692307692307
+    }
+  }
+}

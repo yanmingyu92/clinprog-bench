@@ -1,0 +1,27 @@
+{
+  "task_id": "T2.2.val_lb_ref_range.026",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 15,\n      \"severity\": \"error\",\n      \"category\": \"Reference Range\",\n      \"message\": \"LBORNRLO is missing for subject with LBTESTCD='ALT' at visit 'SCREENING'\"\n    },\n    {\n      \"line\": 23,\n      \"severity\": \"error\",\n      \"category\": \"Reference Range\",\n      \"message\": \"LBORNRHI is missing for subject with LBTESTCD='AST' at visit 'BASELINE'\"\n    },\n    {\n      \"line\": 42,\n      \"severity\": \"error\",\n      \"category\": \"Reference Range\",\n      \"message\": \"LBNRNRLO is missing for subject with LBTESTCD='HGB' at visit 'WEEK 4'\"\n    },\n    {\n      \"line\": 58,\n      \"severity\": \"error\",\n      \"category\": \"Reference Range\",\n      \"message\": \"LBNRNRHI is missing for subject with LBTESTCD='PLT' at visit 'WEEK 8'\"\n    },\n    {\n      \"line\": 71,\n      \"severity\": \"warning\",\n      \"category\": \"Reference Range\",\n      \"message\": \"Inconsistent LBORNRLO values across visits for LBTESTCD='CREAT' - value changed from 0.6 to 0.7 without documented reason\"\n    },\n    {\n      \"line\": 89,\n      \"severity\": \"error\",\n      \"category\": \"Reference Range\",\n      \"message\": \"LBORNRLO (5.0) is greater than LBORNRHI (4.0) for LBTESTCD='SODIUM' at visit 'WEEK 12'\"\n    },\n    {\n      \"line\": 104,\n      \"severity\": \"warning\",\n      \"category\": \"Reference Range Indicator\",\n      \"message\": \"LBNRIND='LOW' but LBSTRESN (4.2) is within reference range LBORNRLO (4.0) - LBORNRHI (5.0) for LBTESTCD='ALB' at visit 'WEEK 16'\"\n    },\n    {\n      \"line\": 117,\n      \"severity\": \"warning\",\n      \"category\": \"Reference Range Indicator\",\n      \"message\": \"LBNRIND='HIGH' but LBSTRESN (135) is within reference range LBORNRLO (130) - LBORNRHI (145) for LBTESTCD='GLUC' at visit 'WEEK 20'\"\n    },\n    {\n      \"line\": 132,\n      \"severity\": \"info\",\n      \"category\": \"Reference Range\",\n      \"message\": \"Reference range values (LBORNRLO/LBORNRHI) are consistent across all visits for LBTESTCD='WBC'\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "15.34",
+    "model": "glm-4.5",
+    "prompt_tokens": "179",
+    "completion_tokens": "878"
+  },
+  "score": {
+    "task_id": "T2.2.val_lb_ref_range.026",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 0.0,
+      "findings[].*": 1.0
+    }
+  }
+}

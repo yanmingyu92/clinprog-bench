@@ -389,15 +389,15 @@
                 <div class="stat-label">Languages</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">1</div>
-                <div class="stat-label">Submissions</div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">LLM Submissions</div>
             </div>
         </div>
 
         <div class="table-wrapper">
             <div class="table-header">
                 <span class="table-title">🏆 Leaderboard</span>
-                <span class="table-meta">Last updated: April 27, 2026</span>
+                <span class="table-meta">Last updated: April 28, 2026 · seed=20260427</span>
             </div>
             <table id="leaderboard">
                 <thead>
@@ -409,20 +409,55 @@
                         <th onclick="sortTable(4)">T4 Doc <span class="sort-icon">▲▼</span></th>
                         <th onclick="sortTable(5)">T5 Debug <span class="sort-icon">▲▼</span></th>
                         <th onclick="sortTable(6)" class="sorted">Average <span class="sort-icon">▲▼</span></th>
+                        <th onclick="sortTable(7)">No-Grounding <span class="sort-icon">▲▼</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="rank rank-1">1</span>Reference Baseline</td>
+                        <td><span class="rank rank-1">1</span>DeepSeek-Chat <small>(+grounding, 25/250 stratified)</small></td>
+                        <td class="score-cell">0.35</td>
+                        <td class="score-cell">0.00</td>
+                        <td class="score-cell">0.44</td>
+                        <td class="score-cell">0.56</td>
+                        <td class="score-cell">0.05</td>
+                        <td class="score-cell avg-cell">0.28</td>
+                        <td class="score-cell" style="color:var(--text-muted)">0.27</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank rank-2">2</span>Claude Sonnet 4.5 <small>(+grounding, 25/250 stratified)</small></td>
+                        <td class="score-cell">0.25</td>
+                        <td class="score-cell">0.00</td>
+                        <td class="score-cell">0.44</td>
+                        <td class="score-cell">0.56</td>
+                        <td class="score-cell">0.00</td>
+                        <td class="score-cell avg-cell">0.25</td>
+                        <td class="score-cell" style="color:var(--text-muted)">0.26</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank rank-3">3</span>GLM-4.5 <small>(+grounding, 25/250 stratified)</small></td>
+                        <td class="score-cell">0.10</td>
+                        <td class="score-cell">0.00</td>
+                        <td class="score-cell">0.08</td>
+                        <td class="score-cell">0.44</td>
+                        <td class="score-cell">0.07</td>
+                        <td class="score-cell avg-cell">0.14</td>
+                        <td class="score-cell" style="color:var(--text-muted)">0.22</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank">4</span>Reference Baseline <small>(rules-only, 250/250, no grounding)</small></td>
+                        <td class="score-cell">0.25</td>
                         <td class="score-cell">0.00</td>
                         <td class="score-cell">0.00</td>
                         <td class="score-cell">0.00</td>
                         <td class="score-cell">0.00</td>
-                        <td class="score-cell">0.00</td>
-                        <td class="score-cell avg-cell">0.00</td>
+                        <td class="score-cell avg-cell">—</td>
+                        <td class="score-cell" style="color:var(--text-muted)">0.05</td>
                     </tr>
                 </tbody>
             </table>
+            <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.78rem;line-height:1.5;">
+                <strong style="color:var(--text-secondary)">Grounding</strong> = task prompt augmented with vendored CDISC fixtures (≤8&nbsp;KB per request) from <code>fixtures/</code>. <strong style="color:var(--text-secondary)">No-Grounding</strong> = zero-shot, prompt only. GLM-4.5 with grounding incurred 7&nbsp;upstream timeouts, scored as 0; this is the actual operational signal under longer prompts.
+            </div>
         </div>
 
         <div class="submit-section">

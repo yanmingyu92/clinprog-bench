@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adadas_param_extract.026",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"parameters\": [\n    {\n      \"PARAMCD\": \"ACTOT\",\n      \"PARAM\": \"ADAS-COG (11) Total Score\",\n      \"description\": \"Total score across 11 items\",\n      \"scoring_rule\": \"Sum of ACITM01 through ACITM11 scores\",\n      \"range\": \"0 to 70\"\n    },\n    {\n      \"PARAMCD\": \"ACITM01\",\n      \"PARAM\": \"Word Recall\",\n      \"description\": \"Item 1 score\",\n      \"scoring_rule\": \"Number of words not recalled (0-10)\",\n      \"range\": \"0 to 10\"\n    },\n    {\n      \"PARAMCD\": \"ACITM02\",\n      \"PARAM\": \"Naming Objects and Fingers\",\n      \"description\": \"Item 2 score\",\n      \"scoring_rule\": \"Number of objects/fingers not named correctly (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM03\",\n      \"PARAM\": \"Commands\",\n      \"description\": \"Item 3 score\",\n      \"scoring_rule\": \"Number of commands not performed correctly (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM04\",\n      \"PARAM\": \"Constructional Praxis\",\n      \"description\": \"Item 4 score\",\n      \"scoring_rule\": \"Number of figures not copied correctly (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM05\",\n      \"PARAM\": \"Ideational Praxis\",\n      \"description\": \"Item 5 score\",\n      \"scoring_rule\": \"Number of steps not performed correctly (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM06\",\n      \"PARAM\": \"Orientation\",\n      \"description\": \"Item 6 score\",\n      \"scoring_rule\": \"Number of orientation items not answered correctly (0-8)\",\n      \"range\": \"0 to 8\"\n    },\n    {\n      \"PARAMCD\": \"ACITM07\",\n      \"PARAM\": \"Word Recognition\",\n      \"description\": \"Item 7 score\",\n      \"scoring_rule\": \"Number of words not recognized correctly (0-12)\",\n      \"range\": \"0 to 12\"\n    },\n    {\n      \"PARAMCD\": \"ACITM08\",\n      \"PARAM\": \"Remembering Test Instructions\",\n      \"description\": \"Item 8 score\",\n      \"scoring_rule\": \"Number of instructions not remembered (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM09\",\n      \"PARAM\": \"Spoken Language Ability\",\n      \"description\": \"Item 9 score\",\n      \"scoring_rule\": \"Rating of language ability (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM10\",\n      \"PARAM\": \"Word Finding Difficulty\",\n      \"description\": \"Item 10 score\",\n      \"scoring_rule\": \"Rating of word-finding difficulty (0-5)\",\n      \"range\": \"0 to 5\"\n    },\n    {\n      \"PARAMCD\": \"ACITM11\",\n      \"PARAM\": \"Comprehension\",\n      \"description\": \"Item 11 score\",\n      \"scoring_rule\": \"Rating of comprehension ability (0-5)\",\n      \"range\": \"0 to 5\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "9.59",
+    "model": "deepseek-chat",
+    "prompt_tokens": "2814",
+    "completion_tokens": "794"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adadas_param_extract.026",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "parameters[].paramcd": 0.0,
+      "parameters[].paramcd_precision": 0.0,
+      "parameters[].paramcd_recall": 0.0,
+      "parameters[].description": 0.0,
+      "parameters[].description_precision": 0.0,
+      "parameters[].description_recall": 0.0,
+      "micro_f1": 0.0,
+      "exact_match": 0.0
+    }
+  }
+}

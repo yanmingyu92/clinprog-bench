@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_ds_debug.003",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/ds.sas\n+++ b/ds.sas\n@@ -45,7 +45,7 @@\n     length STUDYID $20 DOMAIN $2 USUBJID $40 DSSEQ 8 \n            DSTERM $200 DSDECOD $200 DSCAT $40 DSSCAT $40\n            DSSTDTC $20 EPOCH $40 DISCONFL $1;\n-    \n+    retain DSSEQ;\n     set ds_raw;\n     by USUBJID DSSTDTC;\n     \n@@ -58,7 +58,7 @@\n     DSTERM = DSTERM_RAW;\n     DSDECOD = upcase(DSTERM);\n     \n-    DSCAT = 'DISPOSITION';\n+    DSCAT = 'DISPOSITION TRIAL';\n     DSSCAT = '';\n     \n     DSSTDTC = put(DSSTDT, is8601da.);\n@@ -66,7 +66,7 @@\n     EPOCH = EPOCH_RAW;\n     \n     * Derive discontinuation flag;\n-    if DSDECOD = 'COMPLETED' then DISCONFL = 'N';\n+    if DSDECOD in ('COMPLETED', 'COMPLETE') then DISCONFL = 'N';\n     else DISCONFL = 'Y';\n     \n     if first.USUBJID then DSSEQ = 0;"
+  },
+  "metadata": {
+    "wall_time_seconds": "9.62",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "253",
+    "completion_tokens": "380"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_ds_debug.003",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "Apache-2.0 AND CC-BY-4.0" }
 requires-python = ">=3.11"
 authors = [
-    { name = "Jaime Yan" },
+    { name = "Yanming Yu" },
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
