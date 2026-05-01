@@ -22,7 +22,7 @@
       "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
     ],
     "spec": "fixtures/05_adam/ADaM_Specifications.md#ADADAS",
-    "prompt": "The following R program creates ADADAS but has 4 bugs: (1) LOCF imputation carries forward the baseline value (VISITNUM==0) to post-baseline visits, but should only carry forward post-baseline observations, (2) Visit window for Week 24 has AWHI=252 instead of 336, cutting off late-visit records that should be windowed to Week 24, (3) ANL01FL (analysis flag) is set for all PARAMCD values but should only be set for PARAMCD='ACTOT' per the SAP, (4) CHG calculation is BASE - AVAL (inverted) instead of AVAL - BASE. Fix all bugs."
+    "prompt": "The following R program creates ADADAS but has 4 bugs: (1) LOCF imputation carries forward the baseline value (VISITNUM==0) to post-baseline visits, but should only carry forward post-baseline observations, (2) Visit window for Week 24 has AWHI=252 instead of 196 (per ADaM_Specifications.md), cutting off late-visit records that should be windowed to Week 24, (3) ANL01FL (analysis flag) is set for all PARAMCD values but should only be set for PARAMCD='ACTOT' per the SAP, (4) CHG calculation is BASE - AVAL (inverted) instead of AVAL - BASE. Fix all bugs."
   },
   "expected_outputs": {
     "kind": "patch",

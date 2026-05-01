@@ -5,7 +5,7 @@
 +Fix 1: adadas_locf <- adadas %>% filter(VISITNUM > 0 & !is.na(AVAL)) %>% fill(...)
 
 -Bug 2: AWHI = case_when(VISITNUM == 24 ~ 252)
-+Fix 2: AWHI = case_when(VISITNUM == 24 ~ 336)
++Fix 2: AWHI = case_when(VISITNUM == 24 ~ 196)
 
 -Bug 3: ANL01FL = if_else(!is.na(AVAL), "Y", "")
 +Fix 3: ANL01FL = if_else(PARAMCD == "ACTOT" & !is.na(AVAL), "Y", "")
@@ -15,6 +15,6 @@
 
 Summary of fixes:
 1. LOCF excludes baseline (VISITNUM==0) from carry-forward pool
-2. Week 24 visit window upper bound corrected from 252 to 336 days
+2. Week 24 visit window upper bound corrected from 252 to 196 days per ADaM_Specifications.md
 3. ANL01FL only flagged for PARAMCD='ACTOT' per SAP
 4. CHG direction corrected: AVAL - BASE (not BASE - AVAL)

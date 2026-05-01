@@ -24,9 +24,9 @@
     {
       "variable_name": "EXTRT",
       "type": "Char",
-      "length": 40,
+      "length": 22,
       "label": "Name of Actual Treatment",
-      "origin": "CRF"
+      "origin": "Assigned"
     },
     {
       "variable_name": "EXDOSE",

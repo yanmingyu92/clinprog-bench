@@ -24,7 +24,7 @@
     {
       "domain_code": "DS",
       "domain_label": "Disposition",
-      "cdisc_class": "Events",
+      "cdisc_class": "Special Purpose",
       "record_count": 562,
       "filename": "ds.xpt"
     },
@@ -37,7 +37,7 @@
     },
     {
       "domain_code": "LB",
-      "domain_label": "Laboratory Test Results",
+      "domain_label": "Laboratory Tests",
       "cdisc_class": "Findings",
       "record_count": 54828,
       "filename": "lb.xpt"
@@ -73,14 +73,14 @@
     {
       "domain_code": "SV",
       "domain_label": "Subject Visits",
-      "cdisc_class": "Special Purpose",
+      "cdisc_class": "Trial Design",
       "record_count": 3640,
       "filename": "sv.xpt"
     },
     {
       "domain_code": "SE",
       "domain_label": "Subject Elements",
-      "cdisc_class": "Special Purpose",
+      "cdisc_class": "Trial Design",
       "record_count": 5056,
       "filename": "se.xpt"
     },
@@ -100,57 +100,57 @@
     },
     {
       "domain_code": "TI",
-      "domain_label": "Trial Inclusion/Exclusion Criteria",
+      "domain_label": "Trial Inclusion/Exclusion",
       "cdisc_class": "Trial Design",
-      "record_count": 21,
+      "record_count": 6,
       "filename": "ti.xpt"
     },
     {
       "domain_code": "TS",
       "domain_label": "Trial Summary",
       "cdisc_class": "Trial Design",
-      "record_count": 24,
+      "record_count": 20,
       "filename": "ts.xpt"
     },
     {
       "domain_code": "TV",
       "domain_label": "Trial Visits",
       "cdisc_class": "Trial Design",
-      "record_count": 11,
+      "record_count": 17,
       "filename": "tv.xpt"
     },
     {
       "domain_code": "RELREC",
       "domain_label": "Related Records",
       "cdisc_class": "Relationship",
-      "record_count": 38,
+      "record_count": 30,
       "filename": "relrec.xpt"
     },
     {
       "domain_code": "SUPPAE",
       "domain_label": "Supplemental Qualifiers for AE",
-      "cdisc_class": "Supplemental",
+      "cdisc_class": "Relationship",
       "record_count": 1191,
       "filename": "suppae.xpt"
     },
     {
       "domain_code": "SUPPDM",
       "domain_label": "Supplemental Qualifiers for DM",
-      "cdisc_class": "Supplemental",
+      "cdisc_class": "Relationship",
       "record_count": 558,
       "filename": "suppdm.xpt"
     },
     {
       "domain_code": "SUPPDS",
       "domain_label": "Supplemental Qualifiers for DS",
-      "cdisc_class": "Supplemental",
+      "cdisc_class": "Relationship",
       "record_count": 466,
       "filename": "suppds.xpt"
     },
     {
       "domain_code": "SUPPLB",
       "domain_label": "Supplemental Qualifiers for LB",
-      "cdisc_class": "Supplemental",
+      "cdisc_class": "Relationship",
       "record_count": 22152,
       "filename": "supplb.xpt"
     }

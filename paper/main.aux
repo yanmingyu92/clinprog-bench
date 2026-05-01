@@ -1,0 +1,106 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{chen2021codex}
+\citation{austin2021mbpp}
+\citation{hendrycks2021apps}
+\citation{zhuo2024bigcodebench}
+\citation{jimenez2024swebench}
+\citation{yang2024swe}
+\citation{liu2024repobench}
+\citation{livecodebench2024}
+\citation{cdisc_sdtm_ig,cdisc_adam_ig}
+\citation{lai2023ds1000}
+\citation{yu2018spider}
+\citation{ding2023crosscodeeval}
+\citation{gu2024cruxeval}
+\citation{jin2021medqa}
+\citation{jin2019pubmedqa}
+\citation{fleming2024medalign}
+\citation{cdisc_sdtm_ig,cdisc_adam_ig}
+\citation{ich_e6}
+\citation{mialon2023gaia}
+\citation{xie2024osworld}
+\citation{webarena2023}
+\citation{agentbench2023}
+\@writefile{toc}{\contentsline {paragraph}{Contributions.}{2}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Code-generation benchmarks.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Domain-specific code benchmarks.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Biomedical and clinical evaluations.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Agentic benchmarks.}{2}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Dataset}{3}{section.3}\protected@file@percent }
+\newlabel{sec:dataset}{{3}{3}{Dataset}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Substrate and provenance}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vendored fixture subset.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Composition}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Task taxonomy. Output kinds and scorers are fixed per sub-category to support deterministic evaluation.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:taxonomy}{{1}{3}{Task taxonomy. Output kinds and scorers are fixed per sub-category to support deterministic evaluation}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Quality assurance}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Schema validation.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Leakage audit.}{3}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dual-reviewer audit.}{3}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Licensing and release}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Benchmark Design}{4}{section.4}\protected@file@percent }
+\newlabel{sec:benchmark}{{4}{4}{Benchmark Design}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Runner contract}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Scorers}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Scoring rubrics per category.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:scorers}{{2}{4}{Scoring rubrics per category}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Reference baseline}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation harness and CI}{4}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Baselines}{5}{section.5}\protected@file@percent }
+\newlabel{sec:baselines}{{5}{5}{Baselines}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Setup}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Decoding and budget}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Results}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Baseline results on ClinProg-Bench v0.1.0. Per-category columns are reported for the \emph  {+grounding} condition. ``ZS'' denotes the zero-shot macro for comparison. LLM rows are evaluated on a stratified 25-task subset (5 per category, seed \texttt  {20260427}); the reference row covers all 250 tasks. $\Delta $ = +grounding $-$ zero-shot.}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:baselines}{{3}{5}{Baseline results on ClinProg-Bench v0.1.0. Per-category columns are reported for the \emph {+grounding} condition. ``ZS'' denotes the zero-shot macro for comparison. LLM rows are evaluated on a stratified 25-task subset (5 per category, seed \texttt {20260427}); the reference row covers all 250 tasks. $\Delta $ = +grounding $-$ zero-shot}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Discussion}{5}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{6}{section.6}\protected@file@percent }
+\newlabel{sec:limitations}{{6}{6}{Limitations}{section.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{One substrate.}{6}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Scorer rigidity.}{6}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Static gold outputs.}{6}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Single English locale.}{6}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Partial fixture coverage.}{6}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Operational variability under grounding.}{6}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Broader Impact and Ethics}{6}{section.7}\protected@file@percent }
+\newlabel{sec:ethics}{{7}{6}{Broader Impact and Ethics}{section.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{No human-subjects data.}{6}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Intended use.}{6}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Misuse considerations.}{6}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Author qualifications and review.}{6}{section*.19}\protected@file@percent }
+\bibstyle{plainnat}
+\bibdata{refs}
+\bibcite{austin2021mbpp}{{1}{2021}{{Austin et~al.}}{{Austin, Odena, Nye, et~al.}}}
+\bibcite{cdisc_sdtm_ig}{{2}{2023}{{CDISC}}{{}}}
+\bibcite{cdisc_adam_ig}{{3}{2024}{{CDISC}}{{}}}
+\bibcite{chen2021codex}{{4}{2021}{{Chen et~al.}}{{Chen, Tworek, Jun, et~al.}}}
+\bibcite{ding2023crosscodeeval}{{5}{2023}{{Ding et~al.}}{{}}}
+\bibcite{fleming2024medalign}{{6}{2024}{{Fleming et~al.}}{{}}}
+\bibcite{gu2024cruxeval}{{7}{2024}{{Gu et~al.}}{{}}}
+\bibcite{hendrycks2021apps}{{8}{2021}{{Hendrycks et~al.}}{{Hendrycks, Basart, Kadavath, et~al.}}}
+\bibcite{ich_e6}{{9}{2016}{{International Council for Harmonisation}}{{}}}
+\bibcite{jimenez2024swebench}{{10}{2024}{{Jimenez et~al.}}{{Jimenez, Yang, Wettig, et~al.}}}
+\bibcite{jin2021medqa}{{11}{2021}{{Jin et~al.}}{{Jin, Pan, Oufattole, et~al.}}}
+\bibcite{jin2019pubmedqa}{{12}{2019}{{Jin et~al.}}{{Jin, Dhingra, Liu, Cohen, and Lu}}}
+\bibcite{lai2023ds1000}{{13}{2023}{{Lai et~al.}}{{Lai, Li, Wang, et~al.}}}
+\bibcite{livecodebench2024}{{14}{2024{}}{{Liu et~al.}}{{}}}
+\bibcite{liu2024repobench}{{15}{2024{}}{{Liu et~al.}}{{Liu, Xu, and McAuley}}}
+\bibcite{agentbench2023}{{16}{2024{}}{{Liu et~al.}}{{}}}
+\bibcite{mialon2023gaia}{{17}{2023}{{Mialon et~al.}}{{Mialon, Fourrier, Swift, et~al.}}}
+\bibcite{xie2024osworld}{{18}{2024}{{Xie et~al.}}{{}}}
+\bibcite{yang2024swe}{{19}{2024}{{Yang et~al.}}{{}}}
+\bibcite{yu2018spider}{{20}{2018}{{Yu et~al.}}{{Yu, Zhang, Yang, et~al.}}}
+\@writefile{toc}{\contentsline {paragraph}{Carbon footprint.}{7}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Maintenance.}{7}{section*.21}\protected@file@percent }
+\bibcite{webarena2023}{{21}{2024}{{Zhou et~al.}}{{Zhou, Xu, Zhu, Zhou, et~al.}}}
+\bibcite{zhuo2024bigcodebench}{{22}{2024}{{Zhuo et~al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}NeurIPS D\&B Author Checklist}{8}{appendix.A}\protected@file@percent }
+\newlabel{sec:checklist}{{A}{8}{NeurIPS D\&B Author Checklist}{appendix.A}{}}
+\gdef \@abspage@last{8}

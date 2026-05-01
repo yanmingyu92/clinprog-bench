@@ -71,7 +71,7 @@ adadas <- adadas %>%
       VISITNUM ==  0 ~   1,
       VISITNUM ==  8 ~  84,
       VISITNUM == 16 ~ 140,
-      VISITNUM == 24 ~ 336
+      VISITNUM == 24 ~ 196
     )
   )
 
