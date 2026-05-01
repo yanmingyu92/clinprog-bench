@@ -5,6 +5,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/Data-CC--BY--4.0-lightgreen.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![Croissant](https://img.shields.io/badge/Croissant-metadata-orange.svg)](croissant.json)
+[![CI](https://github.com/yanmingyu92/clinprog-bench/actions/workflows/eval.yml/badge.svg)](https://github.com/yanmingyu92/clinprog-bench/actions/workflows/eval.yml)
 
 **The first public benchmark for evaluating LLM and agentic systems on clinical trial statistical programming tasks.**
 

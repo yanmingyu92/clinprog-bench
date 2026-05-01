@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.30)  27 APR 2026 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.30)  1 MAY 2026 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -70,12 +70,40 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 \@neuripsabovecaptionskip=\skip52
 \@neuripsbelowcaptionskip=\skip53
-) (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2025/05/13 line numbers on paragraphs v5.5
+
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count199
 )
-(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+\linenopenalty=\count266
+\output=\toks20
+\linenoprevgraf=\count267
+\linenumbersep=\dimen149
+\linenumberwidth=\dimen150
+\c@linenumber=\count268
+\c@pagewiselinenumber=\count269
+\c@LN@truepage=\count270
+\c@internallinenumber=\count271
+\c@internallinenumbers=\count272
+\quotelinenumbersep=\dimen151
+\bframerule=\dimen152
+\bframesep=\dimen153
+\bframebox=\box51
+)) (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+) (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
 2.
@@ -90,9 +118,6 @@ Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
 ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
 keys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -101,9 +126,6 @@ Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 
-(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -131,19 +153,12 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
-\c@section@level=\count199
 )
-(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count266
+\c@section@level=\count273
 )
-\@linkdim=\dimen149
-\Hy@linkcounter=\count267
-\Hy@pagecounter=\count268
+\@linkdim=\dimen154
+\Hy@linkcounter=\count274
+\Hy@pagecounter=\count275
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
@@ -153,7 +168,7 @@ Now handling font encoding PD1 ...
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count269
+\Hy@SavedSpaceFactor=\count276
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
@@ -167,14 +182,14 @@ Package hyperref Info: Plain pages OFF on input line 4196.
 Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4448.
-\c@Hy@tempcnt=\count270
+\c@Hy@tempcnt=\count277
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4786.
-\XeTeXLinkMargin=\dimen150
+\XeTeXLinkMargin=\dimen155
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -184,9 +199,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count271
-\Field@Width=\dimen151
-\Fld@charsize=\dimen152
+\Fld@menulength=\count278
+\Field@Width=\dimen156
+\Fld@charsize=\dimen157
 Package hyperref Info: Hyper figures OFF on input line 6065.
 Package hyperref Info: Link nesting OFF on input line 6070.
 Package hyperref Info: Hyper index ON on input line 6073.
@@ -199,9 +214,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6095.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count272
-\c@Item=\count273
-\c@Hfootnote=\count274
+\Hy@abspage=\count279
+\c@Item=\count280
+\c@Hfootnote=\count281
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -212,8 +227,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count275
-\c@bookmark@seq@number=\count276
+\Fld@listcount=\count282
+\c@bookmark@seq@number=\count283
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -230,27 +245,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen153
-\lightrulewidth=\dimen154
-\cmidrulewidth=\dimen155
-\belowrulesep=\dimen156
-\belowbottomsep=\dimen157
-\aboverulesep=\dimen158
-\abovetopsep=\dimen159
-\cmidrulesep=\dimen160
-\cmidrulekern=\dimen161
-\defaultaddspace=\dimen162
-\@cmidla=\count277
-\@cmidlb=\count278
-\@aboverulesep=\dimen163
-\@belowrulesep=\dimen164
-\@thisruleclass=\count279
-\@lastruleclass=\count280
-\@thisrulewidth=\dimen165
+\heavyrulewidth=\dimen158
+\lightrulewidth=\dimen159
+\cmidrulewidth=\dimen160
+\belowrulesep=\dimen161
+\belowbottomsep=\dimen162
+\aboverulesep=\dimen163
+\abovetopsep=\dimen164
+\cmidrulesep=\dimen165
+\cmidrulekern=\dimen166
+\defaultaddspace=\dimen167
+\@cmidla=\count284
+\@cmidlb=\count285
+\@aboverulesep=\dimen168
+\@belowrulesep=\dimen169
+\@thisruleclass=\count286
+\@lastruleclass=\count287
+\@thisrulewidth=\dimen170
 )
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks22
+\@emptytoks=\toks23
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -268,18 +283,18 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ))
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
 Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
-\MT@toks=\toks23
-\MT@tempbox=\box51
-\MT@count=\count281
+\MT@toks=\toks24
+\MT@tempbox=\box52
+\MT@count=\count288
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
-\MT@prot@toks=\toks24
+\MT@prot@toks=\toks25
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen166
+\MT@outer@kern=\dimen171
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count282
+\MT@listname@count=\count289
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
 tex.def
@@ -330,28 +345,28 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen167
-\Gin@req@width=\dimen168
+\Gin@req@height=\dimen172
+\Gin@req@width=\dimen173
 )
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count283
-\lst@gtempboxa=\box52
-\lst@token=\toks25
-\lst@length=\count284
-\lst@currlwidth=\dimen169
-\lst@column=\count285
-\lst@pos=\count286
-\lst@lostspace=\dimen170
-\lst@width=\dimen171
-\lst@newlines=\count287
-\lst@lineno=\count288
-\lst@maxwidth=\dimen172
+\lst@mode=\count290
+\lst@gtempboxa=\box53
+\lst@token=\toks26
+\lst@length=\count291
+\lst@currlwidth=\dimen174
+\lst@column=\count292
+\lst@pos=\count293
+\lst@lostspace=\dimen175
+\lst@width=\dimen176
+\lst@newlines=\count294
+\lst@lineno=\count295
+\lst@maxwidth=\dimen177
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count289
-\lst@skipnumbers=\count290
-\lst@framebox=\box53
+\c@lstnumber=\count296
+\lst@skipnumbers=\count297
+\lst@framebox=\box54
 )
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -361,29 +376,29 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count291
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count298
+\l__pdf_internal_box=\box55
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -451,18 +466,18 @@ LaTeX Font Info:    ... okay on input line 32.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 35.
 (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 32.
-Package microtype Info: Applying patch `item' on input line 32.
-Package microtype Info: Applying patch `toc' on input line 32.
-Package microtype Info: Applying patch `eqnum' on input line 32.
-Package microtype Info: Applying patch `footnote' on input line 32.
-Package microtype Info: Applying patch `verbatim' on input line 32.
-LaTeX Info: Redefining \microtypesetup on input line 32.
+LaTeX Info: Redefining \microtypecontext on input line 35.
+Package microtype Info: Applying patch `item' on input line 35.
+Package microtype Info: Applying patch `toc' on input line 35.
+Package microtype Info: Applying patch `eqnum' on input line 35.
+Package microtype Info: Applying patch `footnote' on input line 35.
+Package microtype Info: Applying patch `verbatim' on input line 35.
+LaTeX Info: Redefining \microtypesetup on input line 35.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -480,17 +495,17 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
-\scratchdimen=\dimen173
-\scratchbox=\box55
-\nofMPsegments=\count293
-\nofMParguments=\count294
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count295
-\MPscratchDim=\dimen174
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count299
+\scratchdimen=\dimen178
+\scratchbox=\box56
+\nofMPsegments=\count300
+\nofMParguments=\count301
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count302
+\MPscratchDim=\dimen179
+\MPnumerator=\count303
+\makeMPintoPDFobject=\count304
+\everyMPtoPDFconversion=\toks28
 )
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -502,13 +517,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count298
+\c@lstlisting=\count305
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
 
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -517,7 +532,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -527,7 +542,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-5.
+8.
 
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -537,13 +552,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(sections/abstract.tex) (sections/intro.tex [1
+(sections/abstract.tex)
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 41
+.
+
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `phv' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+(sections/intro.tex [1
 
 
 {C:/Users/yanmi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/yanm
 i/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]) (sections/relate
-d.tex) (sections/dataset.tex
-[2]
+d.tex) (sections/dataset.tex [2]
 Underfull \hbox (badness 10000) in paragraph at lines 59--64
  []\T1/ptm/b/n/10 (+20) Schema val-i-da-tion.[] \T1/ptm/m/n/10 (+20) Ev-ery tas
 k is parsed by the strict py-dan-tic schema
@@ -588,38 +614,51 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
 (C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ))
-[8] (main.aux)
+(sections/reproducibility.tex
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(C:\Users\yanmi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 12.
+
+[8]) [9] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8C6230E42BCD1C9D6AFB0737F53C2531;2598.
+(rerunfilecheck)             Checksum: 3CEEEA92D0D6126F1F57C7B5C0F9AB56;3716.
  ) 
 Here is how much of TeX's memory you used:
- 14223 strings out of 474486
- 226325 string characters out of 5743754
- 1939542 words of memory out of 5000000
- 35984 multiletter control sequences out of 15000+600000
- 595988 words of font info for 212 fonts, out of 8000000 for 9000
+ 15030 strings out of 474486
+ 236787 string characters out of 5743754
+ 1956542 words of memory out of 5000000
+ 36726 multiletter control sequences out of 15000+600000
+ 601472 words of font info for 226 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1003b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\yanmi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
+ 72i,9n,79p,1003b,1282s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\yanmi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit
 0900.pk> <C:\Users\yanmi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ectt1000.pk><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmmi9.pfb><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/yanmi/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/yanmi/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yanmi/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/yanmi/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/User
-s/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/User
-s/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/User
-s/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 212326 bytes).
+0\ectt0900.pk> <C:\Users\yanmi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ectt1000.pk><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/yanmi/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/yanmi/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/yanmi/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yanmi/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/
+yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C
+:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb
+><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb
+><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb
+><C:/Users/yanmi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on main.pdf (9 pages, 251224 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
- 38561 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 540 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 45265 words of extra memory for PDF output out of 51595 (max. 10000000)
 
