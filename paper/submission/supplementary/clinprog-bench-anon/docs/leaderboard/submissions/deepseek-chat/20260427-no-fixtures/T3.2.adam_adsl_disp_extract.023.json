@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adsl_disp_extract.023",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\n      \"name\": \"DISCONFL\",\n      \"label\": \"Disposition of Study Completion Flag\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"derivation\": \"Derived from DS.DSDECOD where DS.DSCAT = 'DISPOSITION EVENT' and DS.DSDECOD = 'COMPLETED'. If subject completed the study, set to 'Y'; otherwise set to 'N'.\"\n    },\n    {\n      \"name\": \"DSRAEFL\",\n      \"label\": \"Reason for Disposition Flag\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"derivation\": \"Derived from DS.DSDECOD where DS.DSCAT = 'DISPOSITION EVENT' and DS.DSDECOD is not null. If a disposition event record exists, set to 'Y'; otherwise set to 'N'.\"\n    },\n    {\n      \"name\": \"EOSSTT\",\n      \"label\": \"End of Study Status\",\n      \"type\": \"Char\",\n      \"length\": 20,\n      \"derivation\": \"Derived from DS.DSDECOD where DS.DSCAT = 'DISPOSITION EVENT'. If DSDECOD = 'COMPLETED', set to 'Completed'; if DSDECOD = 'DEATH', set to 'Death'; if DSDECOD = 'WITHDRAWAL BY SUBJECT', set to 'Withdrew'; otherwise set to 'Ongoing'.\"\n    },\n    {\n      \"name\": \"DCSREAS\",\n      \"label\": \"Reason for Discontinuation\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"derivation\": \"Derived from DS.DSTERM where DS.DSCAT = 'DISPOSITION EVENT' and DS.DSDECOD != 'COMPLETED'. If multiple reasons, concatenate with '; '.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "5.91",
+    "model": "deepseek-chat",
+    "prompt_tokens": "191",
+    "completion_tokens": "411"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adsl_disp_extract.023",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].derivation_notes": 0.0,
+      "variables[].derivation_notes_precision": 0.0,
+      "variables[].derivation_notes_recall": 0.0,
+      "micro_f1": 0.0,
+      "exact_match": 0.0
+    }
+  }
+}

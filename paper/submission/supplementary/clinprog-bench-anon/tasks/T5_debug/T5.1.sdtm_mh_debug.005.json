@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.1.sdtm_mh_debug.005",
+  "category": "T5",
+  "subcategory": "T5.1",
+  "title": "Debug SDTM MH domain program: Medical History errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md#MH"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#MH",
+    "prompt": "The following SAS program creates the SDTM MH domain but has 4 bugs: (1) MHBODSYS is mapped from HLT instead of SOC, (2) MHSEQ is not retained per subject, (3) MHSTDTC partial dates are truncated incorrectly, (4) MHCAT is hardcoded. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.1.sdtm_mh_debug.005/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 4,
+        "fix_locations": [
+          "mhbodsys_mapping",
+          "mhseq_retain",
+          "mhstdtc_partial",
+          "mhcat_source"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

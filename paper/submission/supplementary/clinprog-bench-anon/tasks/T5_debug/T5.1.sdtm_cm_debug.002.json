@@ -1,0 +1,50 @@
+{
+  "task_id": "T5.1.sdtm_cm_debug.002",
+  "category": "T5",
+  "subcategory": "T5.1",
+  "title": "Debug SDTM CM domain program: Concomitant Medications errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md#CM"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#CM",
+    "prompt": "The following SAS program creates the SDTM CM domain but has 3 bugs: (1) CMDECOD is populated from the raw verbatim term (CMTRT) instead of standard medication dictionary coding, (2) CMROUTE uses non-standard lowercase route codes (e.g., 'oral') instead of CDISC controlled terminology ('ORAL'), (3) CMSTDTC date conversion uses is8601dt. (datetime) instead of is8601da. (date-only). Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.1.sdtm_cm_debug.002/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "medication_coding",
+          "route_terminology",
+          "date_format"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

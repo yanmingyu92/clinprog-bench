@@ -1,0 +1,50 @@
+{
+  "task_id": "T2.1.ex_review.004",
+  "category": "T2",
+  "subcategory": "T2.1",
+  "title": "Review Exposure domain R program for compliance and data quality",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T2.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#EX",
+    "prompt": "Review the R program for the Exposure domain. Focus on dose mapping, treatment period, route of administration. Return a structured JSON object with an 'issues' array where each element has keys: severity (high/medium/low), location, category (compliance|data_integrity|programming|documentation), and description."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T2.1.ex_review.004/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "issues[].severity",
+          "issues[].category",
+          "issues[].description"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "log_review",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

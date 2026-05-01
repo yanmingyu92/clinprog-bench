@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.1.sdtm_lb_gen.001",
+  "category": "T1",
+  "subcategory": "T1.1",
+  "title": "Generate SAS program to create SDTM LB domain for laboratory data",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md",
+      "fixtures/04_sdtm/programs/path.R"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#LB",
+    "prompt": "Write a SAS program to create the SDTM LB (Laboratory) domain dataset for 54,828 laboratory test records. The program must: (1) Read raw lab data and transpose to findings structure, (2) Map LBTESTCD/LBTEST using CDISC controlled terminology for chemistry, hematology, and urinalysis panels, (3) Standardize units (LBORRESU \u2192 LBSTRESU) and convert values (LBORRES \u2192 LBSTRESC/LBSTRESN) for numeric results, (4) Populate reference range variables (LBORNRLO, LBORNRHI, LBNRNRLO, LBNRNRHI), (5) Derive LBSPEC, LBREASND, LBFAST where applicable, (6) Assign LBSEQ per subject, (7) Handle supplemental qualifiers (SUPPLB) for lab-specific metadata, (8) Map visit windows from SV domain, (9) Apply all variable attributes per specification, (10) Create xport output."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.1.sdtm_lb_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "testcd_mapping",
+          "unit_conversion_logic",
+          "reference_range_handling"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

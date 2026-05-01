@@ -1,0 +1,53 @@
+{
+  "task_id": "T4.1.tlf_ae_severity_doc.013",
+  "category": "T4",
+  "subcategory": "T4.1",
+  "title": "AE by Maximum Severity",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-4-04_severity.md"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/README.md",
+    "prompt": "Document Table 14-4.04 AE by Severity. Include: severity distribution by treatment, worst-case severity per subject, grade analysis, data source (ADAE with ASEV), and MedDRA coding."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.1.tlf_ae_severity_doc.013/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "population",
+          "data_source",
+          "treatment_groups",
+          "row_specifications",
+          "footnotes"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

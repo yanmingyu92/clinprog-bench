@@ -1,0 +1,53 @@
+{
+  "task_id": "T4.3.val_data_lineage_doc.002",
+  "category": "T4",
+  "subcategory": "T4.3",
+  "title": "Document data lineage from raw through SDTM to ADaM",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/08_validation/consistency_validation.md",
+      "fixtures/DATASET_CARD.md"
+    ],
+    "spec": "fixtures/08_validation/master_validation_plan.md",
+    "prompt": "Document the data lineage tracking methodology. Include: raw \u2192 SDTM \u2192 ADaM variable traceability, USUBJID cross-domain validation, subject count reconciliation (306 DM \u2192 254 ADSL), and variable origin tracking. Return structured documentation."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.3.val_data_lineage_doc.002/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "validation_scope",
+          "methodology",
+          "check_categories",
+          "findings_summary"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

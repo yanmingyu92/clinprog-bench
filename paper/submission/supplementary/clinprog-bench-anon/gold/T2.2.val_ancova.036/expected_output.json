@@ -1,0 +1,18 @@
+{
+  "alignment_checks": [
+    {
+      "element": "model_covariates",
+      "sap_value": "Treatment + Pooled Site Group + Baseline Score",
+      "mock_value": "ANCOVA with treatment, site, baseline",
+      "consistent": true,
+      "notes": "Model covariates consistent across all specifications"
+    },
+    {
+      "element": "dependent_variable",
+      "sap_value": "CHG (Change from Baseline)",
+      "mock_value": "CHG at Week 24",
+      "consistent": true,
+      "notes": "Dependent variable specification matches"
+    }
+  ]
+}

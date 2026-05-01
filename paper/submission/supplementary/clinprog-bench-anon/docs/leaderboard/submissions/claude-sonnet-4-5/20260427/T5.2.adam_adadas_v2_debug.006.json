@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.2.adam_adadas_v2_debug.006",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/adadas.R\n+++ b/adadas.R\n@@ -45,7 +45,7 @@\n   ) %>%\n   mutate(\n     AVAL = QSSTRESN,\n-    CHG = BASE - AVAL,\n+    CHG = AVAL - BASE,\n     BASE = if_else(ABLFL == \"Y\", AVAL, BASE)\n   ) %>%\n   group_by(USUBJID, PARAMCD) %>%\n@@ -53,11 +53,11 @@\n     BASE = max(BASE, na.rm = TRUE)\n   ) %>%\n   ungroup() %>%\n-  mutate(\n-    ANL01FL = if_else(!is.na(AVAL) & !is.na(BASE) & AVISITN > 0, \"Y\", NA_character_)\n-  ) %>%\n   mutate(\n-    PCHG = if_else(!is.na(CHG) & !is.na(AVAL) & AVAL != 0, 100 * CHG / AVAL, NA_real_)\n+    ANL01FL = if_else(!is.na(AVAL) & !is.na(BASE) & AVISITN > 0 & PARAMCD == \"ACTOT\", \"Y\", NA_character_)\n+  ) %>%\n+  mutate(\n+    PCHG = if_else(!is.na(CHG) & !is.na(BASE) & BASE != 0, 100 * CHG / BASE, NA_real_)\n   ) %>%\n   arrange(STUDYID, USUBJID, PARAMCD, AVISITN, ASEQ) %>%\n   select("
+  },
+  "metadata": {
+    "wall_time_seconds": "7.88",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "3283",
+    "completion_tokens": "437"
+  },
+  "score": {
+    "task_id": "T5.2.adam_adadas_v2_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

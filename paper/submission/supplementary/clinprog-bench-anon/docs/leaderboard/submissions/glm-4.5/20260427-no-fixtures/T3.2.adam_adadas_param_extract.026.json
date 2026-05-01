@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adadas_param_extract.026",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"parameters\": [\n    {\n      \"paramcd\": \"ACTOT\",\n      \"param\": \"ADAS-Cog Total Score\",\n      \"description\": \"Total score from the Alzheimer's Disease Assessment Scale-Cognitive Subscale\",\n      \"type\": \"score\",\n      \"range\": \"0-70\",\n      \"scoring_rule\": \"Sum of individual item scores (ACITM01-ACITM11). Higher scores indicate greater cognitive impairment.\"\n    },\n    {\n      \"paramcd\": \"ACITM01\",\n      \"param\": \"Word Recall Task\",\n      \"description\": \"Ability to recall words\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in recalling words. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM02\",\n      \"param\": \"Commands\",\n      \"description\": \"Ability to follow simple commands\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in following commands. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM03\",\n      \"param\": \"Constructional Praxis\",\n      \"description\": \"Ability to copy geometric figures\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in copying figures. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM04\",\n      \"param\": \"Delayed Word Recall\",\n      \"description\": \"Ability to recall words after a delay\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in delayed recall. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM05\",\n      \"param\": \"Naming Objects and Fingers\",\n      \"description\": \"Ability to name objects and fingers\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in naming. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM06\",\n      \"param\": \"Ideational Praxis\",\n      \"description\": \"Ability to perform a sequence of actions\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in performing actions. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM07\",\n      \"param\": \"Orientation\",\n      \"description\": \"Ability to orient to person, place, and time\",\n      \"type\": \"item\",\n      \"range\": \"0-8\",\n      \"scoring_rule\": \"Number of errors in orientation. 0 = best performance, 8 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM08\",\n      \"param\": \"Word Recognition\",\n      \"description\": \"Ability to recognize words\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in word recognition. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM09\",\n      \"param\": \"Remembering Test Instructions\",\n      \"description\": \"Ability to remember test instructions\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in remembering instructions. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM10\",\n      \"param\": \"Spoken Language\",\n      \"description\": \"Ability to use spoken language\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in spoken language. 0 = best performance, 5 = worst performance.\"\n    },\n    {\n      \"paramcd\": \"ACITM11\",\n      \"param\": \"Word Finding\",\n      \"description\": \"Ability to find words\",\n      \"type\": \"item\",\n      \"range\": \"0-5\",\n      \"scoring_rule\": \"Number of errors in word finding. 0 = best performance, 5 = worst performance.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "40.77",
+    "model": "glm-4.5",
+    "prompt_tokens": "191",
+    "completion_tokens": "2196"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adadas_param_extract.026",
+    "category": "T3",
+    "pass": true,
+    "primary": 0.5,
+    "secondary": {
+      "parameters[].paramcd": 1.0,
+      "parameters[].paramcd_precision": 1.0,
+      "parameters[].paramcd_recall": 1.0,
+      "parameters[].description": 0.0,
+      "parameters[].description_precision": 0.0,
+      "parameters[].description_recall": 0.0,
+      "micro_f1": 0.5,
+      "exact_match": 0.0
+    }
+  }
+}

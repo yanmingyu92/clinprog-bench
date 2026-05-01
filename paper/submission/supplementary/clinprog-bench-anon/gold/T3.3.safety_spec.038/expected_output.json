@@ -1,0 +1,14 @@
+{
+  "ae_collection": "Spontaneous reporting and investigator assessment",
+  "teae_definition": "Adverse event with onset on or after first dose of study drug",
+  "sae_criteria": "Results in death, life-threatening, requires hospitalization, disabling, or medically important",
+  "ae_severity_grading": "Mild, Moderate, Severe",
+  "causality_assessment": "Investigator assessment of relationship to study drug",
+  "safety_populations": [
+    "Safety (all treated subjects)"
+  ],
+  "analysis_methods": [
+    "Incidence tables by treatment group",
+    "Summary of severity and relationship"
+  ]
+}

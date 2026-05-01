@@ -1,0 +1,32 @@
+{
+  "variables": [
+    {
+      "variable_name": "ARMCD",
+      "type": "Char",
+      "length": 8,
+      "label": "Arm Code",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "ARM",
+      "type": "Char",
+      "length": 40,
+      "label": "Arm Description",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "TAETORD",
+      "type": "Num",
+      "length": 8,
+      "label": "Order",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "ETCD",
+      "type": "Char",
+      "length": 8,
+      "label": "Element Code",
+      "origin": "Assigned"
+    }
+  ]
+}

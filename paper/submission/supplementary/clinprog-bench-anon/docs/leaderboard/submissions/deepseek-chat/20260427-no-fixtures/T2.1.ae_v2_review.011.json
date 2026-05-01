@@ -1,0 +1,29 @@
+{
+  "task_id": "T2.1.ae_v2_review.011",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing AEREL variable for causality assessment; required per SDTM IG.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing AEOUT variable for outcome mapping; required per SDTM IG.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing AESER variable for seriousness criteria; required per SDTM IG.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No controlled terminology mapping for AEREL (e.g., 'POSSIBLE', 'PROBABLE', 'UNLIKELY').\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No controlled terminology mapping for AEOUT (e.g., 'RECOVERED', 'NOT RECOVERED', 'FATAL').\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No controlled terminology mapping for AESER (e.g., 'Y', 'N').\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"programming\",\n      \"message\": \"Consider adding AERELNST (causality to non-study treatment) if applicable.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"programming\",\n      \"message\": \"Consider adding AESDTH, AESLIFE, etc. for detailed seriousness criteria.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"documentation\",\n      \"message\": \"No comments or metadata provided for causality, outcome, or seriousness derivation.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "6.27",
+    "model": "deepseek-chat",
+    "prompt_tokens": "217",
+    "completion_tokens": "476"
+  },
+  "score": {
+    "task_id": "T2.1.ae_v2_review.011",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 3.0,
+      "issues[].severity": 0.0,
+      "issues[].category": 1.0,
+      "issues[].description": 0.0
+    }
+  }
+}

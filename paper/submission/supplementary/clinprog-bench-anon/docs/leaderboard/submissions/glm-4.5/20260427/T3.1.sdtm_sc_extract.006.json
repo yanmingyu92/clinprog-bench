@@ -1,0 +1,32 @@
+{
+  "task_id": "T3.1.sdtm_sc_extract.006",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\n      \"name\": \"STUDYID\",\n      \"label\": \"Study Identifier\",\n      \"type\": \"Char\",\n      \"length\": 12,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Unique study identifier\"\n    },\n    {\n      \"name\": \"DOMAIN\",\n      \"label\": \"Domain Abbreviation\",\n      \"type\": \"Char\",\n      \"length\": 2,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Fixed value: SC\"\n    },\n    {\n      \"name\": \"USUBJID\",\n      \"label\": \"Unique Subject Identifier\",\n      \"type\": \"Char\",\n      \"length\": 11,\n      \"origin\": \"Derived\",\n      \"notes\": \"Format: XX-XXX-XXXX\"\n    },\n    {\n      \"name\": \"SCSEQ\",\n      \"label\": \"Sequence Number\",\n      \"type\": \"Num\",\n      \"length\": 8,\n      \"origin\": \"Derived\",\n      \"notes\": \"Sequential per USUBJID\"\n    },\n    {\n      \"name\": \"SCTESTCD\",\n      \"label\": \"Subject Characteristics Test Code\",\n      \"type\": \"Char\",\n      \"length\": 8,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Short code for the characteristic\"\n    },\n    {\n      \"name\": \"SCTEST\",\n      \"label\": \"Subject Characteristics Test Name\",\n      \"type\": \"Char\",\n      \"length\": 40,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Full name of the characteristic\"\n    },\n    {\n      \"name\": \"SCORRES\",\n      \"label\": \"Result or Finding in Original Units\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"origin\": \"Collected\",\n      \"notes\": \"Original result value as collected\"\n    },\n    {\n      \"name\": \"SCSTRESC\",\n      \"label\": \"Result or Finding in Standard Format\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"origin\": \"Derived\",\n      \"notes\": \"Standardized result value\"\n    },\n    {\n      \"name\": \"SCCAT\",\n      \"label\": \"Category for Subject Characteristics\",\n      \"type\": \"Char\",\n      \"length\": 40,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Category of the characteristic\"\n    },\n    {\n      \"name\": \"SCSCAT\",\n      \"label\": \"Subcategory for Subject Characteristics\",\n      \"type\": \"Char\",\n      \"length\": 40,\n      \"origin\": \"Assigned\",\n      \"notes\": \"Subcategory of the characteristic\"\n    },\n    {\n      \"name\": \"SPOSFL\",\n      \"label\": \"Position Flagger\",\n      \"type\": \"Char\",\n      \"length\": 1,\n      \"origin\": \"Derived\",\n      \"notes\": \"Indicates if this is the first record for this subject\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "41.64",
+    "model": "glm-4.5",
+    "prompt_tokens": "2637",
+    "completion_tokens": "1825"
+  },
+  "score": {
+    "task_id": "T3.1.sdtm_sc_extract.006",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.2222222222222222,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].type": 0.6666666666666666,
+      "variables[].type_precision": 0.5,
+      "variables[].type_recall": 1.0,
+      "variables[].label": 0.0,
+      "variables[].label_precision": 0.0,
+      "variables[].label_recall": 0.0,
+      "micro_f1": 0.09090909090909093,
+      "exact_match": 0.0
+    }
+  }
+}

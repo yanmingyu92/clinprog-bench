@@ -1,0 +1,29 @@
+{
+  "task_id": "T2.1.ae_v2_review.011",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing SDTM AEREL variable: Relationship to study treatment (AEREL) must be derived from causality assessment data to comply with SDTM IG requirements for adverse events domain.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Causality assessment validation missing: No checks implemented to ensure causality values map to controlled terminology (e.g., RELATED, NOT RELATED, POSSIBLY RELATED, PROBABLY RELATED) per SDTM CT.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"AEOUT (Outcome of Adverse Event) mapping incomplete: Must include all required CT values (RECOVERED/RESOLVED, RECOVERING/RESOLVING, NOT RECOVERED/NOT RESOLVED, FATAL, UNKNOWN) with proper validation.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Seriousness criteria completeness check missing: When AESER='Y', at least one of AESDTH, AESLIFE, AESHOSP, AESDISAB, AESCONG, or AESMIE must be 'Y' per SDTM IG 3.2+ requirements.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"compliance\",\n      \"message\": \"AETOXGR (Toxicity Grade) validation absent: If using CTCAE or other grading system, ensure grades map correctly and are consistent with causality/seriousness assessments.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Missing cross-validation: AESER='Y' should be validated against AESDTH='Y' when AEOUT='FATAL' to ensure data consistency.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"programming\",\n      \"message\": \"No handling for multiple causality assessments: If multiple investigators assess causality, logic needed to determine which assessment populates AEREL or if SUPPAE is required.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Action taken validation missing: AEACN (Action Taken with Study Treatment) should be validated against causality - if AEREL indicates relationship, AEACN should not be missing.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"documentation\",\n      \"message\": \"Causality mapping documentation needed: Add comments explaining the mapping logic from source causality terms to SDTM controlled terminology for AEREL.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"compliance\",\n      \"message\": \"SUPPAE consideration: If additional causality details (e.g., investigator vs. sponsor assessment) exist, document whether SUPPAE domain is needed per SDTMIG.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Date consistency check recommended: Validate that AESTDTC <= AEENDTC and both are within study participation dates (RFSTDTC to RFENDTC from DM).\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"programming\",\n      \"message\": \"Missing NULL/blank handling: Ensure explicit handling of missing causality values - document whether missing causality should default to 'NOT RELATED' or remain missing per protocol.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "20.78",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "236",
+    "completion_tokens": "989"
+  },
+  "score": {
+    "task_id": "T2.1.ae_v2_review.011",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 3.0,
+      "issues[].severity": 0.0,
+      "issues[].category": 1.0,
+      "issues[].description": 0.0
+    }
+  }
+}

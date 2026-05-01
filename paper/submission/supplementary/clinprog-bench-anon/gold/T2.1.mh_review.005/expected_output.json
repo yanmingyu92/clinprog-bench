@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "data_integrity",
+      "description": "MedDRA coding hierarchy must be complete for all 1,116 medical history records"
+    },
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "MHBODSYS assignment from SOC level must follow MedDRA hierarchy rules"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "MHSTDTC date imputation for partial dates needs explicit rules"
+    }
+  ]
+}

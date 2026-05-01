@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.3.tlf_ae_overview_debug.002",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/table_14_4_01.R\n+++ b/table_14_4_01.R\n@@ -1,7 +1,7 @@\n # Table 14-4.01: Adverse Event Overview\n \n # Get population counts\n-adsl_pop <- adsl %>% filter(SAFFL == \"N\")\n+adsl_pop <- adsl %>% filter(SAFFL == \"Y\")\n \n n_trt <- adsl_pop %>%\n   group_by(TRT01AN, TRT01A) %>%\n@@ -9,7 +9,7 @@\n   ungroup()\n \n # Get TEAE counts\n-adae_teae <- adae %>% filter(SAFFL == \"Y\")\n+adae_teae <- adae %>% filter(SAFFL == \"Y\" & TRTEMFL == \"Y\")\n \n ae_summary <- adae_teae %>%\n   group_by(TRT01AN, TRT01A) %>%\n@@ -17,7 +17,7 @@\n     subj_any_ae = n_distinct(USUBJID),\n     subj_serious = n_distinct(USUBJID[AESER == \"Y\"]),\n     subj_severe = n_distinct(USUBJID[ASEV == \"SEVERE\"]),\n-    events_total = n()\n+    events_total = n_distinct(USUBJID, AESEQ)\n   ) %>%\n   ungroup()"
+  },
+  "metadata": {
+    "wall_time_seconds": "6.95",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "217",
+    "completion_tokens": "383"
+  },
+  "score": {
+    "task_id": "T5.3.tlf_ae_overview_debug.002",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

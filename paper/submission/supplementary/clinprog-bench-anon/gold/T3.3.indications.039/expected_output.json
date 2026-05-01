@@ -1,0 +1,12 @@
+{
+  "indication": "Alzheimer's Disease (Mild to Moderate)",
+  "target_population": "Patients with mild to moderate Alzheimer's Disease",
+  "age_range": "50-85 years",
+  "mmse_score_range": "10-26",
+  "diagnostic_criteria": "DSM-IV criteria for dementia of the Alzheimer's type, NINCDS-ADRDA criteria",
+  "key_exclusion_criteria": [
+    "Other neurological disorders",
+    "Significant psychiatric illness",
+    "Severe or unstable medical conditions"
+  ]
+}

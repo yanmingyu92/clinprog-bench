@@ -1,0 +1,16 @@
+--- a/adam_adae.R
++++ b/adam_adae.R
+@@ -1,5 +1,5 @@
+-Bug 1: TRTEMFL = if_else(ASTDT > TRTSDT, "Y", "N")
++Fix 1: TRTEMFL = if_else(ASTDT >= TRTSDT, "Y", "N")
+
+-Bug 2: ASTDY = as.integer(ASTDT - TRTSDT)
++Fix 2: ASTDY = as.integer(ASTDT - TRTSDT) + 1L
+
+-Bug 3: TRTPN = TRT01AN; TRTAN = TRT01PN
++Fix 3: TRTPN = TRT01PN; TRTAN = TRT01AN
+
+Summary of fixes:
+1. TRTEMFL uses >= for start date comparison (AE on first dose day is TEAE)
+2. ASTDY adds +1 offset (first dose day = day 1, not day 0)
+3. TRTPN (planned numeric) from TRT01PN, TRTAN (actual numeric) from TRT01AN

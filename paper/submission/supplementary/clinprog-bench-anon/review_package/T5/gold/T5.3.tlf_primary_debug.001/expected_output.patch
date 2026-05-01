@@ -1,0 +1,20 @@
+--- a/tlf_primary.R
++++ b/tlf_primary.R
+@@ -1,5 +1,5 @@
+-Bug 1: lm(CHG ~ TRTPN + SITEGR1, data = adadas_anl)
++Fix 1: lm(CHG ~ factor(TRTPN) + SITEGR1 + BASE, data = adadas_anl)
+
+-Bug 2: filter(DTYPE == "LOCF")
++Fix 2: filter(is.na(DTYPE) | DTYPE == "LOCF")
+
+-Bug 3: lm(CHG ~ TRTPN + SITEGR1 + BASE, ...)
++Fix 3: lm(CHG ~ factor(TRTPN) + SITEGR1 + BASE, ...)
+
+-Bug 4: filter(ITTFL == "Y")
++Fix 4: filter(EFFFL == "Y")
+
+Summary of fixes:
+1. ANCOVA model includes BASE as covariate per SAP
+2. LOCF filter includes original observations (DTYPE=NA) plus LOCF imputed
+3. TRTPN converted to factor for categorical treatment comparison
+4. Population filter changed from ITT (ITTFL) to Efficacy (EFFFL)

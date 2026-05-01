@@ -1,0 +1,20 @@
+--- a/forest_prog.R
++++ b/forest_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Subgroup labels use variable names ('SEX', 'AGEGR1') instead of descriptive labels ('Sex', 'Age Group')
++Fix 1: Subgroup labels use descriptive text
+@@ -1,5 +1,5 @@
+-Bug 2: Forest plot x-axis uses linear scale instead of log scale for odds ratios
++Fix 2: Forest plot x-axis uses log scale
+@@ -1,5 +1,5 @@
+-Bug 3: Confidence intervals are computed using normal approximation instead of exact (Clopper-Pearson) method
++Fix 3: CI uses exact method (Clopper-Pearson)
+@@ -1,5 +1,5 @@
+-Bug 4: Interaction p-value uses anova() on lm models instead of coxph or logistic regression interaction test
++Fix 4: Interaction p-value from appropriate model
+
+Summary of fixes:
+1. Subgroup labels use descriptive text (subgroup_labels)
+2. Forest plot x-axis uses log scale (x_scale)
+3. CI uses exact method (Clopper-Pearson) (ci_method)
+4. Interaction p-value from appropriate model (interaction_test)

@@ -1,0 +1,23 @@
+# AE by Maximum Severity - Documentation
+
+## Table/Figure ID: 14-4.04
+
+## Population: Safety
+
+## Data Source: ADAE
+
+## Header
+
+[Header details to be extracted from fixtures]
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Data Source
+
+[Data Source details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

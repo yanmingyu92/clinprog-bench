@@ -1,0 +1,39 @@
+{
+  "variables": [
+    {
+      "variable_name": "RDOMAIN",
+      "type": "Char",
+      "length": 2,
+      "label": "Related Domain",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "IDVAR",
+      "type": "Char",
+      "length": 8,
+      "label": "Identifying Variable",
+      "origin": "Derived"
+    },
+    {
+      "variable_name": "QNAM",
+      "type": "Char",
+      "length": 8,
+      "label": "Qualifier Variable Name",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "QVAL",
+      "type": "Char",
+      "length": 200,
+      "label": "Data Value",
+      "origin": "Derived"
+    },
+    {
+      "variable_name": "QLABEL",
+      "type": "Char",
+      "length": 40,
+      "label": "Qualifier Variable Label",
+      "origin": "Assigned"
+    }
+  ]
+}

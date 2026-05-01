@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_ex_debug.004",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "patch.diff": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "74.14",
+    "model": "glm-4.5",
+    "prompt_tokens": "193",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_ex_debug.004",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.0
+    }
+  }
+}

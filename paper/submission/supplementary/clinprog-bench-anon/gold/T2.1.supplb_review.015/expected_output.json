@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "data_integrity",
+      "description": "SUPPLB fasted status qualifier must correctly map LBFAST values across 22,152 records"
+    },
+    {
+      "severity": "low",
+      "category": "compliance",
+      "description": "QNAM definitions should reference Define-XML CodeList metadata"
+    }
+  ]
+}

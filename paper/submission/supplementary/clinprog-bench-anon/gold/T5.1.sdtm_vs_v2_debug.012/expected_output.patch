@@ -1,0 +1,16 @@
+--- a/vs_prog.sas
++++ b/vs_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: BMI computation uses WEIGHTBL/(HEIGHTBL/100) instead of WEIGHTBL/(HEIGHTBL/100)**2
++Fix 1: BMI computed as WEIGHTBL/(HEIGHTBL/100)**2
+@@ -1,5 +1,5 @@
+-Bug 2: VSBLFL baseline flag logic uses VISITNUM < 0 instead of VISITNUM <= 0, excluding the screening visit
++Fix 2: VSBLFL set for VISITNUM <= 0 (includes screening visit)
+@@ -1,5 +1,5 @@
+-Bug 3: VSTESTCD for Pulse is mapped as 'HR' instead of 'PULSE' per CDISC controlled terminology
++Fix 3: Pulse test code uses CDISC standard 'PULSE'
+
+Summary of fixes:
+1. BMI computed as WEIGHTBL/(HEIGHTBL/100)**2 (bmi_formula)
+2. VSBLFL set for VISITNUM <= 0 (includes screening visit) (vsblfl_condition)
+3. Pulse test code uses CDISC standard 'PULSE' (pulse_testcd)

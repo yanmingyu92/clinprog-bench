@@ -1,0 +1,36 @@
+{
+  "variables": [
+    {
+      "variable_name": "HEIGHTBL",
+      "type": "Num",
+      "length": 8,
+      "label": "Height at Baseline (cm)",
+      "origin": "CRF",
+      "derivation_notes": "From VS domain where VSTESTCD='HEIGHT' and baseline visit"
+    },
+    {
+      "variable_name": "WEIGHTBL",
+      "type": "Num",
+      "length": 8,
+      "label": "Weight at Baseline (kg)",
+      "origin": "CRF",
+      "derivation_notes": "From VS domain where VSTESTCD='WEIGHT' and baseline visit"
+    },
+    {
+      "variable_name": "BMIBL",
+      "type": "Num",
+      "length": 8,
+      "label": "BMI at Baseline (kg/m2)",
+      "origin": "Derived",
+      "derivation_notes": "Computed as WEIGHTBL / (HEIGHTBL/100)^2"
+    },
+    {
+      "variable_name": "MMSETOT",
+      "type": "Num",
+      "length": 8,
+      "label": "MMSE Total Score",
+      "origin": "CRF",
+      "derivation_notes": "From QS domain, Mini-Mental State Examination total score at screening"
+    }
+  ]
+}

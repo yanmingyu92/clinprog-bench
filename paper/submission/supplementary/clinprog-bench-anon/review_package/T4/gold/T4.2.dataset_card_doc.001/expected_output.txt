@@ -1,0 +1,49 @@
+# Dataset Card Documentation Report
+
+## Study Overview
+- **Study ID**: CDISCPilot01
+- **Phase**: Phase 2/3
+- **Indication**: Alzheimer's Disease (Mild to Moderate)
+- **Treatment**: Xanomeline Transdermal Therapeutic System (TTS)
+- **Design**: Randomized, Double-Blind, Placebo-Controlled, Parallel-Group, Multi-Center
+- **Duration**: 24 weeks treatment + 2 weeks follow-up
+
+## Subject Populations
+| Population | Count | Definition |
+|-----------|-------|------------|
+| Screened | 306 | All subjects screened |
+| ITT | 254 | All randomized subjects |
+| Safety | 254 | Subjects with at least one dose |
+| Efficacy | 234 | Subjects with post-baseline efficacy data |
+
+## SDTM Dataset Inventory
+- **Total domains**: 22
+- **Total variables**: 539
+- **Total codelists**: 388
+- **Key domains**: DM (306), AE (1,191), CM (2,982), EX (2,772), LB (54,828), QS (30,096), VS (7,024)
+
+## ADaM Dataset Inventory
+- **Total datasets**: 5
+- **Total variables**: 509
+- **Total codelists**: 894
+- **Datasets**: ADSL (254), ADAE (1,191), ADADAS (2,718), ADLBC (7,778), ADTTE (254)
+
+## Data Standards
+- SDTM IG 3.1.2
+- ADaM IG 1.1
+- Define-XML 2.0
+- MedDRA 8.0
+
+## Ground Truth Values Available
+- Demographic statistics by treatment group (Age, Sex, Race, BMI, MMSE)
+- Primary endpoint: ADAS-Cog CFB Week 24 LOCF (163 LOCF records)
+- Subject counts by population and treatment group
+- Treatment coding: ARMCD (Pbo/Xan_Lo/Xan_Hi), TRT01PN (0/54/81)
+
+## Metadata Quality Assessment
+- Study design: Complete
+- Population definitions: Complete
+- Treatment groups: Complete
+- Dataset inventory: Complete (22 SDTM + 5 ADaM)
+- Variable-level specifications: Available via SDTM/ADaM Specifications
+- Ground truth: Available via TLF_INVENTORY and DATASET_CARD

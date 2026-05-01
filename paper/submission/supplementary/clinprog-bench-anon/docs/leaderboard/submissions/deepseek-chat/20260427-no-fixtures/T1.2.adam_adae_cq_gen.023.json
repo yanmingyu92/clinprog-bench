@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.2.adam_adae_cq_gen.023",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "main.sas": "# Load required libraries\nlibrary(admiral)\nlibrary(dplyr)\nlibrary(lubridate)\nlibrary(tidyr)\nlibrary(haven)\nlibrary(xportr)\n\n# Read SDTM source datasets\nadsl <- read_xpt(\"adsl.xpt\")\nae <- read_xpt(\"ae.xpt\")\nex <- read_xpt(\"ex.xpt\")\nsuppae <- read_xpt(\"suppae.xpt\")\n\n# Merge supplemental qualifiers with AE\nae <- ae %>%\n  left_join(suppae, by = c(\"STUDYID\", \"USUBJID\", \"DOMAIN\", \"AESEQ\" = \"IDVARVAL\")) %>%\n  mutate(\n    QNAM = if_else(is.na(QNAM), NA_character_, QNAM),\n    QVAL = if_else(is.na(QVAL), NA_character_, QVAL)\n  )\n\n# Derive custom query (CQ01NAM) - example: events of special interest\n# Assuming QNAM = \"CQ01\" in SUPPAE\ncq01_data <- ae %>%\n  filter(QNAM == \"CQ01\") %>%\n  select(STUDYID, USUBJID, AESEQ, CQ01NAM = QVAL)\n\nae <- ae %>%\n  left_join(cq01_data, by = c(\"STUDYID\", \"USUBJID\", \"AESEQ\"))\n\n# Create ADAE by merging with ADSL\nadae <- ae %>%\n  inner_join(adsl, by = c(\"STUDYID\", \"USUBJID\")) %>%\n  mutate(\n    # Derive ASTDY (Analysis Start Relative Day)\n    ASTDY = case_when(\n      !is.na(AESTDTC) ~ as.numeric(difftime(ymd(AESTDTC), TRTSDT, units = \"days\")) + 1,\n      TRUE ~ NA_real_\n    ),\n    # Derive AENDY (Analysis End Relative Day)\n    AENDY = case_when(\n      !is.na(AEENDTC) ~ as.numeric(difftime(ymd(AEENDTC), TRTSDT, units = \"days\")) + 1,\n      TRUE ~ NA_real_\n    ),\n    # Derive ASEV (Analysis Severity)\n    ASEV = case_when(\n      AESEV == \"MILD\" ~ 1,\n      AESEV == \"MODERATE\" ~ 2,\n      AESEV == \"SEVERE\" ~ 3,\n      TRUE ~ NA_real_\n    ),\n    # Derive AREL (Analysis Relationship)\n    AREL = case_when(\n      AEREL %in% c(\"POSSIBLE\", \"PROBABLE\", \"DEFINITE\") ~ \"RELATED\",\n      AEREL == \"NOT RELATED\" ~ \"NOT RELATED\",\n      TRUE ~ NA_character_\n    ),\n    # Derive TRTEMFL (Treatment Emergent Flag)\n    TRTEMFL = case_when(\n      !is.na(ASTDY) & ASTDY >= 1 & (is.na(AENDY) | AENDY <= 99999) ~ \"Y\",\n      TRUE ~ \"N\"\n    ),\n    # Additional flags for treatment-emergent refinement\n    # Consider events starting on or after first treatment date\n    TRTEMFL = case_when(\n      TRTEMFL == \"Y\" & !is.na(ASTDY) & ASTDY >= 1 ~ \"Y\",\n      TRUE ~ \"N\"\n    )\n  )\n\n# Apply ADaM variable attributes and metadata\nvar_spec <- tibble::tribble(\n  ~variable, ~label, ~type,\n  \"STUDYID\", \"Study Identifier\", \"character\",\n  \"USUBJID\", \"Unique Subject Identifier\", \"character\",\n  \"AESEQ\", \"Sequence Number\", \"numeric\",\n  \"ASTDY\", \"Analysis Start Relative Day\", \"numeric\",\n  \"AENDY\", \"Analysis End Relative Day\", \"numeric\",\n  \"ASEV\", \"Analysis Severity\", \"numeric\",\n  \"AREL\", \"Analysis Relationship\", \"character\",\n  \"TRTEMFL\", \"Treatment Emergent Flag\", \"character\",\n  \"CQ01NAM\", \"Custom Query 01 Name\", \"character\",\n  \"TRTSDT\", \"Date of First Exposure to Treatment\", \"Date\",\n  \"TRTEDT\", \"Date of Last Exposure to Treatment\", \"Date\"\n)\n\n# Apply labels and attributes\nadae <- adae %>%\n  select(all_of(var_spec$variable)) %>%\n  xportr_label(var_spec) %>%\n  xportr_type(var_spec)\n\n# Output xpt dataset\nxportr_write(adae, \"adae.xpt\", label = \"Adverse Events Analysis Dataset\")\n\n# Print summary\ncat(\"ADAE dataset created with\", nrow(adae), \"records\\n\")"
+  },
+  "metadata": {
+    "wall_time_seconds": "12.47",
+    "model": "deepseek-chat",
+    "prompt_tokens": "238",
+    "completion_tokens": "1019"
+  },
+  "score": {
+    "task_id": "T1.2.adam_adae_cq_gen.023",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "adae_cq_derivation_logic": 1.0,
+      "adae_cq_key_mappings": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

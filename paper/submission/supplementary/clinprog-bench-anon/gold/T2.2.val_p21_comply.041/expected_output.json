@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "check": "SDTM IG compliance",
+      "status": "pass",
+      "detail": "All 22 SDTM domains comply with SDTM IG 3.1.2 standard"
+    },
+    {
+      "check": "ADaM IG compliance",
+      "status": "pass",
+      "detail": "All 5 ADaM datasets comply with ADaM IG 1.1 standard"
+    },
+    {
+      "check": "P21 validation status",
+      "status": "pass",
+      "detail": "Pinnacle 21 validation passed with zero critical issues"
+    }
+  ]
+}

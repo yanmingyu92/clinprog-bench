@@ -1,0 +1,87 @@
+{
+  "agent_name": "reference-baseline",
+  "run_date": "20260427",
+  "seed": 42,
+  "per_category": 1,
+  "n_tasks": 5,
+  "wall_time_seconds": 0.02,
+  "macro_score": 0.05,
+  "category_means": {
+    "T1": 0.25,
+    "T2": 0.0,
+    "T3": 0.0,
+    "T4": 0.0,
+    "T5": 0.0
+  },
+  "results": [
+    {
+      "task_id": "T1.2.adam_adtte_gen.021",
+      "category": "T1",
+      "pass": false,
+      "primary": 0.25,
+      "secondary": {
+        "required_variables[]": 0.0,
+        "adtte_derivation_logic": 1.0,
+        "adtte_key_mappings": 0.0,
+        "output_format": 0.0
+      }
+    },
+    {
+      "task_id": "T2.1.r_sdtmspec_review.001",
+      "category": "T2",
+      "pass": false,
+      "primary": 0.0,
+      "secondary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 3.0,
+        "issues[].severity": 0.0,
+        "issues[].category": 0.0,
+        "issues[].description": 0.0
+      }
+    },
+    {
+      "task_id": "T3.2.adam_adadas_locf_extract.030",
+      "category": "T3",
+      "pass": false,
+      "primary": 0.0,
+      "secondary": {
+        "variables[].variable_name": 0.0,
+        "variables[].variable_name_precision": 0.0,
+        "variables[].variable_name_recall": 0.0,
+        "variables[].derivation_notes": 0.0,
+        "variables[].derivation_notes_precision": 0.0,
+        "variables[].derivation_notes_recall": 0.0,
+        "micro_f1": 0.0,
+        "exact_match": 0.0
+      }
+    },
+    {
+      "task_id": "T4.1.tlf_exposure_doc.007",
+      "category": "T4",
+      "pass": false,
+      "primary": 0.0,
+      "secondary": {
+        "title": 0.0,
+        "population": 0.0,
+        "data_source": 0.0,
+        "treatment_groups": 0.0,
+        "row_specifications": 0.0,
+        "footnotes": 0.0,
+        "style_lint": 0.0
+      }
+    },
+    {
+      "task_id": "T5.3.tlf_lab_summary_debug.005",
+      "category": "T5",
+      "pass": false,
+      "primary": 0.0,
+      "secondary": {
+        "matched_fixes": 0.0,
+        "loc_penalty": 0.0
+      }
+    }
+  ]
+}

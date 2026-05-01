@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "DSDECOD mapping must follow CDISC disposition terminology for all 562 records"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "Visit association between DS records and SV domain should be validated"
+    }
+  ]
+}

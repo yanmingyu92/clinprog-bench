@@ -1,0 +1,20 @@
+--- a/sdtm_ae.sas
++++ b/sdtm_ae.sas
+@@ -1,5 +1,5 @@
+-Bug 1: if AESHOSP_RAW = "Y" or AESDEATH_RAW = "Y" then AESER = "Y";
++Fix 1: if AESCAN_RAW = "Y" or AESCONG_RAW = "Y" or AESDEATH_RAW = "Y" or AESHOSP_RAW = "Y" or AESLIFE_RAW = "Y" or AESOD_RAW = "Y" then AESER = "Y";
+
+-Bug 2: AESEQ = _N_;
++Fix 2: retain AESEQ; if first.USUBJID then AESEQ = 0; AESEQ = AESEQ + 1;
+
+-Bug 3: AEBODSYS = strip(HLT_RAW);
++Fix 3: AEBODSYS = strip(SOC_RAW);
+
+-Bug 4: AESTDTC = strip(put(AESTDT, is8601dt.));
++Fix 4: AESTDTC = strip(put(AESTDT, is8601da.));
+
+Summary of fixes:
+1. AESER seriousness flag now checks all 6 seriousness criteria
+2. AESEQ properly retained and incremented per USUBJID
+3. AEBODSYS mapped from SOC (System Organ Class) not HLT
+4. AESTDTC uses date format (is8601da.) instead of datetime (is8601dt.)

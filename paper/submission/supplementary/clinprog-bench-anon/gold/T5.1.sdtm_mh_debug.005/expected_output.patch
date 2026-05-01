@@ -1,0 +1,20 @@
+--- a/mh_prog.sas
++++ b/mh_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: MHBODSYS is mapped from HLT instead of SOC level, causing incorrect body system classification
++Fix 1: MHBODSYS mapped from SOC (System Organ Class) not HLT
+@@ -1,5 +1,5 @@
+-Bug 2: MHSEQ not retained, resets per observation instead of incrementing within USUBJID
++Fix 2: MHSEQ properly retained and incremented per USUBJID
+@@ -1,5 +1,5 @@
+-Bug 3: MHSTDTC partial date handling truncates 2-digit year dates (e.g., '54' becomes '0054')
++Fix 3: MHSTDTC handles partial dates correctly preserving 4-digit years
+@@ -1,5 +1,5 @@
+-Bug 4: MHCAT is hardcoded as 'MEDICAL HISTORY' but should use the QSCAT value from source data
++Fix 4: MHCAT derived from source category variable
+
+Summary of fixes:
+1. MHBODSYS mapped from SOC (System Organ Class) not HLT (mhbodsys_mapping)
+2. MHSEQ properly retained and incremented per USUBJID (mhseq_retain)
+3. MHSTDTC handles partial dates correctly preserving 4-digit years (mhstdtc_partial)
+4. MHCAT derived from source category variable (mhcat_source)

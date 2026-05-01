@@ -1,0 +1,28 @@
+{
+  "gaps": [
+    {
+      "section": "Protocol-SAP alignment",
+      "checklist_status": "complete",
+      "missing_element": "None; protocol objectives map to SAP analyses",
+      "severity": "info"
+    },
+    {
+      "section": "SAP-mock shell alignment",
+      "checklist_status": "complete",
+      "missing_element": "None; all SAP-specified tables have corresponding mock shells",
+      "severity": "info"
+    },
+    {
+      "section": "Mock shell-TLF output alignment",
+      "checklist_status": "partial",
+      "missing_element": "TLF outputs include additional analyses (e.g., Table 14-3.05 ANCOVA) not listed in mock shell inventory",
+      "severity": "medium"
+    },
+    {
+      "section": "Treatment coding documentation",
+      "checklist_status": "partial",
+      "missing_element": "No single authoritative mapping document for ARMCD to TRT01PN/TRTPN coding",
+      "severity": "medium"
+    }
+  ]
+}

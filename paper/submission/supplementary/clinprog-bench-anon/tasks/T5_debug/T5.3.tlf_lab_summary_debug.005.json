@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.3.tlf_lab_summary_debug.005",
+  "category": "T5",
+  "subcategory": "T5.3",
+  "title": "Debug Laboratory Summary Table: Table/Figure 14-6.01 errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/t_mock_14_6_01.md",
+    "prompt": "The following R program generates Table 14-6.01 Lab Summary but has 4 bugs: (1) No category grouping, (2) Wrong stat function, (3) Wrong count method, (4) Wrong shift variable. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.3.tlf_lab_summary_debug.005/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 4,
+        "fix_locations": [
+          "parameter_grouping",
+          "stat_function",
+          "count_method",
+          "shift_variable"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

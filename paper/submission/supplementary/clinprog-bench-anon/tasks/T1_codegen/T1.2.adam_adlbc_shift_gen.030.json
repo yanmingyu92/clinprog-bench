@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.2.adam_adlbc_shift_gen.030",
+  "category": "T1",
+  "subcategory": "T1.2",
+  "title": "Generate R program to derive ADLBC (Lab (shift analysis))",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADLBC",
+    "prompt": "Write an R program using the admiral package to create the ADLBC (Lab (shift analysis)) analysis dataset. The program must: (1) Read relevant SDTM source datasets and merge with ADSL, (2) Derive key variables: SHIFT, ANRIND, BNRIND, AVAL, BASE, PARAMCD, (3) Handle shift from baseline to post-baseline reference range category, shift table derivation, (4) Apply ADaM variable attributes and metadata per specification, (5) Output xpt dataset with proper labels. The dataset contains approximately 7778 records."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.2.adam_adlbc_shift_gen.030/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "adlbc_shift_derivation_logic",
+          "adlbc_shift_key_mappings",
+          "output_format"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

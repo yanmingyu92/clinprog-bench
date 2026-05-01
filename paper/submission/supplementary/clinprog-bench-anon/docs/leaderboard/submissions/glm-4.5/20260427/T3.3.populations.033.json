@@ -1,0 +1,20 @@
+{
+  "task_id": "T3.3.populations.033",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "89.30",
+    "model": "glm-4.5",
+    "prompt_tokens": "2123",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T3.3.populations.033",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {}
+  }
+}

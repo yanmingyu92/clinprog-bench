@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_suppdm_debug.013",
+  "agent_name": "deepseek-chat",
+  "outputs": {
+    "patch.diff": "--- a/suppdm.sas\n+++ b/suppdm.sas\n@@ -1,7 +1,7 @@\n data suppdm;\n     set dm;\n     length qnam $8 qval $200;\n-    idvar = \"USUBJID\";\n+    idvar = \"DM\";\n     qnam = \"DIABP\";\n     qval = put(diabetic, $yesno.);\n     output;\n@@ -10,7 +10,7 @@\n     qval = put(ethnic, $ethnic.);\n     output;\n     qnam = \"MARRIED\";\n-    qval = put(married, $yesno.);\n+    qval = put(married, $yn.);\n     output;\n     keep studyid usubjid idvar qnam qval qeval;\n run;"
+  },
+  "metadata": {
+    "wall_time_seconds": "3.11",
+    "model": "deepseek-chat",
+    "prompt_tokens": "185",
+    "completion_tokens": "175"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_suppdm_debug.013",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

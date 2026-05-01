@@ -1,0 +1,16 @@
+--- a/exposure_prog.R
++++ b/exposure_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Treatment duration uses max(EXENDTC) - min(EXSTDTC) without +1 offset, giving one day short
++Fix 1: Treatment duration includes +1 offset
+@@ -1,5 +1,5 @@
+-Bug 2: Compliance percentage uses planned doses instead of actual doses for the ratio
++Fix 2: Compliance uses actual vs planned doses
+@@ -1,5 +1,5 @@
+-Bug 3: Dose intensity calculation divides by treatment period in weeks instead of days
++Fix 3: Dose intensity uses consistent time unit (days)
+
+Summary of fixes:
+1. Treatment duration includes +1 offset (duration_offset)
+2. Compliance uses actual vs planned doses (compliance_doses)
+3. Dose intensity uses consistent time unit (days) (intensity_units)

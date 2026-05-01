@@ -1,0 +1,23 @@
+# Document SDTM VS domain specification and unit handling - Documentation
+
+## Data Source: fixtures/04_sdtm/SDTM_Specifications.md#VS
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Variable Inventory
+
+[Variable Inventory details to be extracted from fixtures]
+
+## Data Standards
+
+[Data Standards details to be extracted from fixtures]
+
+## Compliance
+
+[Compliance details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

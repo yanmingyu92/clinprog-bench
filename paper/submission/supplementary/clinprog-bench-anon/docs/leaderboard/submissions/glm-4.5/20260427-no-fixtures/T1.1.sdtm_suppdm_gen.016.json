@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.1.sdtm_suppdm_gen.016",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "main.sas": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "66.98",
+    "model": "glm-4.5",
+    "prompt_tokens": "248",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T1.1.sdtm_suppdm_gen.016",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "suppdm_variable_mapping": 0.0,
+      "suppdm_derivation_logic": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

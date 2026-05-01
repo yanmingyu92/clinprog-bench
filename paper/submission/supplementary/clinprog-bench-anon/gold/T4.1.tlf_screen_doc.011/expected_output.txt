@@ -1,0 +1,23 @@
+# Screening Summary - Documentation
+
+## Table/Figure ID: 14-1.01
+
+## Population: All Screened
+
+## Data Source: ADSL
+
+## Header
+
+[Header details to be extracted from fixtures]
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Data Source
+
+[Data Source details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.3.tlf_responder_debug.006",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/programs/t5_3_tlf_responder_debug_006.R\n+++ b/programs/t5_3_tlf_responder_debug_006.R\n@@ -15,7 +15,7 @@\n adadas <- adadas %>%\n   filter(EFFFL == \"Y\",\n          PARAMCD == \"ACTOT\",\n-         AVISITN == 24,\n+         AVISITN %in% c(0, 24),\n          ANL01FL == \"Y\")\n \n # Calculate responder status\n@@ -23,7 +23,7 @@\n resp_data <- adadas %>%\n   arrange(USUBJID, AVISITN) %>%\n   group_by(USUBJID) %>%\n-  mutate(RESPONDER = if_else(CHG <= -4, \"Responder\", \"Non-Responder\")) %>%\n+  mutate(RESPONDER = if_else(CHG >= -4, \"Responder\", \"Non-Responder\")) %>%\n   filter(AVISITN == 24) %>%\n   ungroup()\n \n@@ -31,7 +31,7 @@\n resp_summary <- resp_data %>%\n   group_by(TRTAN, TRTA) %>%\n   summarise(\n-    n_resp = sum(RESPONDER == \"Responder\"),\n+    n_resp = sum(RESPONDER == \"Responder\", na.rm = TRUE),\n     n_total = n(),\n     pct_resp = 100 * n_resp / n_total,\n     .groups = \"drop\"\n@@ -48,7 +48,7 @@\n   trt_54 <- filter(resp_data, TRTAN == 54)$RESPONDER == \"Responder\"\n   trt_81 <- filter(resp_data, TRTAN == 81)$RESPONDER == \"Responder\"\n   \n-  p_val_54 <- fisher.test(table(trt_0, trt_54))$p.value\n-  p_val_81 <- fisher.test(table(trt_0, trt_81))$p.value\n+  p_val_54 <- chisq.test(table(trt_0, trt_54))$p.value\n+  p_val_81 <- chisq.test(table(trt_0, trt_81))$p.value\n   \n   return(list(p_54 = p_val_54, p_81 = p_val_81))"
+  },
+  "metadata": {
+    "wall_time_seconds": "9.92",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "3531",
+    "completion_tokens": "645"
+  },
+  "score": {
+    "task_id": "T5.3.tlf_responder_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

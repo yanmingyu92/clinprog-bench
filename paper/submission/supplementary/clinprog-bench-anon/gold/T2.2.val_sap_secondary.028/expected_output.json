@@ -1,0 +1,18 @@
+{
+  "alignment_checks": [
+    {
+      "element": "secondary_endpoint_1",
+      "sap_value": "CIBIC+ Clinician's Global Impression",
+      "mock_value": "Mock shell available",
+      "consistent": true,
+      "notes": "CIBIC+ analysis specification matches mock shell"
+    },
+    {
+      "element": "secondary_endpoint_2",
+      "sap_value": "NPI-X Neuropsychiatric Inventory",
+      "mock_value": "Mock shell available",
+      "consistent": true,
+      "notes": "NPI-X change from baseline specification consistent"
+    }
+  ]
+}

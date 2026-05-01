@@ -1,0 +1,39 @@
+{
+  "alignment_checks": [
+    {
+      "element": "analysis_model",
+      "sap_value": "ANCOVA: CHG ~ TRTPN + SITEGR1 + BASE",
+      "mock_value": "ANCOVA model with treatment, site group, and baseline",
+      "consistent": true,
+      "notes": "Model specification matches between SAP and mock shell footnotes"
+    },
+    {
+      "element": "population",
+      "sap_value": "Efficacy population (EFFFL='Y')",
+      "mock_value": "Efficacy population",
+      "consistent": true,
+      "notes": "Both specify Efficacy population (N=234)"
+    },
+    {
+      "element": "endpoint_variable",
+      "sap_value": "ADAS-Cog (11) total score change from baseline at Week 24",
+      "mock_value": "ADAS-Cog CFB Week 24",
+      "consistent": true,
+      "notes": "Endpoint variable matches"
+    },
+    {
+      "element": "missing_data_handling",
+      "sap_value": "LOCF imputation for post-baseline missing values",
+      "mock_value": "LOCF via DTYPE flag in ADADAS",
+      "consistent": true,
+      "notes": "Both use LOCF approach"
+    },
+    {
+      "element": "multiplicity_adjustment",
+      "sap_value": "No multiplicity adjustment specified for secondary endpoints",
+      "mock_value": "No adjustment mentioned in mock",
+      "consistent": true,
+      "notes": "Consistent absence of multiplicity correction"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "task_id": "T3.2.adam_adadas_extract.001",
+  "category": "T3",
+  "subcategory": "T3.2",
+  "title": "Extract ADADAS derivation parameters and visit windowing rules",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADADAS",
+    "prompt": "Extract the ADADAS (ADAS-Cog Analysis Dataset) derivation parameters. Focus on: PARAMCD definitions (ACTOT and ACITM01-11), visit windowing rules (AWTARGET, AWLO, AWHI for Baseline, Week 8, Week 16, Week 24), LOCF handling (DTYPE), analysis flag (ANL01FL), and variable derivation (AVAL, BASE, CHG, PCHG). Return as JSON with 'parameters' and 'visit_windows' arrays."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.2.adam_adadas_extract.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "parameters[].paramcd",
+          "parameters[].description",
+          "visit_windows[].visit",
+          "visit_windows[].awtarget"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

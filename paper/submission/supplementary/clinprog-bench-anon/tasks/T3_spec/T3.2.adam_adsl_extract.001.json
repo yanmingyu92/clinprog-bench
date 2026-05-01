@@ -1,0 +1,50 @@
+{
+  "task_id": "T3.2.adam_adsl_extract.001",
+  "category": "T3",
+  "subcategory": "T3.2",
+  "title": "Extract ADSL analysis dataset key variable metadata and derivation logic",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADSL",
+    "prompt": "Extract the ADSL (Subject-Level Analysis Dataset) key variable metadata. Focus on: treatment variables (TRT01PN, TRT01P, TRT01AN, TRT01A), population flags (ITTFL, SAFFL, EFFFL, COMP24FL), baseline measures (HEIGHTBL, WEIGHTBL, BMIBL, MMSETOT), and disposition (DISCONFL, DSRAEFL, EOSSTT). For each variable return: variable_name, type, length, label, origin, derivation_notes. Return as JSON with 'variables' array."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.2.adam_adsl_extract.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "variables[].variable_name",
+          "variables[].type",
+          "variables[].derivation_notes"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

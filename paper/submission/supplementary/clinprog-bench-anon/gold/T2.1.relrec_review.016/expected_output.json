@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "data_integrity",
+      "description": "RELREC relationship definitions must correctly link parent-child domain records"
+    },
+    {
+      "severity": "low",
+      "category": "documentation",
+      "description": "RELTYPE and relationship descriptions need documentation alignment"
+    }
+  ]
+}

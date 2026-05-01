@@ -1,0 +1,47 @@
+{
+  "task_id": "T3.3.study_design.036",
+  "category": "T3",
+  "subcategory": "T3.3",
+  "title": "Extract study design elements from protocol",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/01_study_design/protocol/CDISCPilot01_Protocol.md",
+      "fixtures/01_study_design/sap/CDISCPilot01_SAP.md"
+    ],
+    "spec": "fixtures/01_study_design/protocol/CDISCPilot01_Protocol.md",
+    "prompt": "Extract study design metadata. Return: design type (randomized, double-blind, placebo-controlled, parallel-group), randomization ratio (1:1:1), blinding method, number of arms (3), treatment duration (24 weeks), follow-up (2 weeks), number of sites. Return as JSON."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.3.study_design.036/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

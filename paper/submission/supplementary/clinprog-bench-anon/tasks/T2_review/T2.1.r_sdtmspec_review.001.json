@@ -1,0 +1,50 @@
+{
+  "task_id": "T2.1.r_sdtmspec_review.001",
+  "category": "T2",
+  "subcategory": "T2.1",
+  "title": "Review create_sdtm_spec.R for specification generation correctness",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T2.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/programs/create_sdtm_spec.R"
+    ],
+    "spec": "fixtures/04_sdtm/programs/create_sdtm_spec.R",
+    "prompt": "Review create_sdtm_spec.R which generates SDTM specifications. Check for completeness of variable metadata generation, proper codelist handling, and alignment with CDISC controlled terminology. Return a JSON with 'issues' array of {severity, location, category, description}."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T2.1.r_sdtmspec_review.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "issues[].severity",
+          "issues[].category",
+          "issues[].description"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "log_review",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

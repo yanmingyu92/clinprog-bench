@@ -1,0 +1,49 @@
+{
+  "task_id": "T3.2.adam_adtte_event_extract.029",
+  "category": "T3",
+  "subcategory": "T3.2",
+  "title": "Extract ADTTE (Event Classification) variable metadata and derivation rules",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADTTE",
+    "prompt": "Extract the ADTTE (Event Classification) analysis dataset metadata. This dataset contains 254 records. Extract ADTTE event and censoring definitions. Focus on CNSR values (0=event, 1=censored), EVNTDESC, and PARAM-specific censoring rules. Return as JSON with 'parameters' array."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.2.adam_adtte_event_extract.029/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "parameters[].paramcd",
+          "parameters[].description"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

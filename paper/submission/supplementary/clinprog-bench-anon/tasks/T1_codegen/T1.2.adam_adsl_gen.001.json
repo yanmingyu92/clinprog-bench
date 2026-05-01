@@ -1,0 +1,52 @@
+{
+  "task_id": "T1.2.adam_adsl_gen.001",
+  "category": "T1",
+  "subcategory": "T1.2",
+  "title": "Generate R program to derive ADSL from SDTM DM and supplemental domains",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADSL",
+    "prompt": "Write an R program using the admiral package to create the ADSL (Subject-Level Analysis Dataset). The program must: (1) Read SDTM DM, DS, EX, VS, SC, and SUPPDM xpt datasets, (2) Derive treatment variables: TRT01P/TRT01PN (planned) and TRT01A/TRT01AN (actual) from ARMCD/ACTARMCD with mapping Pbo\u21920, Xan_Lo\u219254, Xan_Hi\u219281, (3) Derive population flags: ITTFL (randomized), SAFFL (received at least 1 dose), EFFFL (post-baseline efficacy), COMP24FL (completed Week 24), (4) Derive baseline characteristics: HEIGHTBL, WEIGHTBL from VS, BMIBL computed, (5) Derive MMSETOT from QS domain, (6) Derive disposition flags: DISCONFL, DSRAEFL, EOSSTT from DS, (7) Calculate RFSTDTC/RFENDTC from EX, (8) Compute treatment duration (TRTDURD), (9) Handle screen failures (exclude ARMCD='Scrnfail' from ADSL), (10) Apply ADaM variable attributes and metadata per specification."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.2.adam_adsl_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "treatment_derivation",
+          "population_flag_logic",
+          "baseline_measure_handling"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

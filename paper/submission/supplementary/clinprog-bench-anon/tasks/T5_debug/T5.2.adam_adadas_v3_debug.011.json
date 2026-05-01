@@ -1,0 +1,52 @@
+{
+  "task_id": "T5.2.adam_adadas_v3_debug.011",
+  "category": "T5",
+  "subcategory": "T5.2",
+  "title": "Debug ADADAS derivation: ADAS-Cog (LOCF focus) errors",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md#ADADAS",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADADAS",
+    "prompt": "The following R program creates ADADAS but has 4 bugs: (1) LOCF includes baseline, (2) Week 24 AWHI is wrong, (3) Week 8 AWLO is wrong, (4) Visit windowing uses wrong logic. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.2.adam_adadas_v3_debug.011/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 4,
+        "fix_locations": [
+          "locf_baseline",
+          "awhi_week24",
+          "awlo_week8",
+          "visit_window_range"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

@@ -1,0 +1,39 @@
+{
+  "variables": [
+    {
+      "variable_name": "CMTRT",
+      "type": "Char",
+      "length": 200,
+      "label": "Reported Name of Concomitant Medication",
+      "origin": "CRF"
+    },
+    {
+      "variable_name": "CMDECOD",
+      "type": "Char",
+      "length": 100,
+      "label": "Standardized Medication Name",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "CMINDC",
+      "type": "Char",
+      "length": 200,
+      "label": "Indication",
+      "origin": "CRF"
+    },
+    {
+      "variable_name": "CMROUTE",
+      "type": "Char",
+      "length": 30,
+      "label": "Route of Administration",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "CMSTDTC",
+      "type": "Char",
+      "length": 20,
+      "label": "Start Date/Time",
+      "origin": "CRF"
+    }
+  ]
+}

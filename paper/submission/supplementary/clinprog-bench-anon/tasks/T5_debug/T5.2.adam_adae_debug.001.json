@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.2.adam_adae_debug.001",
+  "category": "T5",
+  "subcategory": "T5.2",
+  "title": "Debug ADAE derivation: treatment-emergent flag and relative day errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md#ADAE",
+      "fixtures/04_sdtm/SDTM_Specifications.md#AE"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADAE",
+    "prompt": "The following R program creates ADAE but has 3 bugs: (1) TRTEMFL (treatment-emergent flag) uses ASTDT > TRTSDT (strictly greater than) instead of ASTDT >= TRTSDT, incorrectly excluding AEs that start on the same day as first dose, (2) ASTDY (relative start day) calculation uses ASTDT - TRTSDT without adding 1, resulting in day 0 instead of day 1 for events on the first dose date, (3) Treatment variables TRTPN and TRTAN are swapped: TRTPN (planned numeric) is assigned from TRT01AN (actual) and TRTAN (actual numeric) is assigned from TRT01PN (planned). Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.2.adam_adae_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "TRTEMFL_comparison",
+          "ASTDY_offset",
+          "TRTPN_TRTAN_swap"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

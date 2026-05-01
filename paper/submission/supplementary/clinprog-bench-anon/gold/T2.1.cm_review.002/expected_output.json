@@ -1,0 +1,19 @@
+{
+  "issues": [
+    {
+      "severity": "high",
+      "category": "compliance",
+      "description": "CMDECOD must use standard medication dictionary coding for all 2,982 concomitant medication records"
+    },
+    {
+      "severity": "medium",
+      "category": "data_integrity",
+      "description": "CMROUTE mapping requires validation against CDISC controlled terminology"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "CMSTDTC partial date handling should follow ISO 8601 imputation rules"
+    }
+  ]
+}

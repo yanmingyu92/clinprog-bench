@@ -1,0 +1,16 @@
+--- a/adae_prog.R
++++ b/adae_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: ASEV (analysis severity) takes the first severity value instead of maximum severity across records for the same AE
++Fix 1: ASEV derived as maximum severity per AE
+@@ -1,5 +1,5 @@
+-Bug 2: AENDY calculation is AENDT - TRTSDT without +1, giving day 0 for events ending on first dose day
++Fix 2: AENDY = as.integer(AENDT - TRTSDT) + 1L
+@@ -1,5 +1,5 @@
+-Bug 3: TRTEMFL filter for TEAE analysis uses TRTEMFL=='N' instead of TRTEMFL=='Y'
++Fix 3: TRTEMFL filter uses 'Y' for treatment-emergent
+
+Summary of fixes:
+1. ASEV derived as maximum severity per AE (asev_max_severity)
+2. AENDY = as.integer(AENDT - TRTSDT) + 1L (aendy_offset)
+3. TRTEMFL filter uses 'Y' for treatment-emergent (trtemfl_filter)

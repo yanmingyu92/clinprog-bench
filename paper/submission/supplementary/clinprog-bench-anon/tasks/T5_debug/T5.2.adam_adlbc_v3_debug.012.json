@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.2.adam_adlbc_v3_debug.012",
+  "category": "T5",
+  "subcategory": "T5.2",
+  "title": "Debug ADLBC derivation: Lab (ANRIND focus) errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md#ADLBC",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADLBC",
+    "prompt": "The following R program creates ADLBC but has 3 bugs: (1) ANRIND uses exclusive comparison, (2) BNRIND is not derived, (3) SHIFT uses wrong format. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.2.adam_adlbc_v3_debug.012/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "anrind_comparison",
+          "bnrind_missing",
+          "shift_format"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

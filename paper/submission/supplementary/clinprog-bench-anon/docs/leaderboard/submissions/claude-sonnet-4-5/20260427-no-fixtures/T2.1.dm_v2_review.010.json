@@ -1,0 +1,29 @@
+{
+  "task_id": "T2.1.dm_v2_review.010",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing SDTM IG version documentation in program header. CDISC SDTM IG version (e.g., 3.2, 3.3, 3.4) must be specified for compliance verification.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"ETHNIC variable mapping not verified against SDTM CT for ethnicity codelist (C66790). Must use 'HISPANIC OR LATINO', 'NOT HISPANIC OR LATINO', 'NOT REPORTED', or 'UNKNOWN'.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No validation check for ETHNIC variable completeness. All subjects must have an ethnicity value; missing values should be coded as 'NOT REPORTED' or 'UNKNOWN' per SDTM IG.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"compliance\",\n      \"message\": \"RACE variable categorization not verified against SDTM CT (C74457). Must use controlled terminology: 'AMERICAN INDIAN OR ALASKA NATIVE', 'ASIAN', 'BLACK OR AFRICAN AMERICAN', 'NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER', 'WHITE', 'MULTIPLE', 'NOT REPORTED', 'UNKNOWN'.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Missing validation for multiple race handling. When subjects report multiple races, RACE should be 'MULTIPLE' and individual races captured in supplemental qualifiers (SRACE).\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"COUNTRY variable derivation not documented. Must use ISO 3166-1 alpha-3 country codes (e.g., 'USA', 'CAN', 'GBR') per SDTM IG requirements.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No cross-validation between COUNTRY and SITEID. Site-country mapping should be validated to ensure data consistency.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"programming\",\n      \"message\": \"Missing check for ethnicity-race logical consistency. Some regulatory requirements mandate specific ethnicity-race combinations be flagged for review.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"documentation\",\n      \"message\": \"Ethnicity mapping logic not documented. Source-to-SDTM mapping specifications for ETHNIC variable must be clearly documented with examples.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"compliance\",\n      \"message\": \"Verify RACEOTH variable is populated when RACE='OTHER' per legacy studies. Note: 'OTHER' is not in current SDTM CT but may exist in historical data.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"data_integrity\",\n      \"message\": \"No validation for ethnicity data completeness by country. Some countries may not collect ethnicity data; this should be documented and handled appropriately.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"error\",\n      \"category\": \"compliance\",\n      \"message\": \"Missing DOMAIN='DM' assignment verification. All records must have DOMAIN variable set to 'DM'.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"programming\",\n      \"message\": \"Case sensitivity handling for ethnicity/race values not verified. All SDTM controlled terminology values must be in uppercase.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"documentation\",\n      \"message\": \"Consider adding data quality checks: frequency counts for ETHNIC by COUNTRY, RACE by COUNTRY to identify potential data collection issues.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"warning\",\n      \"category\": \"compliance\",\n      \"message\": \"USUBJID construction not verified. Unique subject identifier must follow sponsor conventions and be consistent across all domains.\"\n    },\n    {\n      \"line\": 0,\n      \"severity\": \"info\",\n      \"category\": \"data_integrity\",\n      \"message\": \"Recommend implementing edit checks for ethnicity 'NOT REPORTED' vs 'UNKNOWN' usage to ensure consistent application per protocol definitions.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "22.62",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "230",
+    "completion_tokens": "1208"
+  },
+  "score": {
+    "task_id": "T2.1.dm_v2_review.010",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 2.0,
+      "issues[].severity": 0.0,
+      "issues[].category": 1.0,
+      "issues[].description": 0.0
+    }
+  }
+}

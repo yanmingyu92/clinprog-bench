@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "check": "MedDRA version",
+      "status": "pass",
+      "detail": "MedDRA v8.0 consistently referenced in SDTM specifications and define.xml"
+    },
+    {
+      "check": "Coding hierarchy",
+      "status": "pass",
+      "detail": "LLT-PT-HLT-HLGT-SOC hierarchy consistently applied across AE and MH domains"
+    }
+  ]
+}

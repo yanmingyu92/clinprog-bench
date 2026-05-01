@@ -1,0 +1,28 @@
+{
+  "variables": [
+    {
+      "variable_name": "SHIFT",
+      "type": "Char",
+      "length": 20,
+      "label": "Shift from Baseline Reference Range",
+      "origin": "Derived",
+      "derivation_notes": "Represents baseline category to post-baseline category transition (e.g., NORMAL-LOW)"
+    },
+    {
+      "variable_name": "ANRIND",
+      "type": "Char",
+      "length": 10,
+      "label": "Reference Range Indicator (Analysis)",
+      "origin": "Derived",
+      "derivation_notes": "LOW/NORMAL/HIGH based on AVAL vs reference range"
+    },
+    {
+      "variable_name": "BNRIND",
+      "type": "Char",
+      "length": 10,
+      "label": "Reference Range Indicator (Baseline)",
+      "origin": "Derived",
+      "derivation_notes": "LOW/NORMAL/HIGH based on BASE vs reference range"
+    }
+  ]
+}

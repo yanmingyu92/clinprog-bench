@@ -1,0 +1,16 @@
+--- a/tlf_demographic.R
++++ b/tlf_demographic.R
+@@ -1,5 +1,5 @@
+-Bug 1: adsl <- read_xpt("adsl.xpt") %>% filter(SAFFL == "Y")
++Fix 1: adsl <- read_xpt("adsl.xpt") %>% filter(ITTFL == "Y")
+
+-Bug 2: formatC(mean(x), digits=1, format="e")
++Fix 2: formatC(mean(x), digits=1, format="f")
+
+-Bug 3: lyt <- basic_table(show_colcounts = TRUE) %>% split_cols_by("TRT01P")
++Fix 3: lyt <- basic_table(show_colcounts = TRUE) %>% split_cols_by("TRT01P") %>% add_overall_col("Total")
+
+Summary of fixes:
+1. Population filter changed from Safety (SAFFL) to ITT (ITTFL)
+2. Statistic format changed from scientific notation ('e') to fixed ('f')
+3. Added overall total column to table layout

@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "SUPPDM QNAM values must match Define-XML supplemental qualifier definitions"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "IDVAR reference to DMSEQ needs validation across all 558 supplemental records"
+    }
+  ]
+}

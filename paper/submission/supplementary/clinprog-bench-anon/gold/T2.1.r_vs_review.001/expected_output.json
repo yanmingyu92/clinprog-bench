@@ -1,0 +1,22 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "location": "create_vs.R",
+      "category": "data_integrity",
+      "description": "VSTESTCD values must be mapped to controlled terminology; verify all 7,024 records use standard test codes"
+    },
+    {
+      "severity": "low",
+      "location": "create_vs.R",
+      "category": "programming",
+      "description": "VSORRESU and VSSTRESU unit standardization should be verified (e.g., kg, cm, mmHg, BEATS/MIN)"
+    },
+    {
+      "severity": "low",
+      "location": "create_vs.R",
+      "category": "programming",
+      "description": "Visit mapping (VISITNUM/VISIT) derivation from SV domain should handle unscheduled visits correctly"
+    }
+  ]
+}

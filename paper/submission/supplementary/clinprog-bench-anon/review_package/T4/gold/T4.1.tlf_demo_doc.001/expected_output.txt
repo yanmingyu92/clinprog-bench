@@ -1,0 +1,57 @@
+# Table 14-1.03 Demographics - TLF Specification
+
+## Header
+- **Table ID**: 14-1.03
+- **Title**: Demographics and Baseline Characteristics
+- **Population**: ITT (Intent-to-Treat) Population
+
+## Columns
+| Column | Label | N |
+|--------|-------|---|
+| Placebo | Placebo | 86 |
+| Xanomeline Low Dose | Xanomeline TTS 50 cm2 | 84 |
+| Xanomeline High Dose | Xanomeline TTS 75 cm2 | 84 |
+| Total | Total | 254 |
+
+## Row Specifications
+
+### Age (years)
+- n
+- Mean (SD)
+- Median
+- Min - Max
+- Age Group (<65, 65-80, >80): n (%)
+
+### Sex
+- Male: n (%)
+- Female: n (%)
+
+### Race
+- White: n (%)
+- Black or African American: n (%)
+- American Indian or Alaska Native: n (%)
+- Other: n (%)
+
+### Height (cm)
+- n, Mean (SD)
+
+### Weight (kg)
+- n, Mean (SD)
+
+### BMI (kg/m2)
+- n, Mean (SD)
+
+### MMSE Total Score
+- n, Mean (SD)
+
+## Data Source
+- **Dataset**: ADSL
+- **Variables**: AGE, AGEGR1, SEX, RACE, HEIGHTBL, WEIGHTBL, BMIBL, MMSETOT
+- **Population filter**: ITTFL = 'Y'
+- **Treatment variable**: TRT01P
+
+## Footnotes
+1. ITT Population: All randomized subjects.
+2. N = number of subjects in the treatment group.
+3. n (%) = number (percentage) of subjects in the category.
+4. SD = Standard Deviation.

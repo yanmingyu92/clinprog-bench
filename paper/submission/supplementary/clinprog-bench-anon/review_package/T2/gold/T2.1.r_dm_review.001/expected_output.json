@@ -1,0 +1,22 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "location": "create_dm.R",
+      "category": "compliance",
+      "description": "ARMCD values should match controlled terminology; verify Pbo/Xan_Lo/Xan_Hi against CDISC submission value level"
+    },
+    {
+      "severity": "low",
+      "location": "create_dm.R",
+      "category": "programming",
+      "description": "USUBJID concatenation format should be validated against XX-XXX-XXXX pattern per SDTM spec"
+    },
+    {
+      "severity": "medium",
+      "location": "create_dm.R",
+      "category": "data_integrity",
+      "description": "Screen failure subjects (ARMCD='Scrnfail') are retained in DM but excluded from ADaM ADSL; this is expected per SDTM standard"
+    }
+  ]
+}

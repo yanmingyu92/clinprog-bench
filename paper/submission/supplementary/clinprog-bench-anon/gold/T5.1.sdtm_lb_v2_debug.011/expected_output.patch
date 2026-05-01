@@ -1,0 +1,20 @@
+--- a/lb_prog.sas
++++ b/lb_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: LBSTRESU uses original units (LBORRESU) instead of standardized units for all tests
++Fix 1: LBSTRESU uses standardized SI units for all tests
+@@ -1,5 +1,5 @@
+-Bug 2: LBSTRESN conversion for temperature uses (F-32)/1.8 instead of (F-32)*5/9
++Fix 2: LBSTRESN temperature conversion uses correct formula (F-32)*5/9
+@@ -1,5 +1,5 @@
+-Bug 3: LBSEQ numbering starts at 0 instead of 1 for first record per USUBJID
++Fix 3: LBSEQ starts at 1 for first record per USUBJID
+@@ -1,5 +1,5 @@
+-Bug 4: LBORNRLO/LBORNRHI reference ranges are swapped (lower in upper field)
++Fix 4: LBORNRLO/LBORNRHI correctly assigned (lower to lower, upper to upper)
+
+Summary of fixes:
+1. LBSTRESU uses standardized SI units for all tests (lbstresu_standardization)
+2. LBSTRESN temperature conversion uses correct formula (F-32)*5/9 (temp_conversion)
+3. LBSEQ starts at 1 for first record per USUBJID (lbseq_offset)
+4. LBORNRLO/LBORNRHI correctly assigned (lower to lower, upper to upper) (ref_range_swap)

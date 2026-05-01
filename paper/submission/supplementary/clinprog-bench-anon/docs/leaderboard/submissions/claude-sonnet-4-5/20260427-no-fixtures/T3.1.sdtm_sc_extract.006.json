@@ -1,0 +1,32 @@
+{
+  "task_id": "T3.1.sdtm_sc_extract.006",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"variables\": [\n    {\n      \"variable\": \"STUDYID\",\n      \"label\": \"Study Identifier\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Req\"\n    },\n    {\n      \"variable\": \"DOMAIN\",\n      \"label\": \"Domain Abbreviation\",\n      \"type\": \"Char\",\n      \"length\": 2,\n      \"core\": \"Req\"\n    },\n    {\n      \"variable\": \"USUBJID\",\n      \"label\": \"Unique Subject Identifier\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Req\"\n    },\n    {\n      \"variable\": \"SCSEQ\",\n      \"label\": \"Sequence Number\",\n      \"type\": \"Num\",\n      \"length\": 8,\n      \"core\": \"Req\"\n    },\n    {\n      \"variable\": \"SCTESTCD\",\n      \"label\": \"Subject Characteristic Short Name\",\n      \"type\": \"Char\",\n      \"length\": 8,\n      \"core\": \"Req\",\n      \"codelist\": \"C66734\"\n    },\n    {\n      \"variable\": \"SCTEST\",\n      \"label\": \"Subject Characteristic\",\n      \"type\": \"Char\",\n      \"length\": 40,\n      \"core\": \"Req\",\n      \"codelist\": \"C66734\"\n    },\n    {\n      \"variable\": \"SCCAT\",\n      \"label\": \"Category for Subject Characteristic\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Perm\"\n    },\n    {\n      \"variable\": \"SCORRES\",\n      \"label\": \"Result or Finding in Original Units\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Exp\"\n    },\n    {\n      \"variable\": \"SCSTRESC\",\n      \"label\": \"Character Result/Finding in Std Format\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Exp\"\n    },\n    {\n      \"variable\": \"SCSTRESN\",\n      \"label\": \"Numeric Result/Finding in Standard Units\",\n      \"type\": \"Num\",\n      \"length\": 8,\n      \"core\": \"Exp\"\n    },\n    {\n      \"variable\": \"SCSTRESU\",\n      \"label\": \"Standard Units\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Perm\"\n    },\n    {\n      \"variable\": \"VISITNUM\",\n      \"label\": \"Visit Number\",\n      \"type\": \"Num\",\n      \"length\": 8,\n      \"core\": \"Exp\"\n    },\n    {\n      \"variable\": \"VISIT\",\n      \"label\": \"Visit Name\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Perm\"\n    },\n    {\n      \"variable\": \"SCDTC\",\n      \"label\": \"Date/Time of Collection\",\n      \"type\": \"Char\",\n      \"length\": 200,\n      \"core\": \"Exp\"\n    },\n    {\n      \"variable\": \"SCDY\",\n      \"label\": \"Study Day of Collection\",\n      \"type\": \"Num\",\n      \"length\": 8,\n      \"core\": \"Perm\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "12.22",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "216",
+    "completion_tokens": "855"
+  },
+  "score": {
+    "task_id": "T3.1.sdtm_sc_extract.006",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.2222222222222222,
+    "secondary": {
+      "variables[].variable_name": 0.0,
+      "variables[].variable_name_precision": 0.0,
+      "variables[].variable_name_recall": 0.0,
+      "variables[].type": 0.6666666666666666,
+      "variables[].type_precision": 0.5,
+      "variables[].type_recall": 1.0,
+      "variables[].label": 0.0,
+      "variables[].label_precision": 0.0,
+      "variables[].label_recall": 0.0,
+      "micro_f1": 0.07692307692307691,
+      "exact_match": 0.0
+    }
+  }
+}

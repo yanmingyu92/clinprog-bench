@@ -1,0 +1,20 @@
+{
+  "task_id": "T1.2.adam_adtte_gen.021",
+  "agent_name": "reference-baseline",
+  "outputs": {
+    "main.sas": "/* Reference baseline for T1.2.adam_adtte_gen.021 */\nlibname raw 'path/to/raw' access=readonly;\nlibname out 'path/to/output';\nproc sort data=raw.src; by USUBJID; run;\n"
+  },
+  "metadata": {},
+  "score": {
+    "task_id": "T1.2.adam_adtte_gen.021",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.25,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "adtte_derivation_logic": 1.0,
+      "adtte_key_mappings": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

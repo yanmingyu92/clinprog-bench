@@ -1,0 +1,27 @@
+{
+  "task_id": "T2.2.val_race_ethnic.038",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "review.json": "{\n  \"issues\": [\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"missing_data\",\n      \"message\": \"Cannot perform race and ethnicity coding review: No DM domain dataset provided in fixtures. Required file 'dm.xpt' or equivalent data extract not available.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"missing_data\",\n      \"message\": \"Cannot verify RACE variable coding: DM dataset not accessible for controlled terminology validation against CDISC CT 2022-12-16.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"error\",\n      \"category\": \"missing_data\",\n      \"message\": \"Cannot verify ETHNIC variable coding: DM dataset not accessible for controlled terminology validation against CDISC CT 2022-12-16.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"warning\",\n      \"category\": \"incomplete_review\",\n      \"message\": \"Cannot verify consistency between DM and ADaM datasets (ADSL): Analysis datasets not provided for cross-domain validation of RACE/ETHNIC variables.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"documentation_only\",\n      \"message\": \"DATASET_CARD.md indicates study includes 306 subjects in DM domain with demographic statistics showing 'White %' ranging from 88-93% across treatment groups, but actual RACE/ETHNIC variable values cannot be validated without dataset access.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"expected_variables\",\n      \"message\": \"Per SDTM IG 3.1.2, DM domain should contain RACE (required) and ETHNIC (expected) variables using CDISC CT codelist C74457 (Race) and C66790 (Ethnicity). Validation requires actual dataset.\"\n    },\n    {\n      \"line\": 1,\n      \"severity\": \"info\",\n      \"category\": \"recommendation\",\n      \"message\": \"To complete this review, please provide: (1) dm.xpt dataset, (2) adsl.xpt dataset, (3) Any supplemental qualifiers (suppdm.xpt) that may contain additional race/ethnicity coding, (4) Define.xml for controlled terminology references.\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "12.64",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "2697",
+    "completion_tokens": "591"
+  },
+  "score": {
+    "task_id": "T2.2.val_race_ethnic.038",
+    "category": "T2",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 0.0,
+      "findings[].*": 1.0
+    }
+  }
+}

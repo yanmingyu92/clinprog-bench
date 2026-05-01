@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.3.tlf_screen_gen.046",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "main.sas": "# Load required libraries\nlibrary(Tplyr)\nlibrary(rtf)\nlibrary(dplyr)\nlibrary(stringr)\n\n# Function to generate 14-1.01: Screening Summary\ngenerate_screening_summary <- function(adsl_path, output_path) {\n  \n  # Read ADSL dataset\n  adsl <- readr::read_csv(adsl_path)\n  \n  # Filter to All Screened population\n  # Assuming SAFFL is the flag for screened subjects (1 = screened)\n  screened_adsl <- adsl %>% \n    filter(SAFFL == \"Y\")\n  \n  # Create Tplyr table\n  t <- tplyr_table(screened_adsl, TRT01P) %>%\n    add_treat_grps(\n      \"Placebo\" = \"Placebo\",\n      \"Xanomeline Low\" = \"Xanomeline Low Dose\",\n      \"Xanomeline High\" = \"Xanomeline High Dose\"\n    ) %>%\n    set_pop_data(adsl) %>%\n    set_pop_treat_var(TRT01P) %>%\n    set_distinct_by(USUBJID) %>%\n    set_format_strings(\n      n = \"xx (xx.x%)\"\n    )\n  \n  # Add screening counts section\n  t <- t %>%\n    add_layer(\n      group_count(\"USUBJID\", \n                  by = \"Screened\",\n                  where = SAFFL == \"Y\",\n                  denom = \"All Screened\",\n                  denom_where = SAFFL == \"Y\")\n    )\n  \n  # Add screen failure reasons section\n  # Assuming SCRSREAS contains screen failure reasons\n  if (\"SCRSREAS\" %in% names(screened_adsl)) {\n    t <- t %>%\n      add_layer(\n        group_count(\"USUBJID\", \n                    by = \"SCRSREAS\",\n                    where = SAFFL == \"Y\" & !is.na(SCRSREAS),\n                    denom = \"All Screened\",\n                    denom_where = SAFFL == \"Y\")\n      )\n  }\n  \n  # Add enrollment summary section\n  # Assuming ENRLFL is the flag for enrolled subjects\n  t <- t %>%\n    add_layer(\n      group_count(\"USUBJID\", \n                  by = \"Enrolled\",\n                  where = ENRLFL == \"Y\",\n                  denom = \"All Screened\",\n                  denom_where = SAFFL == \"Y\")\n    )\n  \n  # Build the table\n  tbl <- build(t)\n  \n  # Format the table for output\n  formatted_tbl <- tbl %>%\n    mutate(\n      row_label = ifelse(is.na(row_label), \"Total\", row_label)\n    )\n  \n  # Create RTF document\n  doc <- rtf_doc() %>%\n    rtf_section(\n      rtf_table(formatted_tbl,\n                width = 8.5,\n                borders = c(\"top\", \"bottom\", \"left\", \"right\"),\n                col_widths = c(3.5, 1.5, 1.5, 1.5))\n    )\n  \n  # Add table title\n  doc <- doc %>%\n    rtf_section(\n      rtf_paragraph(\"Table 14-1.01: Screening Summary\",\n                    format = text_format(bold = TRUE, font_size = 12))\n    )\n  \n  # Write RTF file\n  write_rtf(doc, output_path)\n  \n  # Return the table for inspection\n  return(formatted_tbl)\n}\n\n# Example usage\n# generate_screening_summary(\"path/to/adsl.csv\", \"table_14-1-01_screening_summary.rtf\")"
+  },
+  "metadata": {
+    "wall_time_seconds": "21.19",
+    "model": "glm-4.5",
+    "prompt_tokens": "209",
+    "completion_tokens": "1021"
+  },
+  "score": {
+    "task_id": "T1.3.tlf_screen_gen.046",
+    "category": "T1",
+    "pass": true,
+    "primary": 0.75,
+    "secondary": {
+      "population_filter": 0.0,
+      "screen_analysis_logic": 1.0,
+      "table_structure": 1.0,
+      "output_format": 1.0
+    }
+  }
+}

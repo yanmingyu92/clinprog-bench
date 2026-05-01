@@ -1,0 +1,44 @@
+{
+  "variables": [
+    {
+      "variable_name": "ANRIND",
+      "type": "Char",
+      "length": 10,
+      "label": "Reference Range Indicator (Analysis)",
+      "origin": "Derived",
+      "derivation_notes": "LOW/NORMAL/HIGH based on AVAL vs ANRLO/ANRHI"
+    },
+    {
+      "variable_name": "BNRIND",
+      "type": "Char",
+      "length": 10,
+      "label": "Reference Range Indicator (Baseline)",
+      "origin": "Derived",
+      "derivation_notes": "LOW/NORMAL/HIGH based on BASE vs ANRLO/ANRHI"
+    },
+    {
+      "variable_name": "SHIFT",
+      "type": "Char",
+      "length": 20,
+      "label": "Shift from Baseline Reference Range",
+      "origin": "Derived",
+      "derivation_notes": "Derived as BNRIND to ANRIND transition"
+    },
+    {
+      "variable_name": "ATOXGR",
+      "type": "Char",
+      "length": 10,
+      "label": "Analysis Toxicity Grade",
+      "origin": "Derived",
+      "derivation_notes": "Grading based on CTCAE criteria from AVAL"
+    },
+    {
+      "variable_name": "BTOXGR",
+      "type": "Char",
+      "length": 10,
+      "label": "Baseline Toxicity Grade",
+      "origin": "Derived",
+      "derivation_notes": "Grading based on CTCAE criteria from BASE"
+    }
+  ]
+}

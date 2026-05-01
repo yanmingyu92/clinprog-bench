@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "compliance",
+      "description": "ETHNIC mapping should use CDISC controlled terminology (Hispanic or Latino, Not Hispanic or Latino)"
+    },
+    {
+      "severity": "low",
+      "category": "programming",
+      "description": "COUNTRY derivation from SITEID needs explicit mapping table documentation"
+    }
+  ]
+}

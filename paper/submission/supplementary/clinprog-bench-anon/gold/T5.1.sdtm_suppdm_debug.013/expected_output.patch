@@ -1,0 +1,16 @@
+--- a/suppdm_prog.sas
++++ b/suppdm_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: IDVAR is set to 'USUBJID' but should be 'DMSEQ' per SDTM supplemental qualifier standard
++Fix 1: IDVAR set to 'DMSEQ' per SDTM supplemental qualifier standard
+@@ -1,5 +1,5 @@
+-Bug 2: QNAM values use lowercase ('ethnic_grp') instead of uppercase ('ETHNIC_GRP')
++Fix 2: QNAM values use uppercase naming convention
+@@ -1,5 +1,5 @@
+-Bug 3: QVAL for binary qualifiers uses 'Yes'/'No' instead of 'Y'/'N'
++Fix 3: QVAL for binary qualifiers uses 'Y'/'N'
+
+Summary of fixes:
+1. IDVAR set to 'DMSEQ' per SDTM supplemental qualifier standard (idvar_value)
+2. QNAM values use uppercase naming convention (qnam_case)
+3. QVAL for binary qualifiers uses 'Y'/'N' (qval_format)

@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.3.tlf_responder_debug.006",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/table_14_3_03.R\n+++ b/table_14_3_03.R\n@@ -1,7 +1,7 @@\n # Table 14-3.03: Responder Analysis\n # Responder defined as >= 50% reduction from baseline in ADAS-Cog11\n \n-library(dplyr)\n+library(dplyr) \n library(tidyr)\n library(tibble)\n \n@@ -15,7 +15,7 @@\n adeff <- adeff %>%\n   filter(EFFFL == \"Y\", \n          ITTFL == \"Y\",\n-         PARAMCD == \"ACTOT\") %>%\n+         PARAMCD == \"ACTOT\",\n+         !is.na(AVAL), !is.na(BASE)) %>%\n   mutate(\n-    RESPONDER = ifelse(CHG <= -0.5 * BASE, \"Responder\", \"Non-responder\")\n+    RESPONDER = ifelse((BASE - AVAL) / BASE >= 0.5, \"Responder\", \"Non-responder\")\n   )\n \n@@ -30,7 +30,7 @@\n     n_resp = sum(RESPONDER == \"Responder\"),\n     n_total = n(),\n     pct = 100 * n_resp / n_total,\n-    denom = sum(!is.na(AVAL))\n+    denom = n_total\n   ) %>%\n   ungroup()\n \n@@ -45,7 +45,7 @@\n   trt_data <- filter(adeff, TRT01PN == trt)\n   \n   # Fisher's exact test\n-  test_result <- t.test(\n+  test_result <- fisher.test(\n     x = trt_data$RESPONDER == \"Responder\",\n-    y = pbo_data$RESPONDER == \"Responder\"\n+    matrix(c(sum(trt_data$RESPONDER == \"Responder\"), \n+             sum(trt_data$RESPONDER == \"Non-responder\"),\n+             sum(pbo_data$RESPONDER == \"Responder\"),\n+             sum(pbo_data$RESPONDER == \"Non-responder\")), nrow = 2)\n   )"
+  },
+  "metadata": {
+    "wall_time_seconds": "11.08",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "218",
+    "completion_tokens": "584"
+  },
+  "score": {
+    "task_id": "T5.3.tlf_responder_debug.006",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

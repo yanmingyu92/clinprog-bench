@@ -1,0 +1,20 @@
+--- a/adtte_prog.R
++++ b/adtte_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: Subgroup variable SUBGP is derived from SITEID using first 2 characters instead of SITEGR1 (pooled site group)
++Fix 1: SUBGP derived from SITEGR1 (pooled site group)
+@@ -1,5 +1,5 @@
+-Bug 2: Stratified log-rank test uses unstratified survdiff() without strata() argument
++Fix 2: Log-rank uses strata() for stratified comparison
+@@ -1,5 +1,5 @@
+-Bug 3: Median time-to-event calculation uses mean() instead of quantile(survfit, probs=0.5)
++Fix 3: Median uses quantile(survfit, probs=0.5)
+@@ -1,5 +1,5 @@
+-Bug 4: Treatment variable in survfit() uses numeric TRT01PN instead of factor, treating treatment as continuous
++Fix 4: Treatment variable converted to factor for categorical comparison
+
+Summary of fixes:
+1. SUBGP derived from SITEGR1 (pooled site group) (subgp_source)
+2. Log-rank uses strata() for stratified comparison (logrank_strata)
+3. Median uses quantile(survfit, probs=0.5) (median_calculation)
+4. Treatment variable converted to factor for categorical comparison (trt_factor)

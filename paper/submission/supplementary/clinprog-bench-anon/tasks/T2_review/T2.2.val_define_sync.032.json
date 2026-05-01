@@ -1,0 +1,49 @@
+{
+  "task_id": "T2.2.val_define_sync.032",
+  "category": "T2",
+  "subcategory": "T2.2",
+  "title": "Review define.xml synchronization between SDTM and ADaM",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T2.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/define.xml",
+      "fixtures/05_adam/define.xml"
+    ],
+    "spec": "fixtures/08_validation/master_validation_plan.md",
+    "prompt": "Cross-reference SDTM and ADaM define.xml files for treatment coding, visit definitions, and codelist consistency. Return JSON with 'discrepancies' array. Return a structured JSON object with the reviewed findings."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T2.2.val_define_sync.032/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "discrepancies[].*"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "log_review",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

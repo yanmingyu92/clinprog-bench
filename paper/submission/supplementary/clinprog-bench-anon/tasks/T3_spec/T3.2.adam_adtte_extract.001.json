@@ -1,0 +1,50 @@
+{
+  "task_id": "T3.2.adam_adtte_extract.001",
+  "category": "T3",
+  "subcategory": "T3.2",
+  "title": "Extract ADTTE time-to-event parameter definitions and censoring rules",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/05_adam/ADaM_Specifications.md"
+    ],
+    "spec": "fixtures/05_adam/ADaM_Specifications.md#ADTTE",
+    "prompt": "Extract the ADTTE (Time-to-Event Analysis Dataset) parameter definitions. Focus on: PARAMCD values, PARAM descriptions, censoring variable (CNSR) logic, time variable (AVAL) derivation, start date (ADT) and event date definitions, and treatment variables. Return as JSON with 'parameters' array."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.2.adam_adtte_extract.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "parameters[].paramcd",
+          "parameters[].param",
+          "parameters[].cnsr_logic"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

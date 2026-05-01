@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_ds_debug.003",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "patch.diff": "--- a/ds_domain.sas\n+++ b/ds_domain.sas\n@@ -12,14 +12,15 @@\n   set raw_ds;\n   by usubjid;\n   \n+  retain dsseq;\n   if first.usubjid then dsseq = 1;\n   else dsseq + 1;\n   \n   /* Derive DISCONFL */\n-  if dsdecod = 'Completed' then disconfl = 'N';\n+  if upcase(dsdecod) = 'COMPLETED' then disconfl = 'N';\n   else disconfl = 'Y';\n   \n   /* Set DSCAT */\n-  dscat = 'DISPOSITION';\n+  dscat = 'DISPOSITION TRIAL';\n   \n   /* Other variables */"
+  },
+  "metadata": {
+    "wall_time_seconds": "17.59",
+    "model": "glm-4.5",
+    "prompt_tokens": "211",
+    "completion_tokens": "759"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_ds_debug.003",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

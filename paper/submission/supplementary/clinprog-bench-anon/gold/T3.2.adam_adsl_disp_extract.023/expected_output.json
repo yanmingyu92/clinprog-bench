@@ -1,0 +1,36 @@
+{
+  "variables": [
+    {
+      "variable_name": "DISCONFL",
+      "type": "Char",
+      "length": 1,
+      "label": "Disposition Discontinued Flag",
+      "origin": "Derived",
+      "derivation_notes": "Y if subject discontinued from study early"
+    },
+    {
+      "variable_name": "DSRAEFL",
+      "type": "Char",
+      "length": 1,
+      "label": "Discontinued Due to AE Flag",
+      "origin": "Derived",
+      "derivation_notes": "Y if DCSREAS indicates adverse event as reason"
+    },
+    {
+      "variable_name": "EOSSTT",
+      "type": "Char",
+      "length": 20,
+      "label": "End of Study Status",
+      "origin": "Derived",
+      "derivation_notes": "Completed or Discontinued from DS domain"
+    },
+    {
+      "variable_name": "DCSREAS",
+      "type": "Char",
+      "length": 40,
+      "label": "Reason for Discontinuation",
+      "origin": "Derived",
+      "derivation_notes": "Derived from DS domain disposition term"
+    }
+  ]
+}

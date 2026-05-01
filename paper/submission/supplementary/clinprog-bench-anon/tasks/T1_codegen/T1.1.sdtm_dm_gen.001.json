@@ -1,0 +1,53 @@
+{
+  "task_id": "T1.1.sdtm_dm_gen.001",
+  "category": "T1",
+  "subcategory": "T1.1",
+  "title": "Generate SAS program to create SDTM DM domain from raw demographics",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T1.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/03_raw_data/create_missing_raw_data.R",
+      "fixtures/04_sdtm/SDTM_Specifications.md",
+      "fixtures/04_sdtm/programs/path.R"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#DM",
+    "prompt": "Write a SAS program to create the SDTM DM (Demographics) domain dataset from raw source data. The program must: (1) Read raw demographics data, (2) Derive USUBJID as STUDYID-SITEID-SUBJID, (3) Map ARMCD/ARM from randomization data (Pbo, Xan_Lo, Xan_Hi), (4) Calculate RFICDTC from informed consent date, (5) Derive COUNTRY from SITEID, (6) Assign all required CDISC variables (STUDYID, DOMAIN, USUBJID, SUBJID, SITEID, ARMCD, ARM, ACTARMCD, ACTARM, AGE, AGEU, SEX, RACE, ETHNIC, COUNTRY, RFICDTC, RFXSTDTC, RFICDEC), (7) Apply variable attributes per SDTM specification, (8) Create a permanent SAS dataset with xport format. Include data step programming with proper labels and lengths per the SDTM specification."
+  },
+  "expected_outputs": {
+    "kind": "sas_program",
+    "gold_path": "gold/T1.1.sdtm_dm_gen.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "required_variables[]",
+          "usubjid_derivation",
+          "arm_mapping_logic",
+          "output_format"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "codegen",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

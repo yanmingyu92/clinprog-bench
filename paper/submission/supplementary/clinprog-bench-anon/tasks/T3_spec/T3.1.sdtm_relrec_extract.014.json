@@ -1,0 +1,50 @@
+{
+  "task_id": "T3.1.sdtm_relrec_extract.014",
+  "category": "T3",
+  "subcategory": "T3.1",
+  "title": "Extract SDTM RELREC (Related Records) domain variable metadata",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T3.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#RELREC",
+    "prompt": "Extract the SDTM RELREC (Related Records) domain variable metadata. This domain contains 38 records. Extract RELREC domain variable metadata. Focus on relationship variables (RDOMAIN, IDVAR, IDVARVAL, RELTYPE, RELID). Return as JSON with 'variables' array."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T3.1.sdtm_relrec_extract.014/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "variables[].variable_name",
+          "variables[].type",
+          "variables[].label"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "spec_extract",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

@@ -1,0 +1,55 @@
+{
+  "task_id": "T4.2.define_sdtm_doc.001",
+  "category": "T4",
+  "subcategory": "T4.2",
+  "title": "Document SDTM define.xml metadata structure and compliance",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/define.xml",
+      "fixtures/04_sdtm/SDTM_Specifications.md"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md",
+    "prompt": "Document the SDTM define.xml file structure. Include: Define-XML version, ODM schema version, number of ItemGroupDefs (domains), number of ItemDefs (variables), number of CodeListDefs, controlled terminology sources (MedDRA version, CDISC submission values), metadata version information, and compliance with Define-XML 2.0 standard. Cross-reference with SDTM_Specifications.md for completeness."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.2.define_sdtm_doc.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "define_xml_version",
+          "odm_schema_version",
+          "itemgroup_count",
+          "itemdef_count",
+          "codelist_count",
+          "meddra_version",
+          "compliance_standard"
+        ],
+        "match_mode": "exact"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

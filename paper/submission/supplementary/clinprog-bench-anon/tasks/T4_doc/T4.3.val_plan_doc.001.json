@@ -1,0 +1,53 @@
+{
+  "task_id": "T4.3.val_plan_doc.001",
+  "category": "T4",
+  "subcategory": "T4.3",
+  "title": "Document validation plan coverage and execution methodology",
+  "complexity": "complex",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/08_validation/master_validation_plan.md",
+      "fixtures/08_validation/README.md"
+    ],
+    "spec": "fixtures/08_validation/master_validation_plan.md",
+    "prompt": "Produce a structured documentation of the validation plan. Include: validation layers (Document Alignment, Data Lineage, Analysis Consistency, Regulatory Compliance), automated validation scripts (V001-V006 with descriptions), check categories (D-xxx data checks, L-xxx log checks, P-xxx programming checks, M-xxx method checks), execution phases, and expected pass/fail criteria. Summarize the overall validation methodology."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.3.val_plan_doc.001/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "validation_layers",
+          "automated_scripts",
+          "check_categories",
+          "execution_phases",
+          "methodology_summary"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "hard"
+}

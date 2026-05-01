@@ -1,0 +1,16 @@
+--- a/ae_prog.sas
++++ b/ae_prog.sas
+@@ -1,5 +1,5 @@
+-Bug 1: AEOUT mapping uses 'RECOVERED' for partial recovery instead of 'RECOVERING/RESOLVING' per CDISC
++Fix 1: AEOUT mapped to correct CDISC terminology for partial outcomes
+@@ -1,5 +1,5 @@
+-Bug 2: AESEQ counter is reset for each BY group (by USUBJID AESTDTC) instead of just by USUBJID
++Fix 2: AESEQ retained and incremented per USUBJID only
+@@ -1,5 +1,5 @@
+-Bug 3: AEACN (action taken) for 'Dose Reduced' is mapped as 'DR' instead of 'DOSE REDUCED'
++Fix 3: AEACN mapped to full CDISC controlled terminology
+
+Summary of fixes:
+1. AEOUT mapped to correct CDISC terminology for partial outcomes (aeout_mapping)
+2. AESEQ retained and incremented per USUBJID only (aeseq_by_group)
+3. AEACN mapped to full CDISC controlled terminology (aeacn_terminology)

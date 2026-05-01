@@ -1,0 +1,23 @@
+# Document ADAE treatment-emergent flag and analysis derivation - Documentation
+
+## Data Source: fixtures/05_adam/ADaM_Specifications.md#ADAE
+
+## Specifications
+
+[Specifications details to be extracted from fixtures]
+
+## Variable Inventory
+
+[Variable Inventory details to be extracted from fixtures]
+
+## Data Standards
+
+[Data Standards details to be extracted from fixtures]
+
+## Compliance
+
+[Compliance details to be extracted from fixtures]
+
+## Footnotes
+
+[Footnotes details to be extracted from fixtures]

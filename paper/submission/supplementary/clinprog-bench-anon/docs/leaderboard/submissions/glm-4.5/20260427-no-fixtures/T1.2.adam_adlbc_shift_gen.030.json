@@ -1,0 +1,25 @@
+{
+  "task_id": "T1.2.adam_adlbc_shift_gen.030",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "main.sas": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "66.67",
+    "model": "glm-4.5",
+    "prompt_tokens": "237",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T1.2.adam_adlbc_shift_gen.030",
+    "category": "T1",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "required_variables[]": 0.0,
+      "adlbc_shift_derivation_logic": 0.0,
+      "adlbc_shift_key_mappings": 0.0,
+      "output_format": 0.0
+    }
+  }
+}

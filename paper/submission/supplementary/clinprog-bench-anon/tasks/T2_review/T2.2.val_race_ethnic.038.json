@@ -1,0 +1,49 @@
+{
+  "task_id": "T2.2.val_race_ethnic.038",
+  "category": "T2",
+  "subcategory": "T2.2",
+  "title": "Review race and ethnicity coding across DM and analysis datasets",
+  "complexity": "simple",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T2.py",
+    "human_authors": [
+      "R01"
+    ],
+    "human_reviewers": [
+      "R02"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md#DM",
+      "fixtures/DATASET_CARD.md"
+    ],
+    "spec": "fixtures/08_validation/master_validation_plan.md",
+    "prompt": "Check RACE and ETHNIC variable coding consistency in DM domain. Verify controlled terminology usage. Return JSON with 'findings' array. Return a structured JSON object with the reviewed findings."
+  },
+  "expected_outputs": {
+    "kind": "json",
+    "gold_path": "gold/T2.2.val_race_ethnic.038/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "findings[].*"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "log_review",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "easy"
+}

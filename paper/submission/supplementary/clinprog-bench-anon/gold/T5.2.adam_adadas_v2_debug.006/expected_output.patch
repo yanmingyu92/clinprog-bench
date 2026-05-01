@@ -1,0 +1,16 @@
+--- a/adadas_prog.R
++++ b/adadas_prog.R
+@@ -1,5 +1,5 @@
+-Bug 1: CHG is computed as BASE - AVAL (inverted) instead of AVAL - BASE
++Fix 1: CHG = AVAL - BASE (correct direction)
+@@ -1,5 +1,5 @@
+-Bug 2: ANL01FL is set for all PARAMCD values instead of only PARAMCD=='ACTOT' per SAP
++Fix 2: ANL01FL only set for PARAMCD=='ACTOT'
+@@ -1,5 +1,5 @@
+-Bug 3: PCHG computation divides by AVAL instead of BASE for percent change
++Fix 3: PCHG = (CHG/BASE) * 100
+
+Summary of fixes:
+1. CHG = AVAL - BASE (correct direction) (chg_direction)
+2. ANL01FL only set for PARAMCD=='ACTOT' (anl01fl_paramcd)
+3. PCHG = (CHG/BASE) * 100 (pchg_denominator)

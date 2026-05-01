@@ -1,0 +1,29 @@
+{
+  "task_id": "T3.2.adam_adadas_param_extract.026",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": "{\n  \"parameters\": [\n    {\n      \"paramcd\": \"ACTOT\",\n      \"param\": \"ADAS-COG (11) Total Score\",\n      \"description\": \"Total score across 11 items\",\n      \"scoring_rules\": \"Sum of individual item scores\",\n      \"range\": \"Not specified in the document\"\n    },\n    {\n      \"paramcd\": \"ACITM01\",\n      \"param\": \"Word Recall\",\n      \"description\": \"Item 1 score\",\n      \"scoring_rules\": \"Not specified in the document\",\n      \"range\": \"Not specified in the document\"\n    },\n    {\n      \"paramcd\": \"ACITM02\",\n      \"param\": \"Naming Objects and Fingers\",\n      \"description\": \"Item 2 score\",\n      \"scoring_rules\": \"Not specified in the document\",\n      \"range\": \"Not specified in the document\"\n    }\n  ]\n}"
+  },
+  "metadata": {
+    "wall_time_seconds": "14.06",
+    "model": "glm-4.5",
+    "prompt_tokens": "2810",
+    "completion_tokens": "761"
+  },
+  "score": {
+    "task_id": "T3.2.adam_adadas_param_extract.026",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.2,
+    "secondary": {
+      "parameters[].paramcd": 0.4,
+      "parameters[].paramcd_precision": 1.0,
+      "parameters[].paramcd_recall": 0.25,
+      "parameters[].description": 0.0,
+      "parameters[].description_precision": 0.0,
+      "parameters[].description_recall": 0.0,
+      "micro_f1": 0.2,
+      "exact_match": 0.0
+    }
+  }
+}

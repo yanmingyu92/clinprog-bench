@@ -1,0 +1,50 @@
+{
+  "task_id": "T5.3.tlf_demo_debug.001",
+  "category": "T5",
+  "subcategory": "T5.3",
+  "title": "Debug demographics table: wrong population filter and statistic errors",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/t_mock_14-1-03_demographic.md",
+      "fixtures/05_adam/ADaM_Specifications.md#ADSL"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/t_mock_14-1-03_demographic.md",
+    "prompt": "The following R program generates Table 14-1.03 but has 3 bugs: (1) Population filter uses SAFFL=='Y' (Safety) instead of ITTFL=='Y' (ITT) per mock shell, (2) The mean/SD format uses formatC with format='e' (scientific notation) instead of format='f' (fixed decimal), (3) The Total column is missing because add_overall_col was omitted from the table layout. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.3.tlf_demo_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "population_filter",
+          "format_string",
+          "overall_column"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  }
+}

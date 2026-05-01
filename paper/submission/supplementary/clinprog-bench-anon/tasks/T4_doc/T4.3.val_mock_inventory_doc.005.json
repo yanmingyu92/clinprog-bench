@@ -1,0 +1,52 @@
+{
+  "task_id": "T4.3.val_mock_inventory_doc.005",
+  "category": "T4",
+  "subcategory": "T4.3",
+  "title": "Document mock shell inventory and coverage",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/README.md"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/README.md",
+    "prompt": "Document the mock shell inventory. List all mock shells with table/figure IDs, titles, populations, data sources, and SAP coverage. Identify any gaps in mock shell coverage. Return structured documentation."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.3.val_mock_inventory_doc.005/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "validation_scope",
+          "methodology",
+          "check_categories",
+          "findings_summary"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

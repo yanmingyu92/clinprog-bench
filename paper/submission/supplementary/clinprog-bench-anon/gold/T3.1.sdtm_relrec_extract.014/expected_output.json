@@ -1,0 +1,39 @@
+{
+  "variables": [
+    {
+      "variable_name": "RDOMAIN",
+      "type": "Char",
+      "length": 2,
+      "label": "Related Domain",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "IDVAR",
+      "type": "Char",
+      "length": 8,
+      "label": "Identifying Variable",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "IDVARVAL",
+      "type": "Char",
+      "length": 20,
+      "label": "Identifying Variable Value",
+      "origin": "Derived"
+    },
+    {
+      "variable_name": "RELTYPE",
+      "type": "Char",
+      "length": 1,
+      "label": "Relationship Type",
+      "origin": "Assigned"
+    },
+    {
+      "variable_name": "RELID",
+      "type": "Char",
+      "length": 20,
+      "label": "Relationship ID",
+      "origin": "Derived"
+    }
+  ]
+}

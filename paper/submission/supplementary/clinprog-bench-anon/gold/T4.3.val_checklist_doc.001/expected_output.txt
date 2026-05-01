@@ -1,0 +1,37 @@
+# Alignment Checklist Documentation
+
+## Protocol-to-SAP Alignment Sections
+- Study objectives mapping to analysis endpoints
+- Treatment group definitions and coding
+- Population definitions (ITT, Safety, Efficacy)
+- Primary and secondary endpoint specifications
+- Statistical methodology consistency
+- Missing data handling approach
+
+## SAP-to-Mock Shell Alignment Sections
+- Table 14-1.03 Demographics: Title, population, columns, statistics
+- Table 14-3.01 Primary Endpoint: Analysis model, population, endpoint, methods
+- Table 14-4.01 AE Overview: Population, row categories, display conventions
+- Table 14-4.02 AE by SOC/PT: Filtering threshold, sorting, MedDRA coding
+- Figure 14-5.01 KM Plot: Endpoint, treatment display, statistical summary
+
+## Mock Shell-to-TLF Output Alignment Sections
+- Structure verification (rows, columns, headers)
+- Numeric value comparison against ground truth
+- Formatting compliance (decimal places, percentages)
+- Footnote accuracy and completeness
+
+## Analysis Logic Verification
+- ANCOVA model specification: CHG ~ TRTPN + SITEGR1 + BASE
+- Type III Sum of Squares with proportional weighting
+- Data selection filters: EFFFL, ITTFL, PARAMCD, ANL01FL, AVISITN
+- Missing data: LOCF via DTYPE flag
+- No multiplicity adjustment for primary endpoint
+
+## Check Summary
+- **Protocol-SAP alignment**: 6 sections, all complete
+- **SAP-Mock alignment**: 5 mock shells verified
+- **Mock-TLF alignment**: 8 TLF outputs cross-referenced
+- **Analysis logic**: 4 verification points confirmed
+- **Total checks**: 51 (31 passed, 0 failed, 20 pending per consistency validation)
+- **Quality report status**: 18/26 checks passed (69%), 3 documented issues

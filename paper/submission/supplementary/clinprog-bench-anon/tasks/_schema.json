@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/anonymous/clinprog-bench/tasks/_schema.json",
+  "title": "ClinProg-Bench Task Schema",
+  "description": "Schema for clinical programming benchmark tasks (v0.1)",
+  "type": "object",
+  "required": [
+    "task_id",
+    "category",
+    "subcategory",
+    "title",
+    "complexity",
+    "license",
+    "provenance",
+    "inputs",
+    "expected_outputs",
+    "scoring",
+    "leakage_audit"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^T[1-5]\\.[1-9][0-9]?\\.[a-z0-9_]+\\.[0-9]{3}$",
+      "description": "Unique task identifier"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["T1", "T2", "T3", "T4", "T5"],
+      "description": "Top-level task category"
+    },
+    "subcategory": {
+      "type": "string",
+      "pattern": "^T[1-5]\\.[1-9][0-9]?$",
+      "description": "Subcategory code"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable task title"
+    },
+    "complexity": {
+      "type": "string",
+      "enum": ["simple", "mixed", "complex"],
+      "description": "Task complexity tier"
+    },
+    "difficulty_tag": {
+      "type": ["string", "null"],
+      "description": "Optional difficulty label (populated after calibration)"
+    },
+    "license": {
+      "type": "string",
+      "default": "CC-BY-4.0",
+      "description": "Data license for this task"
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "seed_repo",
+        "seed_commit",
+        "derivation_script",
+        "human_authors",
+        "human_reviewers"
+      ],
+      "properties": {
+        "seed_repo": {
+          "type": "string",
+          "description": "Public repository used as seed substrate"
+        },
+        "seed_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$",
+          "description": "40-character SHA-1 commit hash"
+        },
+        "derivation_script": {
+          "type": "string",
+          "description": "Repo-relative path to the script that built this task"
+        },
+        "human_authors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Pseudonymous reviewer IDs who authored the task"
+        },
+        "human_reviewers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Pseudonymous reviewer IDs who reviewed the task"
+        }
+      },
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "object",
+      "required": ["fixtures", "spec", "prompt"],
+      "properties": {
+        "fixtures": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Repo-relative paths to input fixture files"
+        },
+        "spec": {
+          "type": "string",
+          "description": "Specification reference (file path or inline)"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Natural-language task prompt for the agent"
+        }
+      },
+      "additionalProperties": false
+    },
+    "expected_outputs": {
+      "type": "object",
+      "required": ["kind", "gold_path", "oracle"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["sas_program", "r_program", "python_program", "json", "patch", "text"],
+          "description": "Format of the expected output"
+        },
+        "gold_path": {
+          "type": "string",
+          "description": "Repo-relative path to gold-standard outputs"
+        },
+        "oracle": {
+          "type": "object",
+          "required": ["type", "params"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "dataset_diff",
+                "set_match",
+                "confusion_matrix",
+                "patch_apply",
+                "slot_fill"
+              ],
+              "description": "Oracle evaluation strategy"
+            },
+            "params": {
+              "type": "object",
+              "description": "Oracle-specific parameters (e.g. primary_key, tolerance)"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "scoring": {
+      "type": "object",
+      "required": ["scorer", "weight"],
+      "properties": {
+        "scorer": {
+          "type": "string",
+          "enum": ["codegen", "log_review", "spec_extract", "doc", "debug"],
+          "description": "Scorer module to use"
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for aggregate scoring"
+        }
+      },
+      "additionalProperties": false
+    },
+    "leakage_audit": {
+      "type": "object",
+      "required": ["fixture_sha256_overlap", "prompt_ngram_hits"],
+      "properties": {
+        "fixture_sha256_overlap": {
+          "type": "boolean",
+          "description": "Whether any fixture bytes appear in gold outputs"
+        },
+        "prompt_ngram_hits": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "13-gram Jaccard overlap count with Pilot01 docs"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

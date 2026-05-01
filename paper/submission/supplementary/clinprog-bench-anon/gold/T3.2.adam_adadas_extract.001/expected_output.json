@@ -1,0 +1,94 @@
+{
+  "parameters": [
+    {
+      "paramcd": "ACTOT",
+      "description": "ADAS-Cog (11) Total Score",
+      "type": "Composite of 11 ADAS-Cog items"
+    },
+    {
+      "paramcd": "ACITM01",
+      "description": "Word Recall Task",
+      "type": "ADAS-Cog Item 1"
+    },
+    {
+      "paramcd": "ACITM02",
+      "description": "Naming Objects and Fingers",
+      "type": "ADAS-Cog Item 2"
+    },
+    {
+      "paramcd": "ACITM03",
+      "description": "Commands",
+      "type": "ADAS-Cog Item 3"
+    },
+    {
+      "paramcd": "ACITM04",
+      "description": "Constructional Praxis",
+      "type": "ADAS-Cog Item 4"
+    },
+    {
+      "paramcd": "ACITM05",
+      "description": "Ideational Praxis",
+      "type": "ADAS-Cog Item 5"
+    },
+    {
+      "paramcd": "ACITM06",
+      "description": "Orientation",
+      "type": "ADAS-Cog Item 6"
+    },
+    {
+      "paramcd": "ACITM07",
+      "description": "Word Recognition",
+      "type": "ADAS-Cog Item 7"
+    },
+    {
+      "paramcd": "ACITM08",
+      "description": "Remembering Test Instructions",
+      "type": "ADAS-Cog Item 8"
+    },
+    {
+      "paramcd": "ACITM09",
+      "description": "Spoken Language Ability",
+      "type": "ADAS-Cog Item 9"
+    },
+    {
+      "paramcd": "ACITM10",
+      "description": "Comprehension",
+      "type": "ADAS-Cog Item 10"
+    },
+    {
+      "paramcd": "ACITM11",
+      "description": "Word-Finding Difficulty",
+      "type": "ADAS-Cog Item 11"
+    }
+  ],
+  "visit_windows": [
+    {
+      "visit": "Baseline",
+      "avisitn": 0,
+      "awtarget": 0,
+      "awlo": null,
+      "awhi": 1
+    },
+    {
+      "visit": "Week 8",
+      "avisitn": 8,
+      "awtarget": 56,
+      "awlo": 29,
+      "awhi": 84
+    },
+    {
+      "visit": "Week 16",
+      "avisitn": 16,
+      "awtarget": 112,
+      "awlo": 85,
+      "awhi": 140
+    },
+    {
+      "visit": "Week 24",
+      "avisitn": 24,
+      "awtarget": 168,
+      "awlo": 141,
+      "awhi": 196
+    }
+  ]
+}

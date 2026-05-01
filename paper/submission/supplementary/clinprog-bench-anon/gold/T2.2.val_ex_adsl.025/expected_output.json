@@ -1,0 +1,11 @@
+{
+  "coding_issues": [
+    {
+      "variable": "EXTRT",
+      "dataset": "EX",
+      "expected_value": "Placebo / Xanomeline Low / Xanomeline High",
+      "actual_value": "Treatment naming consistent across EX and ADSL",
+      "severity": "info"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "task_id": "T4.2.sdtm_vs_spec_doc.006",
+  "category": "T4",
+  "subcategory": "T4.2",
+  "title": "Document SDTM VS domain specification and unit handling",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T4.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R03"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/04_sdtm/SDTM_Specifications.md#VS"
+    ],
+    "spec": "fixtures/04_sdtm/SDTM_Specifications.md#VS",
+    "prompt": "Document the SDTM VS domain specification. Include: VSTESTCD mapping (HEIGHT, WEIGHT, DIABP, SYSBP, PULSE, TEMP, RESP), unit standardization rules, baseline flag logic, and visit mapping. Return structured documentation."
+  },
+  "expected_outputs": {
+    "kind": "text",
+    "gold_path": "gold/T4.2.sdtm_vs_spec_doc.006/",
+    "oracle": {
+      "type": "slot_fill",
+      "params": {
+        "slots": [
+          "title",
+          "specification_summary",
+          "data_standards",
+          "variable_inventory",
+          "compliance_status"
+        ],
+        "match_mode": "superset"
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "doc",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}

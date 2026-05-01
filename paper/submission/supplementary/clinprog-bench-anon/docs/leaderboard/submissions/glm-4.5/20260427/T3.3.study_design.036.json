@@ -1,0 +1,20 @@
+{
+  "task_id": "T3.3.study_design.036",
+  "agent_name": "glm-4.5",
+  "outputs": {
+    "review.json": ""
+  },
+  "metadata": {
+    "wall_time_seconds": "87.33",
+    "model": "glm-4.5",
+    "prompt_tokens": "2121",
+    "completion_tokens": "4096"
+  },
+  "score": {
+    "task_id": "T3.3.study_design.036",
+    "category": "T3",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {}
+  }
+}

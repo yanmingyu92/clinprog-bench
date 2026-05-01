@@ -1,0 +1,23 @@
+# Document protocol-to-SAP alignment verification - Documentation
+
+## Data Source: fixtures/08_validation/document_alignment_checklist.md
+
+## Scope
+
+[Scope details to be extracted from fixtures]
+
+## Methodology
+
+[Methodology details to be extracted from fixtures]
+
+## Check Categories
+
+[Check Categories details to be extracted from fixtures]
+
+## Findings
+
+[Findings details to be extracted from fixtures]
+
+## Recommendations
+
+[Recommendations details to be extracted from fixtures]

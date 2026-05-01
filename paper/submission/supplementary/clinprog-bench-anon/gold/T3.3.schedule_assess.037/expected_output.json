@@ -1,0 +1,53 @@
+{
+  "visits": [
+    "Screening",
+    "Baseline",
+    "Week 8",
+    "Week 16",
+    "Week 24",
+    "Follow-up"
+  ],
+  "assessments_per_visit": {
+    "Screening": [
+      "Vital Signs",
+      "Lab Tests",
+      "MMSE",
+      "Medical History"
+    ],
+    "Baseline": [
+      "Vital Signs",
+      "Lab Tests",
+      "ADAS-Cog",
+      "CIBIC+",
+      "NPI"
+    ],
+    "Week 8": [
+      "Vital Signs",
+      "Lab Tests",
+      "ADAS-Cog",
+      "CIBIC+"
+    ],
+    "Week 16": [
+      "Vital Signs",
+      "Lab Tests",
+      "ADAS-Cog",
+      "CIBIC+"
+    ],
+    "Week 24": [
+      "Vital Signs",
+      "Lab Tests",
+      "ADAS-Cog",
+      "CIBIC+",
+      "NPI"
+    ],
+    "Follow-up": [
+      "Vital Signs",
+      "Lab Tests"
+    ]
+  },
+  "visit_windows": {
+    "Week 8": "56 +/- 28 days",
+    "Week 16": "112 +/- 28 days",
+    "Week 24": "168 +/- 14 days"
+  }
+}

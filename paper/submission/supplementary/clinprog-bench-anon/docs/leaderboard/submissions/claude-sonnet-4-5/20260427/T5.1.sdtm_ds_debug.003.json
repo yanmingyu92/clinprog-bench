@@ -1,0 +1,23 @@
+{
+  "task_id": "T5.1.sdtm_ds_debug.003",
+  "agent_name": "claude-sonnet-4-5",
+  "outputs": {
+    "patch.diff": "--- a/ds.sas\n+++ b/ds.sas\n@@ -1,7 +1,7 @@\n data sdtm.ds;\n     set raw.disposition;\n     \n-    retain dsseq;\n+    retain dsseq 0;\n     \n     studyid = \"STUDY123\";\n     domain = \"DS\";\n@@ -9,7 +9,7 @@\n     dsterm = dsdecod;\n     dsdecod = upcase(dsdecod);\n     \n-    dscat = \"DISPOSITION\";\n+    dscat = \"DISPOSITION TRIAL\";\n     \n     if dsdat ne . then do;\n         dsstdtc = put(dsdat, yymmdd10.);\n@@ -17,7 +17,7 @@\n     end;\n     \n     /* Derive discontinuation flag */\n-    if dsdecod = \"DISCONTINUED\" then disconfl = \"Y\";\n+    if upcase(dsdecod) = \"DISCONTINUED\" then disconfl = \"Y\";\n     else disconfl = \"N\";\n     \n     dsseq + 1;"
+  },
+  "metadata": {
+    "wall_time_seconds": "6.22",
+    "model": "claude-sonnet-4-5",
+    "prompt_tokens": "253",
+    "completion_tokens": "288"
+  },
+  "score": {
+    "task_id": "T5.1.sdtm_ds_debug.003",
+    "category": "T5",
+    "pass": false,
+    "primary": 0.0,
+    "secondary": {
+      "matched_fixes": 0.0,
+      "loc_penalty": 0.5
+    }
+  }
+}

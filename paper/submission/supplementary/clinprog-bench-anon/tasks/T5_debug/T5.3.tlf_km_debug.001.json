@@ -1,0 +1,51 @@
+{
+  "task_id": "T5.3.tlf_km_debug.001",
+  "category": "T5",
+  "subcategory": "T5.3",
+  "title": "Debug KM plot: censoring variable inversion and missing confidence bands",
+  "complexity": "mixed",
+  "license": "CC-BY-4.0",
+  "provenance": {
+    "seed_repo": "anonymous/eSubmission-Benchmark",
+    "seed_commit": "658fcc05506b169a27dee6e2c3a1ccdaaf64a716",
+    "derivation_script": "scripts/build_T5.py",
+    "human_authors": [
+      "R02"
+    ],
+    "human_reviewers": [
+      "R01"
+    ]
+  },
+  "inputs": {
+    "fixtures": [
+      "fixtures/06_tlfs/mock_templates/f_mock_14-5-01_km_plot.md",
+      "fixtures/05_adam/ADaM_Specifications.md#ADTTE"
+    ],
+    "spec": "fixtures/06_tlfs/mock_templates/f_mock_14-5-01_km_plot.md",
+    "prompt": "The following R program generates the KM plot but has 3 bugs: (1) The event indicator is derived as CNSR directly instead of 1-CNSR, inverting events and censored observations in the Surv() call, (2) conf.int=TRUE is set on ggsurvplot but the survfit call is missing conf.int parameter so no confidence bands are computed, (3) Risk table uses risk.table.col='grey' instead of 'strata', losing treatment group coloring. Fix all bugs."
+  },
+  "expected_outputs": {
+    "kind": "patch",
+    "gold_path": "gold/T5.3.tlf_km_debug.001/",
+    "oracle": {
+      "type": "patch_apply",
+      "params": {
+        "bug_count": 3,
+        "fix_locations": [
+          "event_indicator",
+          "confint_survfit",
+          "risk_table_color"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "scorer": "debug",
+    "weight": 1.0
+  },
+  "leakage_audit": {
+    "fixture_sha256_overlap": false,
+    "prompt_ngram_hits": 0
+  },
+  "difficulty_tag": "medium"
+}
