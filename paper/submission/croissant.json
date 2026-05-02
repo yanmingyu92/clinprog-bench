@@ -9,7 +9,7 @@
   "@id": "https://doi.org/10.5281/zenodo.19806731",
   "name": "ClinProg-Bench",
   "description": "The first public benchmark for evaluating LLM and agentic systems on clinical-trial statistical programming tasks. 250 expert-curated tasks across 5 categories (Code Generation, Code Review, Spec Interpretation, Documentation, Debugging), grounded in the CDISC Pilot01 public dataset, with deterministic scoring and a language-agnostic evaluation framework.",
-  "url": "https://github.com/yanmingyu92/clinprog-bench",
+  "url": "https://anonymous.4open.science/r/clinprog-bench",
   "version": "0.1.0",
   "datePublished": "2026-04-27",
   "license": [
@@ -18,8 +18,8 @@
   ],
   "creator": {
     "@type": "Person",
-    "name": "Yanming Yu",
-    "identifier": "https://orcid.org/0009-0001-6701-1579"
+    "name": "Anonymous",
+    "identifier": "withheld for double-blind review"
   },
   "keywords": [
     "clinical trials",
@@ -44,14 +44,14 @@
   "rai:personalSensitiveInformation": "None. The CDISC Pilot01 dataset contains only synthetic patient data.",
   "rai:dataSocialImpact": "Enables benchmarking of AI systems for GxP-regulated clinical programming, supporting safer automation in drug development.",
   "rai:dataMaintenancePlan": "Hosted on GitHub with Zenodo DOI for long-term persistence. Versioned releases planned (v0.1.x bug fixes, v0.2.0 task expansion).",
-  "citation": "Yanming Yu. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.19806731",
+  "citation": "Anonymous. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. DOI withheld for double-blind review.",
   "distribution": [
     {
       "@type": "cr:FileObject",
       "@id": "github-repository",
       "name": "github-repository",
       "description": "ClinProg-Bench GitHub repository",
-      "contentUrl": "https://github.com/yanmingyu92/clinprog-bench",
+      "contentUrl": "https://anonymous.4open.science/r/clinprog-bench",
       "encodingFormat": "git+https"
     },
     {
