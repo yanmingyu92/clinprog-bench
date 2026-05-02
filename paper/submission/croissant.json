@@ -1,0 +1,161 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/"
+  },
+  "@type": "cr:Dataset",
+  "@id": "https://doi.org/10.5281/zenodo.19806731",
+  "name": "ClinProg-Bench",
+  "description": "The first public benchmark for evaluating LLM and agentic systems on clinical-trial statistical programming tasks. 250 expert-curated tasks across 5 categories (Code Generation, Code Review, Spec Interpretation, Documentation, Debugging), grounded in the CDISC Pilot01 public dataset, with deterministic scoring and a language-agnostic evaluation framework.",
+  "url": "https://github.com/yanmingyu92/clinprog-bench",
+  "version": "0.1.0",
+  "datePublished": "2026-04-27",
+  "license": [
+    "https://www.apache.org/licenses/LICENSE-2.0",
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "creator": {
+    "@type": "Person",
+    "name": "Yanming Yu",
+    "identifier": "https://orcid.org/0009-0001-6701-1579"
+  },
+  "keywords": [
+    "clinical trials",
+    "benchmark",
+    "statistical programming",
+    "CDISC",
+    "SDTM",
+    "ADaM",
+    "SAS",
+    "R",
+    "Python",
+    "LLM evaluation",
+    "NeurIPS",
+    "machine learning"
+  ],
+  "rai:dataCollection": "Tasks curated by expert statistical programmers from publicly available CDISC Pilot01 project materials. No crowdsourcing or web scraping involved. All 250 tasks authored de novo referencing public specification documents.",
+  "rai:dataCollectionType": "Expert curation",
+  "rai:dataCollectionMissing": "None. All task fields are complete.",
+  "rai:dataBiasesDiscussion": "The benchmark is grounded in a single clinical trial (CDISC Pilot01), limiting diversity of therapeutic areas and trial designs. All patient data is synthetic; no demographic biases in the evaluation substrate.",
+  "rai:dataUseCases": "Evaluating LLM and agentic systems on clinical-trial statistical programming tasks. Not intended for direct clinical use or patient-level decisions.",
+  "rai:dataLimitations": "Single-trial substrate; English-language prompts only; gold standards reflect one expert interpretation. See Limitations section of the paper.",
+  "rai:personalSensitiveInformation": "None. The CDISC Pilot01 dataset contains only synthetic patient data.",
+  "rai:dataSocialImpact": "Enables benchmarking of AI systems for GxP-regulated clinical programming, supporting safer automation in drug development.",
+  "rai:dataMaintenancePlan": "Hosted on GitHub with Zenodo DOI for long-term persistence. Versioned releases planned (v0.1.x bug fixes, v0.2.0 task expansion).",
+  "citation": "Yanming Yu. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.19806731",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "ClinProg-Bench GitHub repository",
+      "contentUrl": "https://github.com/yanmingyu92/clinprog-bench",
+      "encodingFormat": "git+https"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "zenodo-archive",
+      "name": "zenodo-archive",
+      "description": "Versioned Zenodo snapshot of ClinProg-Bench v0.1.0",
+      "contentUrl": "https://zenodo.org/record/19806731",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tasks",
+      "name": "tasks",
+      "description": "250 benchmark tasks (TaskSpec JSON files) distributed across 5 categories. Each record corresponds to one file under tasks/T{1-5}_*/.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/task_id",
+          "name": "task_id",
+          "description": "Unique dotted task identifier, e.g. T1.1.adsl.001",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/category",
+          "name": "category",
+          "description": "Top-level category: T1 | T2 | T3 | T4 | T5",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/subcategory",
+          "name": "subcategory",
+          "description": "Sub-category, e.g. T1.1 (SDTM ADSL), T2.1 (Log Analysis)",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/title",
+          "name": "title",
+          "description": "Human-readable task title",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/complexity",
+          "name": "complexity",
+          "description": "Difficulty level: simple | mixed | complex",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/inputs_prompt",
+          "name": "inputs/prompt",
+          "description": "Natural-language task prompt delivered to the agent",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/expected_outputs_kind",
+          "name": "expected_outputs/kind",
+          "description": "Output modality: sas_program | r_program | python_program | json | patch | text",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/scoring_scorer",
+          "name": "scoring/scorer",
+          "description": "Scorer module: codegen | log_review | spec_extract | doc | debug",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/license",
+          "name": "license",
+          "description": "Per-task SPDX license identifier (CC-BY-4.0)",
+          "dataType": "sc:Text"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "gold",
+      "name": "gold",
+      "description": "Gold-standard reference outputs, one folder per task_id under gold/. SHA-256 hashes committed in gold/manifest.json.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "gold/task_id",
+          "name": "task_id",
+          "description": "Links to tasks/task_id",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "gold/sha256",
+          "name": "sha256",
+          "description": "SHA-256 hash of the gold output file",
+          "dataType": "sc:Text"
+        }
+      ]
+    }
+  ]
+}
