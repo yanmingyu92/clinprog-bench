@@ -35,6 +35,15 @@
     "NeurIPS",
     "machine learning"
   ],
+  "rai:dataCollection": "Tasks curated by expert statistical programmers from publicly available CDISC Pilot01 project materials. No crowdsourcing or web scraping involved. All 250 tasks authored de novo referencing public specification documents.",
+  "rai:dataCollectionType": "Expert curation",
+  "rai:dataCollectionMissing": "None. All task fields are complete.",
+  "rai:dataBiasesDiscussion": "The benchmark is grounded in a single clinical trial (CDISC Pilot01), limiting diversity of therapeutic areas and trial designs. All patient data is synthetic; no demographic biases in the evaluation substrate.",
+  "rai:dataUseCases": "Evaluating LLM and agentic systems on clinical-trial statistical programming tasks. Not intended for direct clinical use or patient-level decisions.",
+  "rai:dataLimitations": "Single-trial substrate; English-language prompts only; gold standards reflect one expert interpretation. See Limitations section of the paper.",
+  "rai:personalSensitiveInformation": "None. The CDISC Pilot01 dataset contains only synthetic patient data.",
+  "rai:dataSocialImpact": "Enables benchmarking of AI systems for GxP-regulated clinical programming, supporting safer automation in drug development.",
+  "rai:dataMaintenancePlan": "Hosted on GitHub with Zenodo DOI for long-term persistence. Versioned releases planned (v0.1.x bug fixes, v0.2.0 task expansion).",
   "citation": "Yanming Yu. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.19806731",
   "distribution": [
     {

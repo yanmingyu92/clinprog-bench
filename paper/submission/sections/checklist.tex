@@ -1,85 +1,85 @@
 \section*{NeurIPS Paper Checklist}
-\label{sec:checklist}
-
-% The checklist follows the references and does not count towards the page limit.
-% Please use \answerYes{}, \answerNo{}, or \answerNA{} as appropriate.
-% Where justified, provide a brief parenthetical explanation or reference the
-% relevant section.
 
 \begin{enumerate}
 
 \item {\bf Claims}
-    \begin{enumerate}
-      \item Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
-      \answerYes{Abstract and introduction clearly state the 250-task, 5-category benchmark scope and the three-model baseline evaluation (\S\ref{sec:baselines}).}
-    \end{enumerate}
+    \item[] Question: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Abstract and introduction clearly state the 250-task, 5-category benchmark scope and the three-model baseline evaluation (\S\ref{sec:baselines}).
 
 \item {\bf Limitations}
-    \begin{enumerate}
-      \item Does the paper discuss the limitations of the work performed by the authors?
-      \answerYes{See \S\ref{sec:limitations}.}
-    \end{enumerate}
+    \item[] Question: Does the paper discuss the limitations of the work performed by the authors?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: See \S\ref{sec:limitations}.
 
-\item {\bf Theory}
-    \begin{enumerate}
-      \item Does the paper provide theoretical analysis?
-      \answerNA{This is a benchmark/dataset paper.}
-    \end{enumerate}
+\item {\bf Theory assumptions and proofs}
+    \item[] Question: For each theoretical result, does the paper provide the full set of assumptions and a complete (and correct) proof?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: This is a benchmark/dataset paper with no theoretical results.
 
-\item {\bf Experiments}
-    \begin{enumerate}
-      \item Does the paper include experiments on datasets or benchmarks?
-      \answerYes{Baseline results on ClinProg-Bench v0.1.0 (\S\ref{sec:baselines}, Table~\ref{tab:baselines}).}
-      \item Is there enough information to reproduce the main experimental results?
-      \answerYes{Appendix~\ref{sec:reproducibility} provides one-command instructions. Code, data, and CI workflow are included in the supplementary package.}
-      \item Does the paper report error bars or statistical significance?
-      \answerNo{Baselines are deterministic (temperature~0); no stochasticity to report.}
-    \end{enumerate}
+\item {\bf Experimental result reproducibility}
+    \item[] Question: Does the paper fully disclose all the information needed to reproduce the main experimental results of the paper to the extent that it affects the main claims and/or conclusions of the paper (regardless of whether the code and data are provided or not)?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Appendix~\ref{sec:reproducibility} provides one-command repro instructions. Code, data, and CI workflow included in supplementary.
 
-\item {\bf Compute}
-    \begin{enumerate}
-      \item Does the paper report the computational budget (e.g., GPU hours, cloud cost)?
-      \answerYes{Appendix~\ref{sec:reproducibility} reports per-baseline API costs and wall-clock time.}
-    \end{enumerate}
+\item {\bf Open access to data and code}
+    \item[] Question: Does the paper provide open access to the data and code, with sufficient instructions to faithfully reproduce the main experimental results, as described in supplemental material?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Full benchmark (250 tasks, gold outputs, 5 scorers, runner contract, CI workflow) released as supplementary ZIP. Code: Apache-2.0. Data: CC-BY-4.0. Zenodo DOI for persistence (withheld for double-blind review).
 
-\item {\bf Code and Data}
-    \begin{enumerate}
-      \item Does the submission include code for the proposed method or system?
-      \answerYes{Full benchmark toolkit (\texttt{src/clinprog\_bench/}), 5 scorers, runner contract, and CI workflow included in the supplementary ZIP.}
-      \item Does the submission provide sufficient details to reproduce the code?
-      \answerYes{Appendix~\ref{sec:reproducibility}; \texttt{pyproject.toml} pins all dependencies; 79 tests pass.}
-    \end{enumerate}
+\item {\bf Experimental setting/details}
+    \item[] Question: Does the paper specify all the training and test details (e.g., data splits, hyperparameters, how they were chosen, type of optimizer) necessary to understand the results?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: \S\ref{sec:baselines} reports temperature, top\_p, token cap, stratified subset seed, and wall-clock latency.
 
-\item {\bf Datasets}
-    \begin{enumerate}
-      \item Does the paper describe the dataset creation process?
-      \answerYes{See \S\ref{sec:dataset} for provenance, construction, and quality assurance.}
-      \item Does the paper include a Datasheet or Data Card?
-      \answerYes{\texttt{DATA\_CARD.md} in the repository root follows Gebru et al.\ (\S\ref{sec:dataset}).}
-      \item Does the paper provide Croissant metadata?
-      \answerYes{\texttt{croissant.json} committed at the repository root, following the MLCommons Croissant specification (two record sets: \texttt{tasks} and \texttt{gold}).}
-      \item Is the dataset hosted with a persistent identifier?
-      \answerYes{Zenodo archive with DOI (withheld for double-blind review).}
-    \end{enumerate}
+\item {\bf Experiment statistical significance}
+    \item[] Question: Does the paper report error bars suitably and correctly defined or other appropriate information about the statistical significance of the experiments?
+    \item[] Answer: \answerNo{}
+    \item[] Justification: All baselines use deterministic decoding (temperature~0). No stochasticity to report; results are exactly reproducible.
 
-\item {\bf Licensing}
-    \begin{enumerate}
-      \item Does the paper specify the license for the code and data?
-      \answerYes{Code: Apache-2.0. Data: CC-BY-4.0. Both committed as \texttt{LICENSE} and \texttt{LICENSE-DATA} (\S\ref{sec:ethics}).}
-    \end{enumerate}
+\item {\bf Experiments compute resources}
+    \item[] Question: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproduce the experiments?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Appendix~\ref{sec:reproducibility} reports hardware (Intel i7-12700H, 32\,GB, no GPU), per-baseline API costs, and wall-clock time.
 
-\item {\bf Ethics}
-    \begin{enumerate}
-      \item Does the paper discuss potential negative societal impacts?
-      \answerYes{See \S\ref{sec:ethics}.}
-      \item Does the paper describe safeguards for sensitive data?
-      \answerNA{No human-subjects data; substrate is the public CDISC Pilot Project with synthetic patients.}
-    \end{enumerate}
+\item {\bf Code of ethics}
+    \item[] Question: Does the research conducted in the paper conform, in every respect, with the NeurIPS Code of Ethics \url{https://neurips.cc/public/EthicsGuidelines}?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: See \S\ref{sec:ethics}. No human subjects; substrate is the public CDISC Pilot Project with synthetic patients.
 
-\item {\bf Human Subjects}
-    \begin{enumerate}
-      \item Does the paper involve human subjects or participants?
-      \answerNo{The benchmark uses the public CDISC Pilot01 synthetic dataset; no IRB approval required.}
-    \end{enumerate}
+\item {\bf Broader impacts}
+    \item[] Question: Does the paper discuss both potential positive societal impacts and negative societal impacts of the work performed?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: \S\ref{sec:ethics} discusses potential for automation of safety-critical clinical programming and associated risks.
+
+\item {\bf Safeguards}
+    \item[] Question: Does the paper describe safeguards that have been put in place for responsible release of data or models that have a high risk for misuse (e.g., pre-trained language models, image generators, or scraped datasets)?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: The benchmark contains no pre-trained models, no human data, and no sensitive content. The substrate is publicly available synthetic clinical trial data.
+
+\item {\bf Licenses for existing assets}
+    \item[] Question: Are the creators or original owners of assets (e.g., code, data, models), used in the paper, properly credited and are the license and terms of use explicitly mentioned and properly respected?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: The CDISC Pilot Project is cited and its CC-BY-4.0 license respected. Our derived corpus inherits CC-BY-4.0 (\S\ref{sec:dataset}).
+
+\item {\bf New assets}
+    \item[] Question: Are new assets introduced in the paper well documented and is the documentation provided alongside the assets?
+    \item[] Answer: \answerYes{}
+    \item[] Justification: \texttt{DATA\_CARD.md} (Gebru-style datasheet), \texttt{croissant.json} (MLCommons Croissant with core and RAI fields), \texttt{CITATION.cff}, and dual licenses (\texttt{LICENSE}, \texttt{LICENSE-DATA}) all committed alongside the asset.
+
+\item {\bf Crowdsourcing and research with human subjects}
+    \item[] Question: For crowdsourcing experiments and research with human subjects, does the paper include the full text of instructions given to participants and screenshots, if applicable, as well as details about compensation (if any)?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: No crowdsourcing or human subjects research. The expert audit was performed by volunteer domain experts reviewing benchmark task quality.
+
+\item {\bf Institutional review board (IRB) approvals or equivalent for research with human subjects}
+    \item[] Question: Does the paper describe potential risks incurred by study participants, whether such risks were disclosed to the subjects, and whether Institutional Review Board (IRB) approvals (or an equivalent approval/review based on the requirements of your country or institution) were obtained?
+    \item[] Answer: \answerNA{}
+    \item[] Justification: No human subjects data; substrate is the public CDISC Pilot Project with synthetic patients. No IRB required.
+
+\item {\bf Declaration of LLM usage}
+    \item[] Question: Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research? Note that if the LLM is used only for writing, editing, or formatting purposes and does \emph{not} impact the core methodology, scientific rigor, or originality of the research, declaration is not required.
+    \item[] Answer: \answerYes{}
+    \item[] Justification: Three frontier LLMs (DeepSeek-Chat, Claude Sonnet~4.5, GLM-4.5) are evaluated as baselines (\S\ref{sec:baselines}). Their versions, decoding parameters, and API costs are fully reported.
 
 \end{enumerate}
