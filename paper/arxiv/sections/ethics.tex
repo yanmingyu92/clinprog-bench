@@ -1,0 +1,38 @@
+\section{Broader Impact and Ethics}
+\label{sec:ethics}
+
+\paragraph{No human-subjects data.} All fixtures derive from the CDISC
+SDTM/ADaM Pilot Project, a public reference dataset distributed by CDISC for
+educational use. The dataset contains no real patient records, no protected
+health information, and no proprietary trial data. No IRB review is required.
+
+\paragraph{Intended use.} ClinProg-Bench is intended to evaluate code-LLMs
+and agentic systems on clinical-programming tasks under reproducible
+conditions. It is \emph{not} a certification of fitness for regulatory
+submission: a model scoring well on this benchmark is not thereby cleared
+for production use in a phase-III trial. Practitioners should continue to
+follow ICH E6 (R3), 21 CFR Part 11, and their organisation's validation
+SOPs.
+
+\paragraph{Misuse considerations.} The benchmark could in principle be
+abused to over-claim AI capability in regulatory contexts. We mitigate this
+with: (a) explicit benchmark-vs-deployment scoping in this section,
+(b) a deterministic, fully-public evaluation harness that resists cherry-picked
+reporting, and (c) a leakage audit and dual-reviewer audit committed to the
+repository.
+
+\paragraph{Author qualifications and review.} The dataset was authored by
+the listed author with the CDISC Pilot Project as substrate; a three-member
+expert panel (clinical statistical programmers in the listed acknowledgements)
+audits a stratified subset under a Cohen's $\kappa \geq 0.8$ acceptance
+criterion (\S\ref{sec:dataset}).
+
+\paragraph{Carbon footprint.} v0.1 LLM baseline runs (\S\ref{sec:baselines})
+total under 5\,M tokens and complete in well under one GPU-hour-equivalent;
+the benchmark itself adds negligible compute cost. Future evaluations will
+report token counts and wallclock budgets in the leaderboard.
+
+\paragraph{Maintenance.} The author commits to maintaining the benchmark
+through the next two NeurIPS review cycles. Release cadence, deprecation
+policy, and contact channels are documented in the repository
+\texttt{README.md}; the Zenodo DOI provides long-term archival.

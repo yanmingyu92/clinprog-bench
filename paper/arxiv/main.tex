@@ -1,0 +1,53 @@
+% ClinProg-Bench — arXiv preprint version
+% Build: pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
+
+\documentclass{article}
+
+\PassOptionsToPackage{numbers,compress}{natbib}
+% [preprint] = arXiv preprint mode (non-anonymous, no line numbers)
+\usepackage[preprint]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\title{ClinProg-Bench: A Public Benchmark for Clinical-Trial Statistical Programming Automation}
+
+\author{%
+  Yanming Yu \\
+  ORCID: 0009-0001-6701-1579 \\
+  \texttt{yanmingyu92@gmail.com}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/dataset}
+\input{sections/benchmark}
+\input{sections/baselines}
+\input{sections/limitations}
+\input{sections/ethics}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\input{sections/checklist}
+\input{sections/reproducibility}
+
+\end{document}
