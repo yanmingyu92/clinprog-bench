@@ -87,7 +87,7 @@ Single-turn baselines on a stratified 25-task subset (5 per category, seed `2026
 
 ```bibtex
 @dataset{yu_clinprog_bench_2026,
-  author    = {Yanming Yu},
+  author    = {Jaime Yan},
   title     = {ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation},
   year      = {2026},
   publisher = {Zenodo},
