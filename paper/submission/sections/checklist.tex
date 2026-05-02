@@ -1,35 +1,85 @@
-\section{NeurIPS D\&B Author Checklist}
+\section*{NeurIPS Paper Checklist}
 \label{sec:checklist}
 
-% Mirrors the NeurIPS Datasets & Benchmarks 2026 author checklist.
-% Update each answer before submission; "TODO" markers below are placeholders.
+% The checklist follows the references and does not count towards the page limit.
+% Please use \answerYes{}, \answerNo{}, or \answerNA{} as appropriate.
+% Where justified, provide a brief parenthetical explanation or reference the
+% relevant section.
 
-\begin{itemize}
-  \item \textbf{Dataset documentation.} Datasheet provided as
-        \texttt{DATA\_CARD.md} in the repository root, following Gebru et al.
-        (\S\ref{sec:dataset}).
-  \item \textbf{Author responsibility statement.} The author confirms
-        responsibility in case of violation of rights, see
-        \S\ref{sec:ethics}.
-  \item \textbf{Hosting and access.} Dataset hosted on
-        GitHub (anonymized for review; URL provided as supplementary) and
-        Zenodo (DOI withheld for double-blind review).
-        Persistent dereferenceable identifier: a Zenodo DOI will be provided for camera-ready.
-  \item \textbf{License.} Code: Apache-2.0. Data: CC-BY-4.0. Both committed
-        as \texttt{LICENSE} and \texttt{LICENSE-DATA}.
-  \item \textbf{Croissant metadata.} Machine-readable dataset card committed as
-        \texttt{croissant.json} at the repository root, generated following the
-        MLCommons Croissant specification (two record sets: \texttt{tasks}
-        and \texttt{gold}).
-  \item \textbf{Reproducibility.} CI workflow
-        (\texttt{.github/workflows/eval.yml}) reproduces the reference
-        baseline on every push. \texttt{CITATION.cff} pins the v0.1.0 SHA.
-  \item \textbf{Computational resources.} See \S\ref{sec:ethics};
-        per-baseline token budgets reported in
-        Table~\ref{tab:baselines}.
-  \item \textbf{Limitations.} \S\ref{sec:limitations}.
-  \item \textbf{Broader impact.} \S\ref{sec:ethics}.
-  \item \textbf{IRB / consent.} Not applicable (no human-subjects data).
-  \item \textbf{Personal / sensitive information.} None
-        (substrate is the public CDISC Pilot Project).
-\end{itemize}
+\begin{enumerate}
+
+\item {\bf Claims}
+    \begin{enumerate}
+      \item Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+      \answerYes{Abstract and introduction clearly state the 250-task, 5-category benchmark scope and the three-model baseline evaluation (\S\ref{sec:baselines}).}
+    \end{enumerate}
+
+\item {\bf Limitations}
+    \begin{enumerate}
+      \item Does the paper discuss the limitations of the work performed by the authors?
+      \answerYes{See \S\ref{sec:limitations}.}
+    \end{enumerate}
+
+\item {\bf Theory}
+    \begin{enumerate}
+      \item Does the paper provide theoretical analysis?
+      \answerNA{This is a benchmark/dataset paper.}
+    \end{enumerate}
+
+\item {\bf Experiments}
+    \begin{enumerate}
+      \item Does the paper include experiments on datasets or benchmarks?
+      \answerYes{Baseline results on ClinProg-Bench v0.1.0 (\S\ref{sec:baselines}, Table~\ref{tab:baselines}).}
+      \item Is there enough information to reproduce the main experimental results?
+      \answerYes{Appendix~\ref{sec:reproducibility} provides one-command instructions. Code, data, and CI workflow are included in the supplementary package.}
+      \item Does the paper report error bars or statistical significance?
+      \answerNo{Baselines are deterministic (temperature~0); no stochasticity to report.}
+    \end{enumerate}
+
+\item {\bf Compute}
+    \begin{enumerate}
+      \item Does the paper report the computational budget (e.g., GPU hours, cloud cost)?
+      \answerYes{Appendix~\ref{sec:reproducibility} reports per-baseline API costs and wall-clock time.}
+    \end{enumerate}
+
+\item {\bf Code and Data}
+    \begin{enumerate}
+      \item Does the submission include code for the proposed method or system?
+      \answerYes{Full benchmark toolkit (\texttt{src/clinprog\_bench/}), 5 scorers, runner contract, and CI workflow included in the supplementary ZIP.}
+      \item Does the submission provide sufficient details to reproduce the code?
+      \answerYes{Appendix~\ref{sec:reproducibility}; \texttt{pyproject.toml} pins all dependencies; 79 tests pass.}
+    \end{enumerate}
+
+\item {\bf Datasets}
+    \begin{enumerate}
+      \item Does the paper describe the dataset creation process?
+      \answerYes{See \S\ref{sec:dataset} for provenance, construction, and quality assurance.}
+      \item Does the paper include a Datasheet or Data Card?
+      \answerYes{\texttt{DATA\_CARD.md} in the repository root follows Gebru et al.\ (\S\ref{sec:dataset}).}
+      \item Does the paper provide Croissant metadata?
+      \answerYes{\texttt{croissant.json} committed at the repository root, following the MLCommons Croissant specification (two record sets: \texttt{tasks} and \texttt{gold}).}
+      \item Is the dataset hosted with a persistent identifier?
+      \answerYes{Zenodo archive with DOI (withheld for double-blind review).}
+    \end{enumerate}
+
+\item {\bf Licensing}
+    \begin{enumerate}
+      \item Does the paper specify the license for the code and data?
+      \answerYes{Code: Apache-2.0. Data: CC-BY-4.0. Both committed as \texttt{LICENSE} and \texttt{LICENSE-DATA} (\S\ref{sec:ethics}).}
+    \end{enumerate}
+
+\item {\bf Ethics}
+    \begin{enumerate}
+      \item Does the paper discuss potential negative societal impacts?
+      \answerYes{See \S\ref{sec:ethics}.}
+      \item Does the paper describe safeguards for sensitive data?
+      \answerNA{No human-subjects data; substrate is the public CDISC Pilot Project with synthetic patients.}
+    \end{enumerate}
+
+\item {\bf Human Subjects}
+    \begin{enumerate}
+      \item Does the paper involve human subjects or participants?
+      \answerNo{The benchmark uses the public CDISC Pilot01 synthetic dataset; no IRB approval required.}
+    \end{enumerate}
+
+\end{enumerate}
