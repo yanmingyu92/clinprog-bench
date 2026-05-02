@@ -9,7 +9,7 @@
   "@id": "https://doi.org/10.5281/zenodo.19806731",
   "name": "ClinProg-Bench",
   "description": "The first public benchmark for evaluating LLM and agentic systems on clinical-trial statistical programming tasks. 250 expert-curated tasks across 5 categories (Code Generation, Code Review, Spec Interpretation, Documentation, Debugging), grounded in the CDISC Pilot01 public dataset, with deterministic scoring and a language-agnostic evaluation framework.",
-  "url": "https://anonymous.4open.science/r/clinprog-bench",
+  "url": "https://anonymous.4open.science/r/clinprog-bench-anon-E2B2",
   "version": "0.1.0",
   "datePublished": "2026-04-27",
   "license": [
@@ -51,7 +51,7 @@
       "@id": "github-repository",
       "name": "github-repository",
       "description": "ClinProg-Bench GitHub repository",
-      "contentUrl": "https://anonymous.4open.science/r/clinprog-bench",
+      "contentUrl": "https://anonymous.4open.science/r/clinprog-bench-anon-E2B2",
       "encodingFormat": "git+https"
     },
     {
