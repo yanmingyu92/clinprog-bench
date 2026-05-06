@@ -7,7 +7,7 @@
 | Name | ClinProg-Bench |
 | Version | 0.1.0 |
 | Release date | 2026-04-27 |
-| DOI | [10.5281/zenodo.19806731](https://doi.org/10.5281/zenodo.19806731) |
+| DOI | [withheld-for-double-blind-review](withheld-for-double-blind-review) |
 | Repository | https://github.com/anonymous/clinprog-bench |
 | Code license | Apache-2.0 |
 | Data license | CC-BY-4.0 |
@@ -87,7 +87,7 @@
 
 ## 6. Distribution
 
-**Channels.** GitHub (`https://github.com/anonymous/clinprog-bench`, tag `v0.1.0`); Zenodo archival snapshot (DOI [10.5281/zenodo.19806731](https://doi.org/10.5281/zenodo.19806731)).
+**Channels.** GitHub (`https://github.com/anonymous/clinprog-bench`, tag `v0.1.0`); Zenodo archival snapshot (DOI [withheld-for-double-blind-review](withheld-for-double-blind-review)).
 
 **Licensing.** Code: Apache-2.0. Data (tasks, fixtures, gold outputs): CC-BY-4.0. Both licenses are SPDX-conforming and are listed verbatim in `LICENSE`. No third-party DRM or technical protection measures apply.
 

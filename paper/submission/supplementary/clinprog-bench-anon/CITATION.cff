@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation"
 message: "If you use this benchmark, please cite it using the metadata from this file."
 type: dataset
-doi: 10.5281/zenodo.19806731
+doi: withheld-for-double-blind-review
 authors:
   - family-names: Yu
     given-names: Yanming

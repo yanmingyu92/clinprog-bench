@@ -100,5 +100,5 @@ These 42 missing files represent a **38% fixture coverage gap** in ClinProg-Benc
 ## Environment
 
 - **Substrate commit:** `658fcc05506b169a27dee6e2c3a1ccdaaf64a716`
-- **Benchmark version:** ClinProg-Bench v0.1.0 (Zenodo DOI: `10.5281/zenodo.19806731`)
+- **Benchmark version:** ClinProg-Bench v0.1.0 (Zenodo DOI: `withheld-for-double-blind-review`)
 - **License:** CC-BY-4.0 (matching eSubmission-Benchmark)

@@ -41,7 +41,16 @@ for p in stage.rglob("*"):
             original = text
             text = re.sub(r"yanmingyu92", "anonymous", text, flags=re.IGNORECASE)
             text = re.sub(r"Yanming Yu", "Anonymous Author", text)
+            text = re.sub(r"Jaime Yan", "Anonymous Author", text)
             text = re.sub(r"0009-0001-6701-1579", "0000-0000-0000-0000", text)
+            # Scrub Zenodo DOI (resolves to author identity)
+            text = re.sub(
+                r"\[!\[DOI\]\(https://zenodo\.org/badge/DOI/10\.5281/zenodo\.\d+\.svg\)\]"
+                r"\(https://doi\.org/10\.5281/zenodo\.\d+\)",
+                "[DOI withheld for double-blind review]", text)
+            text = re.sub(r"https://doi\.org/10\.5281/zenodo\.\d+", "withheld-for-double-blind-review", text)
+            text = re.sub(r"https://zenodo\.org/record/\d+", "withheld-for-double-blind-review", text)
+            text = re.sub(r"10\.5281/zenodo\.\d+", "withheld-for-double-blind-review", text)
             if text != original:
                 p.write_text(text, encoding="utf-8")
                 count += 1

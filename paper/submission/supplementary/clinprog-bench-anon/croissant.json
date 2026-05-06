@@ -6,7 +6,7 @@
     "rai": "http://mlcommons.org/croissant/RAI/"
   },
   "@type": "cr:Dataset",
-  "@id": "https://doi.org/10.5281/zenodo.19806731",
+  "@id": "withheld-for-double-blind-review",
   "name": "ClinProg-Bench",
   "description": "The first public benchmark for evaluating LLM and agentic systems on clinical-trial statistical programming tasks. 250 expert-curated tasks across 5 categories (Code Generation, Code Review, Spec Interpretation, Documentation, Debugging), grounded in the CDISC Pilot01 public dataset, with deterministic scoring and a language-agnostic evaluation framework.",
   "url": "https://github.com/anonymous/clinprog-bench",
@@ -44,7 +44,7 @@
   "rai:personalSensitiveInformation": "None. The CDISC Pilot01 dataset contains only synthetic patient data.",
   "rai:dataSocialImpact": "Enables benchmarking of AI systems for GxP-regulated clinical programming, supporting safer automation in drug development.",
   "rai:dataMaintenancePlan": "Hosted on GitHub with Zenodo DOI for long-term persistence. Versioned releases planned (v0.1.x bug fixes, v0.2.0 task expansion).",
-  "citation": "Anonymous Author. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.19806731",
+  "citation": "Anonymous Author. (2026). ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation (0.1.0). Zenodo. withheld-for-double-blind-review",
   "distribution": [
     {
       "@type": "cr:FileObject",
@@ -59,7 +59,7 @@
       "@id": "zenodo-archive",
       "name": "zenodo-archive",
       "description": "Versioned Zenodo snapshot of ClinProg-Bench v0.1.0",
-      "contentUrl": "https://zenodo.org/record/19806731",
+      "contentUrl": "withheld-for-double-blind-review",
       "encodingFormat": "application/zip"
     }
   ],

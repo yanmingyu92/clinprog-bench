@@ -1,6 +1,6 @@
 # ClinProg-Bench
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19806731.svg)](https://doi.org/10.5281/zenodo.19806731)
+[DOI withheld for double-blind review]
 [![License: Apache-2.0](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/Data-CC--BY--4.0-lightgreen.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
@@ -87,12 +87,12 @@ Single-turn baselines on a stratified 25-task subset (5 per category, seed `2026
 
 ```bibtex
 @dataset{yu_clinprog_bench_2026,
-  author    = {Jaime Yan},
+  author    = {Anonymous Author},
   title     = {ClinProg-Bench: A Public Benchmark for Clinical Trial Statistical Programming Automation},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.19806731},
-  url       = {https://doi.org/10.5281/zenodo.19806731}
+  doi       = {withheld-for-double-blind-review},
+  url       = {withheld-for-double-blind-review}
 }
 ```
 
