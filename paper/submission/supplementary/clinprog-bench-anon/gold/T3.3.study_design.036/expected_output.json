@@ -1,9 +1,0 @@
-{
-  "design_type": "Randomized, double-blind, placebo-controlled, parallel-group",
-  "randomization_ratio": "1:1:1",
-  "blinding_method": "Double-blind",
-  "number_of_arms": 3,
-  "treatment_duration": "24 weeks",
-  "follow_up": "2 weeks",
-  "number_of_sites": 6
-}

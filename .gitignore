@@ -53,3 +53,6 @@ temp/
 review_package.zip
 .claude/
 gold/_exec_output/
+
+# Paper / submission (separate from benchmark repo)
+paper/
