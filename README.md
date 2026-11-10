@@ -7,7 +7,7 @@
 [![Croissant](https://img.shields.io/badge/Croissant-metadata-orange.svg)](croissant.json)
 [![CI](https://github.com/yanmingyu92/clinprog-bench/actions/workflows/eval.yml/badge.svg)](https://github.com/yanmingyu92/clinprog-bench/actions/workflows/eval.yml)
 
-**The first public benchmark for evaluating LLM and agentic systems on clinical trial statistical programming tasks.**
+**A public benchmark for evaluating LLM and agentic systems on clinical trial statistical programming tasks.**
 
 ClinProg-Bench provides 250 expert-curated tasks across 5 categories, grounded in the [CDISC Pilot01](https://bitbucket.cdisc.org/projects/CED/repos/sdtm-adam-pilot-project/browse) dataset and FDA Therapeutic Classification Guidelines, with deterministic scoring and a language-agnostic evaluation framework.
 
